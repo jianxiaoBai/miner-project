@@ -13,7 +13,14 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "nuxt": "^1.0.0"
+    "axios": "^0.18.0",
+    "element-ui": "^2.4.6",
+    "iview": "^3.0.0",
+    "nuxt": "^1.0.0",
+    "pug": "^2.0.3",
+    "qs": "^6.5.2",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
