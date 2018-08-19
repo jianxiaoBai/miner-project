@@ -389,24 +389,7 @@
           </button>
       </div>
     </div>
-    <div class="features el-row">
-      <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_superb.8e98ef0.png" alt="">
-        <p>算力卓越</p>
-      </div>
-      <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_flexible_trading.6dd96da.png" alt="">
-        <p>灵活交易</p>
-      </div>
-      <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_low_risk.5ffc700.png" alt="">
-        <p>超低风险</p>
-      </div>
-      <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_buy_use.987034b.png" alt="">
-        <p>随买随用</p>
-      </div>
-    </div>
+
   </div>
 </template>
 
@@ -416,24 +399,7 @@
   }
 </script>
 
-<style lang="stylus">
-
-  .features {
-    background-color: #fff;
-    text-align: center;
-    padding: 50px 120px;
-    img {
-      width: 65px;
-    }
-
-    p {
-      margin-top: 20px;
-      font-size: 20px;
-      line-height: 20px;
-      text-align: center;
-    }
-  }
-
+<style lang="stylus" scpoed>
 
   [class*="el-col-"] {
     float: left;
@@ -652,8 +618,8 @@
   }
 
   .hash .hash-item .hash-item-img {
-    max-width: 140px;
-    max-height: 110px;
+    width: 140px;
+    height: 110px;
   }
 
   .hash .hash-item .headline {
@@ -802,8 +768,8 @@
   }
 
   .miner .m-card__img {
-    max-width: 100%;
-    max-height: 230px;
+    width: 100%;
+    height: 230px;
   }
 
   .miner .m-card__body {
@@ -831,13 +797,6 @@
   .miner button {
     margin-top: 40px;
   }
-
-   .features {
-    background-color: #f2f2f2;
-    text-align: center;
-    padding: 50px 120px;
-  }
-
 
   .el-row {
     position: relative;

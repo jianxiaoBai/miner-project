@@ -1,31 +1,34 @@
 <template>
-  <div>
+  <div class="app-container">
     <div id="gn-header">
       <div class="header__inner">
         <!-- <a href="/" class="logo"></a> -->
-        <nuxt-link class="logo"  to="/" />
+        <nuxt-link class="logo" to="/" />
         <ul role="menubar" class="menu el-menu--horizontal el-menu">
-          <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item"  tag="li" to="product">矿机</nuxt-link>
-          <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item"  tag="li" to="q1">托管</nuxt-link>
-          <!-- <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item"  tag="li" to="pool">矿池</nuxt-link> -->
-          <!-- <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item"  tag="li" to="cloud">云算力</nuxt-link> -->
+          <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item" tag="li" to="/product">矿机</nuxt-link>
+          <!-- <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item"  tag="li" to="/q1">托管</nuxt-link> -->
+          <!-- <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item"  tag="li" to="/pool">矿池</nuxt-link> -->
+          <!-- <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item"  tag="li" to="/cloud">云算力</nuxt-link> -->
         </ul>
         <div class="right text-right">
           <ul role="menubar" class="menu login el-menu--horizontal el-menu is-login">
-            <li role="menuitem" tabindex="0" class="el-menu-item menu-item sign-in" style="color:;border-bottom-color:transparent;">登录</li>
-            <li role="menuitem" tabindex="0" class="el-menu-item menu-item sign-up" style="color:;border-bottom-color:transparent;">注册</li>
-            <li role="menuitem" tabindex="0" class="el-menu-item menu-item cart" style="color:;border-bottom-color:transparent;">
+            <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign-in" to="sign-in">
+              登录
+            </nuxt-link>
+            <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign-up" to="sign-up">
+              注册
+            </nuxt-link>
+            <li role="menuitem" tabindex="0" class="el-menu-item menu-item cart">
               <a href="/cart">
                 <img src="~/assets/img/cart.9bdd50b.svg">
               </a>
             </li>
-            <li role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0">
+            <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" to="/center">
               <div class="el-submenu__title" style="border-bottom-color:transparent;color:;">
                 <span style="color:#FFF;border-bottom-color:transparent;">
-                  <img src="~/assets/img/person.1cee58e.svg" class="icon-my-center" >个人中心 </span>
-                <i class="el-submenu__icon-arrow el-icon-arrow-down"></i>
+                      <img src="~/assets/img/person.1cee58e.svg" class="icon-my-center">个人中心 </span>
               </div>
-            </li>
+            </nuxt-link>
           </ul>
         </div>
       </div>
@@ -34,6 +37,24 @@
       <transition name="fade-x">
         <nuxt/>
       </transition>
+    </div>
+    <div class="features el-row">
+      <div class="el-col el-col-6">
+        <img src="~/assets/img/feature_superb.8e98ef0.png" alt="">
+        <p>算力卓越</p>
+      </div>
+      <div class="el-col el-col-6">
+        <img src="~/assets/img/feature_flexible_trading.6dd96da.png" alt="">
+        <p>灵活交易</p>
+      </div>
+      <div class="el-col el-col-6">
+        <img src="~/assets/img/feature_low_risk.5ffc700.png" alt="">
+        <p>超低风险</p>
+      </div>
+      <div class="el-col el-col-6">
+        <img src="~/assets/img/feature_buy_use.987034b.png" alt="">
+        <p>随买随用</p>
+      </div>
     </div>
     <div class="footer">
       <div class="footer__inner el-row">
@@ -45,8 +66,8 @@
         <div class="el-col el-col-3">
           <h5>挖链产品与服务</h5>
           <p><a href="/" class="link">算立方</a></p>
-          <p><a href="https://walian.cn" target="_blank" class="link">挖链网</a></p>
-          <p><a href="http://tir.top" target="_blank" class="link">通证指数</a></p>
+          <p><a href="#" target="_blank" class="link">挖链网</a></p>
+          <p><a href="#" target="_blank" class="link">通证指数</a></p>
         </div>
         <div class="el-col el-col-3">
           <h5>关于算立方</h5>
@@ -69,8 +90,6 @@
           </div>
         </div>
       </div>
-      <p class="friend-link">友情链接：
-        <a href="http://www.cqhydysyl.com" target="_blank" class="link">成都花箱</a><a href="www.scqsbb.com/" target="_blank" class="link">幼儿园远程监控加盟</a></p>
     </div>
 
   </div>
@@ -78,7 +97,7 @@
 
 <script>
   export default {
-     transition: {
+    transition: {
       name: 'fade-x',
       mode: 'out-in'
     }
@@ -87,9 +106,25 @@
   ;
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scpoed>
 @import '~@/assets/stylus/index.styl';
 @import '~@/assets/stylus/mixin.styl';
+.app-container {
+.features {
+    background-color: #fff;
+    text-align: center;
+    padding: 50px 120px;
+    img {
+      width: 65px;
+    }
+
+    p {
+      margin-top: 20px;
+      font-size: 20px;
+      line-height: 20px;
+      text-align: center;
+    }
+  }
 
 .main-container {
   min-height: calc(100vh - 276px);
@@ -154,10 +189,6 @@
   left: -2px;
   top: -1px;
   width: 13px;
-}
-
-#gn-header .menu.login.is-login .sign-in, #gn-header .menu.login.is-login .sign-up {
-  display: none;
 }
 
 #gn-header .menu.login.is-login .mine, #gn-header .menu.login.is-login .cart {
@@ -756,5 +787,6 @@ h5 {
 * {
   -webkit-user-select: text !important;
   -moz-user-select: text !important;
+}
 }
 </style>

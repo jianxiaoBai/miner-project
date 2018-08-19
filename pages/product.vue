@@ -1,8 +1,7 @@
 <template>
-  <div class="miner-container">
+  <div class="product-container">
     <header>
       <div class="banner">
-        <!---->
         <div class="swiper-container swiper-container-horizontal swiper-container-autoheight">
           <div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(-1432px, 0px, 0px); height: 16px;">
             <div class="swiper-slide swiper-slide-duplicate swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="1" style="width: 1432px;">
@@ -98,258 +97,8 @@
             </div>
           </div>
         </li>
-        <li>
-          <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label">
-              <path fill="#98999B" d="M0 0h85.5l-30 30H0z"></path>
-              <text x="10" y="20" fill="#fff" font-size="14">已售罄</text>
-            </svg>
-          <div class="product-img">
-            <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/hc/goods/6e8e44b3-4f21-4ad1-a6c4-0c5f330f65bf.png?Expires=1534752384&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=%2FEmSFTNxVyjOdGgDIXed1Qz6XCY%3D" alt="雪豹矿机 E3 230M">
-          </div>
-          <div class="product-detail-container">
-            <p class="procuct-name">
-              <span>雪豹矿机 E3 230M</span>
-              <span>ETH矿机</span>
-            </p>
-            <p class="product-detail">GPU矿机 多币种挖矿 算力稳定 效率高超</p>
-            <p class="product-delivery">发货时间：2018-03-31</p>
-            <p class="product-discount"></p>
-            <div class="product-count clearfix">
-              <div class="left">
-                <p class="sale-price">
-                  <span>--</span>
-                </p>
-                <p class="original-cost">
-                  <span>矿机售价</span>
-                </p>
-              </div>
-              <button type="button" class="el-button right el-button--primary is-disabled">
-                  <span>
-                    已售罄
-                  </span>
-                </button>
-            </div>
-          </div>
-        </li>
-        <li>
-          <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label">
-              <path fill="#98999B" d="M0 0h85.5l-30 30H0z"></path>
-              <text x="10" y="20" fill="#fff" font-size="14">已售罄</text>
-            </svg>
-          <div class="product-img">
-            <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/hc/goods/c37bbe79-88ea-432c-ae11-525e2bfe068a.png?Expires=1534752384&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=zHLQ7rKOCnwXd1wN2y%2F0ewqLQRg%3D" alt="雪豹矿机 A1 49T">
-          </div>
-          <div class="product-detail-container">
-            <p class="procuct-name">
-              <span>雪豹矿机 A1 49T</span>
-              <span>BTC矿机</span>
-            </p>
-            <p class="product-detail">真正意义上的“工业级矿机”</p>
-            <p class="product-delivery">发货时间：2018-03-25</p>
-            <p class="product-discount"></p>
-            <div class="product-count clearfix">
-              <div class="left">
-                <p class="sale-price">
-                  <span>--</span>
-                </p>
-                <p class="original-cost">
-                  <span>矿机售价</span>
-                </p>
-              </div>
-              <button type="button" class="el-button right el-button--primary is-disabled">
-                  <span>
-                    已售罄
-                  </span>
-                </button>
-            </div>
-          </div>
-        </li>
-        <li>
-          <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label">
-              <path fill="#98999B" d="M0 0h85.5l-30 30H0z"></path>
-              <text x="10" y="20" fill="#fff" font-size="14">已售罄</text>
-            </svg>
-          <div class="product-img">
-            <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/hc/goods/c37bbe79-88ea-432c-ae11-525e2bfe068a.png?Expires=1534752384&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=zHLQ7rKOCnwXd1wN2y%2F0ewqLQRg%3D" alt="雪豹矿机 A1 49T">
-          </div>
-          <div class="product-detail-container">
-            <p class="procuct-name">
-              <span>雪豹矿机 A1 49T</span>
-              <span>BTC矿机</span>
-            </p>
-            <p class="product-detail">真正意义上的“工业级矿机”</p>
-            <p class="product-delivery">发货时间：2018-03-25</p>
-            <p class="product-discount"></p>
-            <div class="product-count clearfix">
-              <div class="left">
-                <p class="sale-price">
-                  <span>--</span>
-                </p>
-                <p class="original-cost">
-                  <span>矿机售价</span>
-                </p>
-              </div>
-              <button type="button" class="el-button right el-button--primary is-disabled">
-                  <span>
-                    已售罄
-                  </span>
-                </button>
-            </div>
-          </div>
-        </li>
-        <li>
-          <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label">
-              <path fill="#98999B" d="M0 0h85.5l-30 30H0z"></path>
-              <text x="10" y="20" fill="#fff" font-size="14">已售罄</text>
-            </svg>
-          <div class="product-img">
-            <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/hc/goods/6e8e44b3-4f21-4ad1-a6c4-0c5f330f65bf.png?Expires=1534752384&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=%2FEmSFTNxVyjOdGgDIXed1Qz6XCY%3D" alt="雪豹矿机 E3 230M">
-          </div>
-          <div class="product-detail-container">
-            <p class="procuct-name">
-              <span>雪豹矿机 E3 230M</span>
-              <span>ETH矿机</span>
-            </p>
-            <p class="product-detail">GPU矿机 多币种挖矿 算力稳定 效率高超</p>
-            <p class="product-delivery">发货时间：2018-04-25</p>
-            <p class="product-discount"></p>
-            <div class="product-count clearfix">
-              <div class="left">
-                <p class="sale-price">
-                  <span>--</span>
-                </p>
-                <p class="original-cost">
-                  <span>矿机售价</span>
-                </p>
-              </div>
-              <button type="button" class="el-button right el-button--primary is-disabled">
-                  <span>
-                    已售罄
-                  </span>
-                </button>
-            </div>
-          </div>
-        </li>
-        <li>
-          <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label">
-              <path fill="#98999B" d="M0 0h85.5l-30 30H0z"></path>
-              <text x="10" y="20" fill="#fff" font-size="14">已售罄</text>
-            </svg>
-          <div class="product-img">
-            <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/hc/goods/c37bbe79-88ea-432c-ae11-525e2bfe068a.png?Expires=1534752384&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=zHLQ7rKOCnwXd1wN2y%2F0ewqLQRg%3D" alt="雪豹矿机 A1 49T">
-          </div>
-          <div class="product-detail-container">
-            <p class="procuct-name">
-              <span>雪豹矿机 A1 49T</span>
-              <span>BTC矿机</span>
-            </p>
-            <p class="product-detail">真正意义上的“工业级矿机”</p>
-            <p class="product-delivery">发货时间：2018-05-20</p>
-            <p class="product-discount"></p>
-            <div class="product-count clearfix">
-              <div class="left">
-                <p class="sale-price">
-                  <span>--</span>
-                </p>
-                <p class="original-cost">
-                  <span>矿机售价</span>
-                </p>
-              </div>
-              <button type="button" class="el-button right el-button--primary is-disabled">
-                  <span>
-                    已售罄
-                  </span>
-                </button>
-            </div>
-          </div>
-        </li>
-        <li>
-          <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label">
-              <path fill="#98999B" d="M0 0h85.5l-30 30H0z"></path>
-              <text x="10" y="20" fill="#fff" font-size="14">已售罄</text>
-            </svg>
-          <div class="product-img">
-            <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/hc/goods/6e8e44b3-4f21-4ad1-a6c4-0c5f330f65bf.png?Expires=1534752384&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=%2FEmSFTNxVyjOdGgDIXed1Qz6XCY%3D" alt="雪豹矿机 E3 230M">
-          </div>
-          <div class="product-detail-container">
-            <p class="procuct-name">
-              <span>雪豹矿机 E3 230M</span>
-              <span>ETH矿机</span>
-            </p>
-            <p class="product-detail">GPU矿机 多币种挖矿 算力稳定 效率高超</p>
-            <p class="product-delivery">发货时间：2018-03-31</p>
-            <p class="product-discount"></p>
-            <div class="product-count clearfix">
-              <div class="left">
-                <p class="sale-price">
-                  <span>--</span>
-                </p>
-                <p class="original-cost">
-                  <span>矿机售价</span>
-                </p>
-              </div>
-              <button type="button" class="el-button right el-button--primary is-disabled">
-                  <span>
-                    已售罄
-                  </span>
-                </button>
-            </div>
-          </div>
-        </li>
-        <li>
-          <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label">
-              <path fill="#98999B" d="M0 0h85.5l-30 30H0z"></path>
-              <text x="10" y="20" fill="#fff" font-size="14">已售罄</text>
-            </svg>
-          <div class="product-img">
-            <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/hc/goods/c37bbe79-88ea-432c-ae11-525e2bfe068a.png?Expires=1534752384&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=zHLQ7rKOCnwXd1wN2y%2F0ewqLQRg%3D" alt="雪豹矿机 A1 49T">
-          </div>
-          <div class="product-detail-container">
-            <p class="procuct-name">
-              <span>雪豹矿机 A1 49T</span>
-              <span>BTC矿机</span>
-            </p>
-            <p class="product-detail">真正意义上的“工业级矿机”</p>
-            <p class="product-delivery">发货时间：2018-03-25</p>
-            <p class="product-discount"></p>
-            <div class="product-count clearfix">
-              <div class="left">
-                <p class="sale-price">
-                  <span>--</span>
-                </p>
-                <p class="original-cost">
-                  <span>矿机售价</span>
-                </p>
-              </div>
-              <button type="button" class="el-button right el-button--primary is-disabled">
-                  <span>
-                    已售罄
-                  </span>
-                </button>
-            </div>
-          </div>
-        </li>
       </ul>
-      <!---->
     </section>
-    <div class="features el-row">
-      <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_superb.8e98ef0.png" alt="">
-        <p>算力卓越</p>
-      </div>
-      <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_flexible_trading.6dd96da.png" alt="">
-        <p>灵活交易</p>
-      </div>
-      <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_low_risk.5ffc700.png" alt="">
-        <p>超低风险</p>
-      </div>
-      <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_buy_use.987034b.png" alt="">
-        <p>随买随用</p>
-      </div>
-    </div>
   </div>
 </template>
 
@@ -359,9 +108,15 @@
   }
 </script>
 
-<style lang="stylus">
-  /*! CSS Used from: https://hash.hc.top/_nuxt/app.4188da40ee5b0a0b9632a89578998921.css */
+<style lang="stylus" scpoed>
+.product-container {
+    background: #fafafa;
+    width: 100%;
 
+  /*! CSS Used from: https://hash.hc.top/_nuxt/app.4188da40ee5b0a0b9632a89578998921.css */
+  .el-button span {
+    color white
+  }
   .features {
     background-color: #fff;
     text-align: center;
@@ -388,10 +143,7 @@
     cursor: pointer;
   }
 
-  .miner-container {
-    background: #fafafa;
-    width: 100%;
-  }
+
 
   .minerList {
     width: 1200px;
@@ -1637,5 +1389,5 @@
     -webkit-user-select: text !important;
     -moz-user-select: text !important;
   }
-
+}
 </style>
