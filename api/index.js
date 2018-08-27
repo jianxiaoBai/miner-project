@@ -1,39 +1,27 @@
 import http from './http.js'
 
-const apiNodeRank = (options) => {
-  return http.get('nodeRank', options)
+const apiCaptcha = (options) => {
+  return http.get('captcha', options);
 }
 
-const apiNodeSum = (options) => {
-  return http.get('nodeSum', options)
+const apiSendSms = (options) => {
+  return http.get('sendSms', options);
 }
 
-const apiNodeRankPc = (options) => {
-  return http.get('nodeRankPc', options)
+const apiLogin = (options) => {
+  return http.post('login', options);
 }
-
-const apiNodeTypeSumNum = (options) => {
-  return http.get('nodeTypeSumNum', options)
+const apiSign = (options) => {
+  return http.post('sign', options);
 }
-
-const apiArticleList = (options) => {
-  return http.get('articleList', options, true)
-}
-
-const apiArticleDetail = (options) => {
-  return http.get('articleDetail', options, true)
-}
-
-const apiGetIpInfo = (options) => {
-  return http.get('getIpInfo', options, true)
+const aaa = (options) => {
+  return http.post('aaa', options);
 }
 
 export {
-  apiNodeRank,
-  apiNodeSum,
-  apiNodeRankPc,
-  apiNodeTypeSumNum,
-  apiArticleList,
-  apiArticleDetail,
-  apiGetIpInfo
+  apiCaptcha,
+  apiSendSms,
+  apiLogin,
+  apiSign,
+  aaa
 }
