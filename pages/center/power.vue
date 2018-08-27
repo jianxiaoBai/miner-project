@@ -7,7 +7,7 @@
           ETH算力
         </li>
       </ul>
-      <div class="clearfix box-detail">
+      <!-- <div class="clearfix box-detail">
         <div class="left detail-left">
           <div class="left">
             <p>可用算力</p>
@@ -42,7 +42,7 @@
             <span class="get-cash">去账户提现 &gt;</span>
           </div>
         </div>
-      </div>
+      </div> -->
       <h3 class="output">
         算力产出
         <span>

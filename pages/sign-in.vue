@@ -11,35 +11,48 @@
           <form class="login-form" _lpchecked="1">
             <div class="input-group">
               <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
-                <input type="text" autocomplete="off" placeholder="手机号码" name="phone" data-vv-scope="$phone" class="el-input__inner">
+                <input type="text" autocomplete="off" placeholder="手机号码" name="phone" v-model="phone" class="el-input__inner">
               </div>
             </div>
-            <div class="input-group">
-              <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
-                <input type="text" autocomplete="off" placeholder="请输入验证码" name="code" data-vv-scope="$phone" class="el-input__inner">
-                <span class="el-input__suffix">
-                    <span class="el-input__suffix-inner">
-                      <button  type="button" class="el-button text-secondary el-button--text">
-                        <span>
-                          发送验证码
-                        </span>
-                </button>
-                </span>
-                </span>
+            <div class="input-group" v-if="isCodeLogin">
+              <div class="el-input captcha-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
+                <input type="text" autocomplete="off" placeholder="请输入图形验证码" name="phone" v-model="captchaCode" class="el-input__inner">
+              </div>
+              <div class="captcha-img">
+                <span v-html="captchaImg"></span>
               </div>
             </div>
-
-            <button disabled="disabled" type="button" class="el-button btn-login el-button--primary is-disabled">
+            <template v-if="isCodeLogin">
+               <div class="input-group">
+                <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
+                  <input type="text" autocomplete="off" placeholder="请输入验证码" name="code" v-model="code" class="el-input__inner">
+                  <span class="el-input__suffix">
+                      <span class="el-input__suffix-inner">
+                        <button  type="button" @click="onSendCode" class="el-button text-secondary el-button--text">
+                          <span>
+                            发送验证码
+                          </span>
+                  </button>
+                  </span>
+                  </span>
+                </div>
+              </div>
+            </template>
+           <template v-else>
+              <div class="input-group">
+                <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
+                  <input type="password" autocomplete="off" placeholder="请输入密码" name="code" v-model="password" class="el-input__inner">
+                </div>
+              </div>
+           </template>
+            <button @click="onSubmit" type="button" class="el-button btn-login el-button--primary ">
                 <span>
                   登录
                 </span>
               </button>
             <div class="extra el-row">
-              <div class="text-left el-col el-col-12">
-                <span class="text-secondary pointer">使用密码登录</span>
-              </div>
-              <div class="text-right el-col el-col-12">
-                <a href="/sign-back" class="">忘记密码?</a>
+              <div class="text-left el-col el-col-12" @click="toggleLogin">
+                <span class="text-secondary pointer"> {{ isCodeLogin ? '使用密码登录' : '验证码登录'}}</span>
               </div>
             </div>
           </form>
@@ -49,22 +62,96 @@
   </div>
 </template>
 
-
 <script>
+  import { apiCaptcha, apiSendSms, apiLogin, aaa } from '~/api';
+  import { setStore } from '~/util';
   export default {
+    async mounted () {
+      const { data } = await apiCaptcha();
+      this.captchaImg = data
+    },
+    methods: {
+      toggleLogin () {
+        this.isCodeLogin = !this.isCodeLogin
+        this.code = null;
+        this.password = null;
+      },
+      onSubmit () {
+        try {
+          this.checkPhone()
+          apiLogin({
+            mobile: this.phone,
+            code: this.code,
+            password: this.password,
+            isCodeLogin: this.isCodeLogin
+        }).then(res => {
+          this.$message({
+            message: '登录成功, 2秒后跳转',
+            type: 'success'
+          });
+          setStore('token', res.data.token);
+          setTimeout(() => {
+            location.href = '/'
+          }, 2000);
+        })
+        } catch (error) {
+          this.$message({
+            message: error.message,
+            type: 'warning'
+          });
+        }
+      },
+      checkPhone () {
+        const _phoneReg = new RegExp(this.phoneReg);
+        if(!_phoneReg.test(this.phone)) {
+          throw new Error('手机号不合法')
+        }
+      },
+      async onSendCode () {
+        try {
+          this.checkPhone()
+          if(!this.captchaCode) {
+            return this.$message({
+                message: '发送失败',
+                type: 'error'
+              });
+          }
+          await apiSendSms({
+            mobile: this.phone,
+            captcha: this.captchaCode
+          })
+          this.$message('验证码已发送');
+          } catch (error) {
+            this.$message({
+              message: error.message,
+              type: 'warning'
+            });
+          }
+      }
+    },
     data() {
       return {
-        input2: '',
-        input21: '',
-        input22: '',
-        input23: '',
+        isCodeLogin: true,
+        phone: null,
+        captchaCode: null,
+        captchaImg: '',
+        code: null,
+        password: '',
+        phoneReg: '^(13[0-9]|14[0-9]|15[0-9]|166|17[0-9]|18[0-9]|19[8|9])\\d{8}$'
       };
     },
   };
 </script>
 
 <style lang="stylus" scoped>
-
+  .captcha-img {
+    position absolute
+    top -12px
+    right 0
+  }
+  .captcha-input {
+    width 60%
+  }
   #wy_captcha {
     width: 100%;
     height: 40px;
@@ -77,7 +164,7 @@
 
   .x-tabs {
     background-color: #fff;
-    padding: 40px 600px;
+    padding: 40px 530px;
     height: 515px;
   }
 
@@ -133,6 +220,9 @@
     height: 44px;
     font-size: 16px;
     margin-top: 50px;
+    span {
+      color white
+    }
   }
 
   .extra {
@@ -229,22 +319,6 @@
   a {
     color: inherit;
     text-decoration: none;
-  }
-
-  [class*=" el-icon-"] {
-    font-family: 'element-icons' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    -webkit-font-feature-settings: normal;
-    font-feature-settings: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    vertical-align: baseline;
-    display: inline-block;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
   }
 
   .el-icon-arrow-up:before {

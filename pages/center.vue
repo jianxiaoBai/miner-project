@@ -22,7 +22,7 @@
                 <nuxt-link to="/center" class="nav-link">我的账户</nuxt-link>
                 <!-- <nuxt-link to="/center/order" class="nav-link">我的订单</nuxt-link> -->
                 <!-- <nuxt-link to="/center/trust" class="nav-link">我的托管</nuxt-link> -->
-                <nuxt-link to="/center/power" class="nav-link">我的云算力</nuxt-link>
+                <nuxt-link to="/center/power" class="nav-link">我的矿机</nuxt-link>
                 <nuxt-link to="/center/safety" class="nav-link">安全中心</nuxt-link>
               </div>
               <div class="page-component__content">
@@ -39,9 +39,15 @@
 </template>
 
 <script>
-  export default {
+// import { aaa } from '~/api';
+  // export default {
+  //   mounted () {
+  //      aaa().then(x => {
+  //       console.log(x);
 
-  }
+  //     })
+  //   }
+  // }
 </script>
 
 <style lang="stylus" scpoed>
@@ -583,21 +589,6 @@
     line-height: 24px;
   }
 
-  [class*=" el-icon-"] {
-    font-family: 'element-icons' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    -webkit-font-feature-settings: normal;
-    font-feature-settings: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    vertical-align: baseline;
-    display: inline-block;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 
   .el-icon-arrow-right:before {
     content: "\E604";
@@ -948,21 +939,6 @@
     line-height: 24px;
   }
 
-  [class*=" el-icon-"] {
-    font-family: 'element-icons' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    -webkit-font-feature-settings: normal;
-    font-feature-settings: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    vertical-align: baseline;
-    display: inline-block;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 
   .el-icon-arrow-right:before {
     content: "\E604";
@@ -1264,26 +1240,5 @@
     -moz-user-select: text !important;
   }
 
-  /*! CSS Used fontfaces */
-
-  @font-face {
-    font-family: "iconfont";
-    src: url('//at.alicdn.com/t/font_593980_4ft7bv0qsdk21emi.eot?t=1528192126869');
-    src: url('//at.alicdn.com/t/font_593980_4ft7bv0qsdk21emi.eot?t=1528192126869#iefix') format('embedded-opentype'), url('data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAXIAAsAAAAACHAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7koiY21hcAAAAYAAAABmAAABnNFfcY9nbHlmAAAB6AAAAeEAAAI4fwMgwWhlYWQAAAPMAAAALwAAADYRmD75aGhlYQAAA/wAAAAcAAAAJAfeA4VobXR4AAAEGAAAABAAAAAQD+kAAGxvY2EAAAQoAAAACgAAAAoBkgCwbWF4cAAABDQAAAAfAAAAIAETAF1uYW1lAAAEVAAAAUUAAAJtPlT+fXBvc3QAAAWcAAAAKwAAADzAAks7eJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2Bk/sU4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVLwwY27438AQw9zA0AAUZgTJAQAoLAymeJzFkMENwCAMA51CK1R1lD4rBuqrA/BgYsQW1Al8mACjC4llKQgAOwBHbuIB+SBQvXTFfIfTfI/IOfBsvHNJNbY2dSqxRLDOaVIOLJOsWz3rsvqMSf87D/jEkjrq19jB9gPUWBIjAAB4nE2QTWsTURSGz7m3cydJ5yOZr5uZyeRjpjOTkjrQZDIpSJMu6kJbqCBdCEUQ14obyaaLbgQFF/4GFfRHlNC/4CZrRbt2KYiJ3lSQXA7v4t5zz/O+BySAP1/pJa2DCV3YhUO4D4Csh6FGAuykeUZ6aHckm1saTaO0I0dhRveRh8xy+kWecCYzHTVs4qDTL9KMpDjMx+Q29p0A0fW9B0bcMOhbrNTT5svlPfIO7VbU0Me3lnd3Jla/bZamimG4hvGmxCSpRMiGruFT7pSlcoUtP0i6Z1+2tkkLFTf1jh+qbd94/Cp/FsS8jHhxgabf1j5Oal5N1LnnmIYrV9VS3VOjLQun3zfrphIk30AcKrJe0St6AJtgQVvk1FBuIh/jKEOaYV70HYuNNAyTdDgWATiB2UKSFrN/avl+1/cbKBRvhB78f5stFndWd6J+iD7ry0oEc0MwX9OfdApl2IE9sV+IV5QwyYvBiNnyirYv0BMshnkShQHe8Hfzgos+OU4gZSA7wAuIhVFhV5jOEH8Zrhu5bu20QKz5hhN7+V7vOZqBiU9Ojx6d4Se2vJ7Pl9eMoT+fo//7ZM3sZ97mot53hxVFr6pkkLXs3vZW9oKo1ap6coZH54eK+MTWh6zt4i83cXMQAAAAeJxjYGRgYADiiLdPZ8Tz23xl4GZhAIHrNrV1CPp/JwsDczmQy8HABBIFAEEJCp8AeJxjYGRgYG7438AQw8IAAkCSkQEVsAAARwoCbQQAAAAD6QAABAAAAAQAAAAAAAAAAHYAsAEcAAB4nGNgZGBgYGEIZGBlAAEmIOYCQgaG/2A+AwAREgFxAHicZY9NTsMwEIVf+gekEqqoYIfkBWIBKP0Rq25YVGr3XXTfpk6bKokjx63UA3AejsAJOALcgDvwSCebNpbH37x5Y08A3OAHHo7fLfeRPVwyO3INF7gXrlN/EG6QX4SbaONVuEX9TdjHM6bCbXRheYPXuGL2hHdhDx18CNdwjU/hOvUv4Qb5W7iJO/wKt9Dx6sI+5l5XuI1HL/bHVi+cXqnlQcWhySKTOb+CmV7vkoWt0uqca1vEJlODoF9JU51pW91T7NdD5yIVWZOqCas6SYzKrdnq0AUb5/JRrxeJHoQm5Vhj/rbGAo5xBYUlDowxQhhkiMro6DtVZvSvsUPCXntWPc3ndFsU1P9zhQEC9M9cU7qy0nk6T4E9XxtSdXQrbsuelDSRXs1JErJCXta2VELqATZlV44RelzRiT8oZ0j/AAlabsgAAAB4nGNgYoAALgbsgIWRiZGZkYWRlYGxgr08sSgvMy+dJSM1p4CBAQA00gVGAA==') format('woff'), url('//at.alicdn.com/t/font_593980_4ft7bv0qsdk21emi.ttf?t=1528192126869') format('truetype'), url('//at.alicdn.com/t/font_593980_4ft7bv0qsdk21emi.svg?t=1528192126869#iconfont') format('svg');
-  }
-
-  @font-face {
-    font-family: 'element-icons';
-    src: url(https://hash.hc.top/_nuxt/fonts/element-icons.2fad952.woff) format("woff"), url(https://hash.hc.top/_nuxt/fonts/element-icons.6f0a763.ttf) format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'element-icons';
-    src: url(https://hash.hc.top/_nuxt/fonts/element-icons.2fad952.woff) format("woff"), url(https://hash.hc.top/_nuxt/fonts/element-icons.6f0a763.ttf) format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
 }
 </style>

@@ -504,21 +504,6 @@
     line-height: 24px;
   }
 
-  [class*=" el-icon-"] {
-    font-family: 'element-icons' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    -webkit-font-feature-settings: normal;
-    font-feature-settings: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    vertical-align: baseline;
-    display: inline-block;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 
   .el-icon-close:before {
     content: "\E60F";
@@ -1102,22 +1087,6 @@
     line-height: 24px;
   }
 
-  [class*=" el-icon-"] {
-    font-family: 'element-icons' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    -webkit-font-feature-settings: normal;
-    font-feature-settings: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    vertical-align: baseline;
-    display: inline-block;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
   .el-icon-close:before {
     content: "\E60F";
   }
@@ -1656,22 +1625,6 @@
   * {
     -webkit-user-select: text !important;
     -moz-user-select: text !important;
-  }
-
-  /*! CSS Used fontfaces */
-
-  @font-face {
-    font-family: 'element-icons';
-    src: url(https://hash.hc.top/_nuxt/fonts/element-icons.2fad952.woff) format("woff"), url(https://hash.hc.top/_nuxt/fonts/element-icons.6f0a763.ttf) format("truetype");
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: 'element-icons';
-    src: url(https://hash.hc.top/_nuxt/fonts/element-icons.2fad952.woff) format("woff"), url(https://hash.hc.top/_nuxt/fonts/element-icons.6f0a763.ttf) format("truetype");
-    font-weight: normal;
-    font-style: normal;
   }
 
 </style>

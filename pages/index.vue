@@ -1,419 +1,227 @@
 <template>
-  <div>
-    <div class="hash">
-      <div class="inner">
-        <div class="hash-swiper swiper-container swiper-container-horizontal">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide hash-swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="0" style="width: 370px; margin-right: 30px;">
-              <div class="hash-item">
-                <div class="hash-item-img-wrap">
-                  <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1533522971495.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=KTV8aBMEZCxVbbzuMu6XghG8vvE%3D" alt="" class="hash-item-img">
-                </div>
-                <h3 class="headline">
-                  <span class="underscore">BTC算力</span>
-                </h3>
-                <p class="subhead">蚂蚁 S9</p>
-                <h2 class="price">
-                  ￥469.00
-                  <span>/T</span>
-                </h2>
-                <p>剩余算力: 1245T</p>
-                <p>交割时间:
-                  <span>次日交割</span>
+  <div class="product-container">
+    <section class="minerList">
+      <ul class="miner-category clearfix">
+        <li class="active">TRUE矿机
+        </li>
+      </ul>
+      <ul class="miner-product-list clearfix">
+        <li>
+          <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label">
+              <path fill="#4D87EA" d="M0 0h85.5l-30 30H0z"></path>
+              <text x="10" y="20" fill="#fff" font-size="14">新上架</text>
+            </svg>
+          <!-- <div class="product-img">
+            <img src="" alt="miner">
+          </div> -->
+          <div class="product-detail-container">
+            <p class="procuct-name">
+              <span>飞行者 Miner 200</span>
+              <span>TRUE矿机</span>
+            </p>
+            <p class="product-detail">专业GPU以太坊矿机 选托管免90天管理费</p>
+            <!-- <p class="product-delivery">发货时间：2018-08-10</p> -->
+            <p class="product-discount"></p>
+            <div class="product-count clearfix">
+              <div class="left">
+                <p class="sale-price">
+                  <span>¥12,800.00</span>
                 </p>
-                <button type="button" class="el-button el-button--secondary">
-                    <span>
-                      去选购
-                    </span>
-                  </button>
-              </div>
-            </div>
-            <div class="swiper-slide hash-swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="1" style="width: 370px; margin-right: 30px;">
-              <div class="hash-item">
-                <div class="hash-item-img-wrap">
-                  <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1531987549496.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=89eYMAskQrqHCjVJ1Z21646fHzI%3D" alt="" class="hash-item-img">
-                </div>
-                <h3 class="headline">
-                  <span class="underscore">ETH算力</span>
-                </h3>
-                <p class="subhead">以太坊矿机 220M</p>
-                <h2 class="price">
-                  ￥79.00
-                  <span>/M</span>
-                </h2>
-                <p>剩余算力: 1770M</p>
-                <p>交割时间:
-                  <span>次日交割</span>
+                <p class="original-cost">
+                  <span>矿机售价</span>
                 </p>
-                <button type="button" class="el-button el-button--secondary">
-                    <span>
-                      去选购
-                    </span>
-                  </button>
               </div>
-            </div>
-            <div class="swiper-slide hash-swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="2" style="width: 370px; margin-right: 30px;">
-              <div class="hash-item">
-                <div class="hash-item-img-wrap">
-                  <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1534325865475.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=QJ0RBzgHJgb5oDFhjV68xfwxZ6I%3D" alt="" class="hash-item-img">
-                </div>
-                <h3 class="headline">
-                  <span class="underscore">HCASH算力</span>
-                </h3>
-                <p class="subhead">iBeLink DSM 6T</p>
-                <h2 class="price">
-                  ￥4.10
-                  <span>/G</span>
-                </h2>
-                <p>剩余算力: 10900G</p>
-                <p>交割时间:
-                  <span>2018-08-21</span>
-                </p>
-                <button type="button" class="el-button el-button--secondary">
-                    <span>
-                      去选购
-                    </span>
-                  </button>
-              </div>
-            </div>
-            <div class="swiper-slide hash-swiper-slide swiper-slide-prev" data-swiper-slide-index="0" style="width: 370px; margin-right: 30px;">
-              <div class="hash-item">
-                <div class="hash-item-img-wrap">
-                  <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1533522971495.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=KTV8aBMEZCxVbbzuMu6XghG8vvE%3D" alt="" class="hash-item-img">
-                </div>
-                <h3 class="headline">
-                  <span class="underscore">BTC算力</span>
-                </h3>
-                <p class="subhead">蚂蚁 S9</p>
-                <h2 class="price">
-                  ￥469.00
-                  <span>/T</span>
-                </h2>
-                <p>剩余算力: 1245T</p>
-                <p>交割时间:
-                  <span>次日交割</span>
-                </p>
-                <button type="button" class="el-button el-button--secondary">
-                    <span>
-                      去选购
-                    </span>
-                  </button>
-              </div>
-            </div>
-            <div class="swiper-slide hash-swiper-slide swiper-slide-active" data-swiper-slide-index="1" style="width: 370px; margin-right: 30px;">
-              <div class="hash-item">
-                <div class="hash-item-img-wrap">
-                  <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1531987549496.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=89eYMAskQrqHCjVJ1Z21646fHzI%3D" alt="" class="hash-item-img">
-                </div>
-                <h3 class="headline">
-                  <span class="underscore">ETH算力</span>
-                </h3>
-                <p class="subhead">以太坊矿机 220M</p>
-                <h2 class="price">
-                  ￥79.00
-                  <span>/M</span>
-                </h2>
-                <p>剩余算力: 1770M</p>
-                <p>交割时间:
-                  <span>次日交割</span>
-                </p>
-                <button type="button" class="el-button el-button--secondary">
-                    <span>
-                      去选购
-                    </span>
-                  </button>
-              </div>
-            </div>
-            <div class="swiper-slide hash-swiper-slide swiper-slide-next" data-swiper-slide-index="2" style="width: 370px; margin-right: 30px;">
-              <div class="hash-item">
-                <div class="hash-item-img-wrap">
-                  <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1534325865475.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=QJ0RBzgHJgb5oDFhjV68xfwxZ6I%3D" alt="" class="hash-item-img">
-                </div>
-                <h3 class="headline">
-                  <span class="underscore">HCASH算力</span>
-                </h3>
-                <p class="subhead">iBeLink DSM 6T</p>
-                <h2 class="price">
-                  ￥4.10
-                  <span>/G</span>
-                </h2>
-                <p>剩余算力: 10900G</p>
-                <p>交割时间:
-                  <span>2018-08-21</span>
-                </p>
-                <button type="button" class="el-button el-button--secondary">
-                    <span>
-                      去选购
-                    </span>
-                  </button>
-              </div>
-            </div>
-            <div class="swiper-slide hash-swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" data-swiper-slide-index="0" style="width: 370px; margin-right: 30px;">
-              <div class="hash-item">
-                <div class="hash-item-img-wrap">
-                  <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1533522971495.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=KTV8aBMEZCxVbbzuMu6XghG8vvE%3D" alt="" class="hash-item-img">
-                </div>
-                <h3 class="headline">
-                  <span class="underscore">BTC算力</span>
-                </h3>
-                <p class="subhead">蚂蚁 S9</p>
-                <h2 class="price">
-                  ￥469.00
-                  <span>/T</span>
-                </h2>
-                <p>剩余算力: 1245T</p>
-                <p>交割时间:
-                  <span>次日交割</span>
-                </p>
-                <button type="button" class="el-button el-button--secondary">
-                    <span>
-                      去选购
-                    </span>
-                  </button>
-              </div>
-            </div>
-            <div class="swiper-slide hash-swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="1" style="width: 370px; margin-right: 30px;">
-              <div class="hash-item">
-                <div class="hash-item-img-wrap">
-                  <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1531987549496.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=89eYMAskQrqHCjVJ1Z21646fHzI%3D" alt="" class="hash-item-img">
-                </div>
-                <h3 class="headline">
-                  <span class="underscore">ETH算力</span>
-                </h3>
-                <p class="subhead">以太坊矿机 220M</p>
-                <h2 class="price">
-                  ￥79.00
-                  <span>/M</span>
-                </h2>
-                <p>剩余算力: 1770M</p>
-                <p>交割时间:
-                  <span>次日交割</span>
-                </p>
-                <button type="button" class="el-button el-button--secondary">
-                    <span>
-                      去选购
-                    </span>
-                  </button>
-              </div>
-            </div>
-            <div class="swiper-slide hash-swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" data-swiper-slide-index="2" style="width: 370px; margin-right: 30px;">
-              <div class="hash-item">
-                <div class="hash-item-img-wrap">
-                  <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1534325865475.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=QJ0RBzgHJgb5oDFhjV68xfwxZ6I%3D" alt="" class="hash-item-img">
-                </div>
-                <h3 class="headline">
-                  <span class="underscore">HCASH算力</span>
-                </h3>
-                <p class="subhead">iBeLink DSM 6T</p>
-                <h2 class="price">
-                  ￥4.10
-                  <span>/G</span>
-                </h2>
-                <p>剩余算力: 10900G</p>
-                <p>交割时间:
-                  <span>2018-08-21</span>
-                </p>
-                <button type="button" class="el-button el-button--secondary">
-                    <span>
-                      去选购
-                    </span>
-                  </button>
-              </div>
-            </div>
-          </div>
-          <div slot="button-prev" class="swiper-button-prev swiper-button-white" tabindex="0" role="button" aria-label="Previous slide"></div>
-          <div slot="button-next" class="swiper-button-next swiper-button-white" tabindex="0" role="button" aria-label="Next slide"></div>
-          <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="service">
-      <div class="inner">
-        <h2 class="headline">全球TOP云算力服务平台</h2>
-        <p class="subhead">一站式挖矿服务</p>
-        <div class="items el-row" style="margin-left: -15px; margin-right: -15px;">
-          <div class="el-col el-col-6" style="padding-left: 15px; padding-right: 15px;">
-            <div class="s-item">
-              <div class="s-item-img-wrap">
-                <img src="~/assets/img/service-icon-hash.0b8110d.png" alt="" class="s-item-img">
-              </div>
-              <h3 class="s-item-headline">
-                <span class="underscore h5">云算力</span>
-              </h3>
-              <p class="s-item-subhead">把矿场装进口袋，低门槛、高收益，即买即挖，无需等待</p>
-              <button type="button" class="el-button el-button--secondary el-button--mini">
-                  <span>去选购</span>
+              <button type="button" class="el-button right el-button--primary">
+                  <span>
+                    立即购买
+                  </span>
                 </button>
             </div>
           </div>
-          <div class="el-col el-col-6" style="padding-left: 15px; padding-right: 15px;">
-            <div class="s-item">
-              <div class="s-item-img-wrap">
-                <img src="~/assets/img/service-icon-transfer.8dc2b32.png" alt="" class="s-item-img">
-              </div>
-              <h3 class="s-item-headline">
-                <span class="underscore h5">算力交易</span>
-              </h3>
-              <p class="s-item-subhead">算力自由交易，24H委托挂单。云算力交易，即将上线</p>
-              <button type="button" class="el-button is-disabled el-button--secondary el-button--mini">
-                  <span>去交易</span>
-                </button>
-            </div>
-          </div>
-          <div class="el-col el-col-6" style="padding-left: 15px; padding-right: 15px;">
-            <div class="s-item">
-              <div class="s-item-img-wrap">
-                <img src="~/assets/img/service-icon-miner.9f183a8.png" alt="" class="s-item-img">
-              </div>
-              <h3 class="s-item-headline">
-                <span class="underscore h5">矿机购买</span>
-              </h3>
-              <p class="s-item-subhead">热门机型，优选矿机低能耗、高收益，全方位专业售后</p>
-              <button type="button" class="el-button el-button--secondary el-button--mini">
-                  <span>去购买</span>
-                </button>
-            </div>
-          </div>
-          <div class="el-col el-col-6" style="padding-left: 15px; padding-right: 15px;">
-            <div class="s-item">
-              <div class="s-item-img-wrap">
-                <img src="~/assets/img/service-icon-trust.bef88eb.png" alt="" class="s-item-img">
-              </div>
-              <h3 class="s-item-headline">
-                <span class="underscore h5">托管服务</span>
-              </h3>
-              <p class="s-item-subhead">自选矿机，专业运维，费用低廉，收益透明，一站式轻松挖矿</p>
-              <button type="button" class="el-button el-button--secondary el-button--mini">
-                  <span>去托管</span>
-                </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="miner">
-      <div class="inner">
-        <h2 class="m-headline">
-          <span class="underscore h13">多种矿机 一站式托管</span>
-        </h2>
-        <p class="m-subhead">专家级矿场托管，7 × 24 支持与维护，挖矿更简单</p>
-        <div class="el-row" style="margin-left: -52.5px; margin-right: -52.5px;">
-          <div class="el-col el-col-8" style="padding-left: 52.5px; padding-right: 52.5px;">
-            <div class="m-card">
-              <div class="m-card__media">
-                <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1530790025252.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=pLiWE3d604sUcfIBK0owxdZ0Cmw%3D" alt="" class="m-card__img">
-              </div>
-              <div class="m-card__body">
-                <h3 class="m-card__headline">蚂蚁S9i 14T矿机</h3>
-                <p class="m-card__meta">
-                  <span>额定算力：14T</span>
-                  <span class="right">额定功率：1550W</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="el-col el-col-8" style="padding-left: 52.5px; padding-right: 52.5px;">
-            <div class="m-card">
-              <div class="m-card__media">
-                <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1530790075060.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=093tafjErMZN7%2F0kPSd%2Bl9E4CE8%3D" alt="" class="m-card__img">
-              </div>
-              <div class="m-card__body">
-                <h3 class="m-card__headline">iBeLink DSM6T矿机</h3>
-                <p class="m-card__meta">
-                  <span>额定算力：6T</span>
-                  <span class="right">额定功率：2100W</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="el-col el-col-8" style="padding-left: 52.5px; padding-right: 52.5px;">
-            <div class="m-card">
-              <div class="m-card__media">
-                <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1530790137138.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=pkCpcTJw8fdlK4yHdU3nW%2BcC5hI%3D" alt="" class="m-card__img">
-              </div>
-              <div class="m-card__body">
-                <h3 class="m-card__headline">雪豹矿机 A1 49T</h3>
-                <p class="m-card__meta">
-                  <span>额定算力：49T</span>
-                  <span class="right">额定功率：6400W</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="el-col el-col-8" style="padding-left: 52.5px; padding-right: 52.5px;">
-            <div class="m-card">
-              <div class="m-card__media">
-                <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1532421817366.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=3ok0x1CNVKO3jVxfYQcbswny%2F0M%3D" alt="" class="m-card__img">
-              </div>
-              <div class="m-card__body">
-                <h3 class="m-card__headline">雪豹矿机 E3 230M</h3>
-                <p class="m-card__meta">
-                  <span>额定算力：230M</span>
-                  <span class="right">额定功率：1280W</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="el-col el-col-8" style="padding-left: 52.5px; padding-right: 52.5px;">
-            <div class="m-card">
-              <div class="m-card__media">
-                <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1531116049638.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=koH2vbQNL%2BQ%2FsW8Q8QCShiakQHs%3D" alt="" class="m-card__img">
-              </div>
-              <div class="m-card__body">
-                <h3 class="m-card__headline">蚂蚁S9i 13.5T矿机</h3>
-                <p class="m-card__meta">
-                  <span>额定算力：13.5T</span>
-                  <span class="right">额定功率：1550W</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="el-col el-col-8" style="padding-left: 52.5px; padding-right: 52.5px;">
-            <div class="m-card">
-              <div class="m-card__media">
-                <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/recommendManager/addRecommendPic/1531895040905.png?Expires=1534743246&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=ijwWQ1RJ7a30fJ1Ua7Pny6GaM5w%3D" alt="" class="m-card__img">
-              </div>
-              <div class="m-card__body">
-                <h3 class="m-card__headline">掘金者 Miner 200</h3>
-                <p class="m-card__meta">
-                  <span>额定算力：200M</span>
-                  <span class="right">额定功率：790W</span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button type="button" class="el-button el-button--secondary el-button--large">
-            <span>查看全部矿机</span>
-          </button>
-      </div>
-    </div>
-
+        </li>
+      </ul>
+    </section>
   </div>
 </template>
 
-<script>
-  export default {
-
-  }
-</script>
-
 <style lang="stylus" scpoed>
+.product-container {
+    background: #fafafa;
+    width: 100%;
 
-  [class*="el-col-"] {
-    float: left;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
+  /*! CSS Used from: https://hash.hc.top/_nuxt/app.4188da40ee5b0a0b9632a89578998921.css */
+  .el-button span {
+    color white
+  }
+  .features {
+    background-color: #fff;
+    text-align: center;
+    padding: 50px 120px;
   }
 
-  .el-col-6 {
-    width: 25%;
+  img {
+    width: 65px;
   }
 
-  .inner {
+  p {
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .banner img {
+    width: 100%;
+    display: block;
+  }
+
+  .pointer {
+    cursor: pointer;
+  }
+
+
+
+  .minerList {
     width: 1200px;
     margin: 0 auto;
+    padding-top: 50px;
+  }
+
+  .miner-category li {
+    float: left;
+    color: #969699;
+    font-size: 20px;
+    margin-right: 40px;
+    cursor: pointer;
+    -webkit-transition: color ease .3s;
+    transition: color ease .3s;
+  }
+
+  .miner-category li.active {
+    color: #303137;
+    border-bottom: 3px solid #303137;
+    padding-bottom: 5px;
+    font-weight: bold;
+  }
+
+  .miner-product-list {
+    margin-top: 30px;
+  }
+
+  .miner-product-list li {
+    width: 570px;
+    overflow: auto;
+    position: relative;
+    margin-right: 60px;
+    background: #fff;
+    float: left;
+    margin-bottom: 60px;
+    cursor: pointer;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+  }
+
+  .miner-product-list li:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  .miner-product-list li:hover,
+  .miner-product-list li:focus {
+    -webkit-box-shadow: 0 0 10px 0px #ccc;
+    box-shadow: 0 0 10px 0px #ccc;
+  }
+
+  .product-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .product-img {
+    text-align: center;
+  }
+
+  .product-img img {
+    display: none;
+    width: 570px;
+    height: 200px;
+    // height: 397px;
+    vertical-align: middle;
+  }
+
+  .procuct-name {
+    margin-top: 25px;
+    line-height: 31px;
+  }
+
+  .procuct-name span:first-child {
+    font-size: 24px;
+    color: #333333;
+    font-weight: bold;
+    margin-right: 35px;
+    vertical-align: middle;
+  }
+
+  .procuct-name span:last-child {
+    font-size: 14px;
+    color: #151515;
+    border: 1px solid #E0E0E0;
+    border-radius: 2px;
+    padding: 5px 10px;
+    vertical-align: middle;
+  }
+
+  .product-detail-container {
+    padding: 30px 40px 38px;
+  }
+
+  .product-detail {
+    margin: 10px 0 15px;
+  }
+
+  .product-detail,
+  .product-delivery {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #999;
+  }
+
+  .product-discount {
+    min-height: 20px;
+    font-size: 14px;
+    color: #303137;
+    font-weight: bold;
+  }
+
+  .product-count {
+    margin-top: 30px;
+  }
+
+  .product-count .left .sale-price {
+    font-size: 24px;
+    color: #FD7220;
+  }
+
+  .product-count .left .original-cost {
+    font-size: 14px;
+    color: #999999;
+  }
+
+  .product-count .left .decoration {
+    text-decoration: line-through;
+  }
+
+  .product-count button {
+    margin-top: 5px;
+    min-width: 164px;
+  }
+
+  .product-count button.is-disabled {
+    cursor: pointer;
+  }
+
+  img {
+    border-style: none;
   }
 
   button {
@@ -493,38 +301,56 @@
     transition-property: transform, -webkit-transform;
   }
 
-  .swiper-button-prev,
-  .swiper-button-next {
+  .swiper-container-autoheight,
+  .swiper-container-autoheight .swiper-slide {
+    height: auto;
+  }
+
+  .swiper-container-autoheight .swiper-wrapper {
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-transition-property: height, -webkit-transform;
+    transition-property: height, -webkit-transform;
+    -o-transition-property: transform, height;
+    transition-property: transform, height;
+    transition-property: transform, height, -webkit-transform;
+  }
+
+  .swiper-pagination {
     position: absolute;
-    top: 50%;
-    width: 27px;
-    height: 44px;
-    margin-top: -22px;
+    text-align: center;
+    -webkit-transition: 300ms opacity;
+    -o-transition: 300ms opacity;
+    transition: 300ms opacity;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
     z-index: 10;
-    cursor: pointer;
-    background-size: 27px 44px;
-    background-position: center;
-    background-repeat: no-repeat;
   }
 
-  .swiper-button-prev {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");
-    left: 10px;
-    right: auto;
+  .swiper-container-horizontal>.swiper-pagination-bullets {
+    bottom: 10px;
+    left: 0;
+    width: 100%;
   }
 
-  .swiper-button-next {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23007aff'%2F%3E%3C%2Fsvg%3E");
-    right: 10px;
-    left: auto;
+  .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 100%;
+    background: #000;
+    opacity: 0.2;
   }
 
-  .swiper-button-prev.swiper-button-white {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #007aff;
   }
 
-  .swiper-button-next.swiper-button-white {
-    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+  .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 4px;
   }
 
   .swiper-container .swiper-notification {
@@ -535,267 +361,275 @@
     opacity: 0;
     z-index: -1000;
   }
-  .underscore {
-    position: relative;
-    z-index: 1;
-  }
 
-  .underscore:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: inline-block;
-    width: 100%;
-    height: 11px;
-    background: #EFE3BB;
-    z-index: -1;
-    border-radius: 2px;
-  }
-
-  .hash {
-    padding-top: 80px;
-    padding-bottom: 120px;
-    background-image: url(https://hash.hc.top/_nuxt/img/0101.e2d55c8.jpg);
-  }
-
-  .hash .hash-swiper:hover .swiper-button-prev,
-  .hash .hash-swiper:hover .swiper-button-next,
-  .hash .hash-swiper:focus .swiper-button-prev,
-  .hash .hash-swiper:focus .swiper-button-next {
-    display: inline-block;
-  }
-
-  .hash .hash-swiper-slide {
-    width: 370px;
-  }
-
-  .hash .swiper-button-prev {
-    margin-left: 5px;
-  }
-
-  .hash .swiper-button-next {
-    margin-right: 5px;
-  }
-
-  .hash .swiper-button-prev,
-  .hash .swiper-button-next {
-    width: 40px;
-    height: 60px;
-    line-height: 60px;
-    font-size: 16px;
-    text-align: center;
-    opacity: 1;
-    z-index: 2;
-    background-color: rgba(0, 0, 0, .1);
-    background-size: 30% 30%;
-    display: none;
-  }
-
-  .hash .hash-item {
-    width: 370px;
-    height: 600px;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    padding: 50px 50px 70px;
-    text-align: center;
-    -webkit-box-shadow: 0 0 5px 0 #ccc;
-    box-shadow: 0 0 5px 0 #ccc;
-    -webkit-transition: all .2s;
-    transition: all .2s;
+  .swiper-pagination-bullet {
     background: #fff;
-  }
-
-  .hash .hash-item:focus,
-  .hash .hash-item:hover {
-    -webkit-box-shadow: 0 0 20px 3px #ccc;
-    box-shadow: 0 0 20px 3px #ccc;
-  }
-
-  .hash .hash-item .hash-item-img-wrap {
-    height: 110px;
-    line-height: 110px;
-  }
-
-  .hash .hash-item .hash-item-img {
-    width: 140px;
-    height: 110px;
-  }
-
-  .hash .hash-item .headline {
-    margin-top: 50px;
-    font-size: 24px;
-    color: #303137;
-  }
-
-  .hash .hash-item .subhead {
-    margin-top: 6px;
-    font-size: 12px;
-    line-height: 14px;
-    color: #969699;
-  }
-
-  .hash .hash-item .price {
-    margin-top: 30px;
-    margin-bottom: 50px;
-    font-size: 32px;
-    color: #303137;
-  }
-
-  .hash .hash-item p {
-    margin-top: 30px;
-    font-size: 18px;
-    line-height: 21px;
-    color: #606166;
-  }
-
-  .hash .hash-item button {
-    margin-top: 50px;
-  }
-
-
-  .service {
-    padding-top: 100px;
-    padding-bottom: 130px;
-    background: url(https://hash.hc.top/_nuxt/img/bg1.0ce5009.jpg) no-repeat;
-    background-size: 100% 100%;
-  }
-
-  .service .headline {
-    font-size: 48px;
-    line-height: 70px;
-    color: #FFF;
-    text-align: center;
-  }
-
-  .service .subhead {
-    margin-top: 20px;
-    font-size: 20px;
-    line-height: 30px;
-    text-align: center;
-    color: #FFF;
-  }
-
-  .service .items {
-    margin-top: 70px;
-  }
-
-  .service .s-item {
-    padding: 60px 40px 70px;
-    background-color: #fff;
-    text-align: center;
-  }
-
-  .service .s-item-img-wrap {
     display: inline-block;
-    width: 64px;
-    height: 64px;
-    line-height: 64px;
-    vertical-align: top;
+    width: 12px;
+    height: 12px;
   }
 
-  .service .s-item-img {
-    width: 64px;
-    vertical-align: middle;
+  .swiper-pagination-bullet-active {
+    background: #fff;
+    width: 30px;
+    height: 12px;
+    border-radius: 6px;
   }
 
-  .service .s-item-headline {
-    margin-top: 30px;
-    font-size: 18px;
-    color: #303137;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
   }
 
-  .service .s-item-subhead {
-    margin-top: 10px;
-    font-size: 14px;
-    line-height: 24px;
-    color: #969699;
+  p {
+    margin: 0;
   }
 
-  .service button {
-    margin-top: 50px;
-  }
-
-  .service .is-disabled {
-    background-color: #dedee0;
-    color: #fff;
-    border-color: #dedee0;
-    cursor: default;
-  }
-
-
-  .miner {
-    text-align: center;
-    padding-top: 120px;
-    padding-bottom: 290px;
-    background: url(https://hash.hc.top/_nuxt/img/01.797c19e.jpg) no-repeat bottom center;
-  }
-
-  .miner .m-headline {
-    font-size: 48px;
-    line-height: 64px;
-    color: #303137;
-  }
-
-  .miner .m-subhead {
-    margin-top: 24px;
-    margin-bottom: 95px;
-    font-size: 20px;
-    color: #606166;
-    line-height: 24px;
-  }
-
-  .miner .m-card {
-    margin-bottom: 60px;
-    -webkit-box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
-    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, .1);
-    -webkit-transition: -webkit-box-shadow .2s;
-    transition: -webkit-box-shadow .2s;
-    transition: box-shadow .2s;
-    transition: box-shadow .2s, -webkit-box-shadow .2s;
-    background-color: #fff;
+  .el-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
     cursor: pointer;
-  }
-
-  .miner .m-card:hover,
-  .miner .m-card:focus {
-    -webkit-box-shadow: 0 4px 19px 5px rgba(0, 0, 0, .1);
-    box-shadow: 0 4px 19px 5px rgba(0, 0, 0, .1);
-  }
-
-  .miner .m-card__media {
-    height: 230px;
-  }
-
-  .miner .m-card__img {
-    width: 100%;
-    height: 230px;
-  }
-
-  .miner .m-card__body {
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-bottom: 30px;
-  }
-
-  .miner .m-card__headline {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #303137;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    border-color: #dcdfe6;
+    color: #606166;
+    -webkit-appearance: none;
     text-align: center;
-    line-height: 24px;
-  }
-
-  .miner .m-card__meta {
-    margin-top: 20px;
-    line-height: 20px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    -webkit-transition: .1s;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
     font-size: 14px;
-    color: #303137;
-    text-align: left;
+    border-radius: 4px;
   }
 
-  .miner button {
-    margin-top: 40px;
+  .el-button:hover,
+  .el-button:focus {
+    color: #303137;
+    border-color: #c1c1c3;
+    background-color: #eaeaeb;
+  }
+
+  .el-button:active {
+    color: #2b2c32;
+    border-color: #2b2c32;
+    outline: none;
+  }
+
+  .el-button::-moz-focus-inner {
+    border: 0;
+  }
+
+  .el-button.is-disabled,
+  .el-button.is-disabled:hover,
+  .el-button.is-disabled:focus {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #fff;
+    border-color: #ebeef5;
+  }
+
+  .el-button--primary {
+    color: #fff;
+    background-color: #303137;
+    border-color: #303137;
+  }
+
+  .el-button--primary:hover,
+  .el-button--primary:focus {
+    background: #595a5f;
+    border-color: #595a5f;
+    color: #fff;
+  }
+
+  .el-button--primary:active {
+    background: #2b2c32;
+    border-color: #2b2c32;
+    color: #fff;
+    outline: none;
+  }
+
+  .el-button--primary.is-disabled,
+  .el-button--primary.is-disabled:hover,
+  .el-button--primary.is-disabled:focus,
+  .el-button--primary.is-disabled:active {
+    color: #fff;
+    background-color: #98989b;
+    border-color: #98989b;
+  }
+
+  .el-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    border-color: #dcdfe6;
+    color: #606166;
+    -webkit-appearance: none;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    -webkit-transition: .1s;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .el-button:hover,
+  .el-button:focus {
+    color: #303137;
+    border-color: #c1c1c3;
+    background-color: #eaeaeb;
+  }
+
+  .el-button:active {
+    color: #2b2c32;
+    border-color: #2b2c32;
+    outline: none;
+  }
+
+  .el-button::-moz-focus-inner {
+    border: 0;
+  }
+
+  .el-button.is-disabled,
+  .el-button.is-disabled:hover,
+  .el-button.is-disabled:focus {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #fff;
+    border-color: #ebeef5;
+  }
+
+  .el-button--primary {
+    color: #fff;
+    background-color: #303137;
+    border-color: #303137;
+  }
+
+  .el-button--primary:hover,
+  .el-button--primary:focus {
+    background: #595a5f;
+    border-color: #595a5f;
+    color: #fff;
+  }
+
+  .el-button--primary:active {
+    background: #2b2c32;
+    border-color: #2b2c32;
+    color: #fff;
+    outline: none;
+  }
+
+  .el-button--primary.is-disabled,
+  .el-button--primary.is-disabled:hover,
+  .el-button--primary.is-disabled:focus,
+  .el-button--primary.is-disabled:active {
+    color: #fff;
+    background-color: #98989b;
+    border-color: #98989b;
+  }
+
+  .el-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    border-color: #dcdfe6;
+    color: #606166;
+    -webkit-appearance: none;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    -webkit-transition: .1s;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .el-button:hover,
+  .el-button:focus {
+    color: #303137;
+    border-color: #c1c1c3;
+    background-color: #eaeaeb;
+  }
+
+  .el-button:active {
+    color: #2b2c32;
+    border-color: #2b2c32;
+    outline: none;
+  }
+
+  .el-button::-moz-focus-inner {
+    border: 0;
+  }
+
+  .el-button.is-disabled,
+  .el-button.is-disabled:hover,
+  .el-button.is-disabled:focus {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #fff;
+    border-color: #ebeef5;
+  }
+
+  .el-button--primary {
+    color: #fff;
+    background-color: #303137;
+    border-color: #303137;
+  }
+
+  .el-button--primary:hover,
+  .el-button--primary:focus {
+    background: #595a5f;
+    border-color: #595a5f;
+    color: #fff;
+  }
+
+  .el-button--primary:active {
+    background: #2b2c32;
+    border-color: #2b2c32;
+    color: #fff;
+    outline: none;
+  }
+
+  .el-button--primary.is-disabled,
+  .el-button--primary.is-disabled:hover,
+  .el-button--primary.is-disabled:focus,
+  .el-button--primary.is-disabled:active {
+    color: #fff;
+    background-color: #98989b;
+    border-color: #98989b;
   }
 
   .el-row {
@@ -824,6 +658,179 @@
     width: 25%;
   }
 
+  .el-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    border-color: #dcdfe6;
+    color: #606166;
+    -webkit-appearance: none;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    -webkit-transition: .1s;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .el-button:hover,
+  .el-button:focus {
+    color: #303137;
+    border-color: #c1c1c3;
+    background-color: #eaeaeb;
+  }
+
+  .el-button:active {
+    color: #2b2c32;
+    border-color: #2b2c32;
+    outline: none;
+  }
+
+  .el-button::-moz-focus-inner {
+    border: 0;
+  }
+
+  .el-button.is-disabled,
+  .el-button.is-disabled:hover,
+  .el-button.is-disabled:focus {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #fff;
+    border-color: #ebeef5;
+  }
+
+  .el-button--primary {
+    color: #fff;
+    background-color: #303137;
+    border-color: #303137;
+  }
+
+  .el-button--primary:hover,
+  .el-button--primary:focus {
+    background: #595a5f;
+    border-color: #595a5f;
+    color: #fff;
+  }
+
+  .el-button--primary:active {
+    background: #2b2c32;
+    border-color: #2b2c32;
+    color: #fff;
+    outline: none;
+  }
+
+  .el-button--primary.is-disabled,
+  .el-button--primary.is-disabled:hover,
+  .el-button--primary.is-disabled:focus,
+  .el-button--primary.is-disabled:active {
+    color: #fff;
+    background-color: #98989b;
+    border-color: #98989b;
+  }
+
+  .el-button--primary:hover,
+  .el-button--primary:focus {
+    background-color: #4E4F57;
+    border-color: #4E4F57;
+    color: #fff;
+  }
+
+  .el-button--primary:active {
+    background-color: #1A1B1E;
+    border-color: #1A1B1E;
+    color: #fff;
+  }
+
+  .el-button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    min-width: 96px;
+    font-weight: normal;
+    border-radius: 0;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .clearfix:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+
+  * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  .clearfix:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+  }
+
+  .clearfix {
+    zoom: 1;
+  }
+
+  .swiper-pagination-bullet {
+    opacity: .6;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: #F5F5F5;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    background-color: #f5f5f5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #555;
+  }
 
   ::-ms-clear,
   ::-ms-reveal {
@@ -834,8 +841,274 @@
     display: none;
   }
 
+  .swiper-pagination-bullet {
+    background: #fff;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #fff;
+    width: 30px;
+    height: 12px;
+    border-radius: 6px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
   p {
     margin: 0;
+  }
+
+  .el-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    border-color: #dcdfe6;
+    color: #606166;
+    -webkit-appearance: none;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    -webkit-transition: .1s;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .el-button:hover,
+  .el-button:focus {
+    color: #303137;
+    border-color: #c1c1c3;
+    background-color: #eaeaeb;
+  }
+
+  .el-button:active {
+    color: #2b2c32;
+    border-color: #2b2c32;
+    outline: none;
+  }
+
+  .el-button::-moz-focus-inner {
+    border: 0;
+  }
+
+  .el-button.is-disabled,
+  .el-button.is-disabled:hover,
+  .el-button.is-disabled:focus {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #fff;
+    border-color: #ebeef5;
+  }
+
+  .el-button--primary {
+    color: #fff;
+    background-color: #303137;
+    border-color: #303137;
+  }
+
+  .el-button--primary:hover,
+  .el-button--primary:focus {
+    background: #595a5f;
+    border-color: #595a5f;
+    color: #fff;
+  }
+
+  .el-button--primary:active {
+    background: #2b2c32;
+    border-color: #2b2c32;
+    color: #fff;
+    outline: none;
+  }
+
+  .el-button--primary.is-disabled,
+  .el-button--primary.is-disabled:hover,
+  .el-button--primary.is-disabled:focus,
+  .el-button--primary.is-disabled:active {
+    color: #fff;
+    background-color: #98989b;
+    border-color: #98989b;
+  }
+
+  .el-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    border-color: #dcdfe6;
+    color: #606166;
+    -webkit-appearance: none;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    -webkit-transition: .1s;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .el-button:hover,
+  .el-button:focus {
+    color: #303137;
+    border-color: #c1c1c3;
+    background-color: #eaeaeb;
+  }
+
+  .el-button:active {
+    color: #2b2c32;
+    border-color: #2b2c32;
+    outline: none;
+  }
+
+  .el-button::-moz-focus-inner {
+    border: 0;
+  }
+
+  .el-button.is-disabled,
+  .el-button.is-disabled:hover,
+  .el-button.is-disabled:focus {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #fff;
+    border-color: #ebeef5;
+  }
+
+  .el-button--primary {
+    color: #fff;
+    background-color: #303137;
+    border-color: #303137;
+  }
+
+  .el-button--primary:hover,
+  .el-button--primary:focus {
+    background: #595a5f;
+    border-color: #595a5f;
+    color: #fff;
+  }
+
+  .el-button--primary:active {
+    background: #2b2c32;
+    border-color: #2b2c32;
+    color: #fff;
+    outline: none;
+  }
+
+  .el-button--primary.is-disabled,
+  .el-button--primary.is-disabled:hover,
+  .el-button--primary.is-disabled:focus,
+  .el-button--primary.is-disabled:active {
+    color: #fff;
+    background-color: #98989b;
+    border-color: #98989b;
+  }
+
+  .el-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    border-color: #dcdfe6;
+    color: #606166;
+    -webkit-appearance: none;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    -webkit-transition: .1s;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .el-button:hover,
+  .el-button:focus {
+    color: #303137;
+    border-color: #c1c1c3;
+    background-color: #eaeaeb;
+  }
+
+  .el-button:active {
+    color: #2b2c32;
+    border-color: #2b2c32;
+    outline: none;
+  }
+
+  .el-button::-moz-focus-inner {
+    border: 0;
+  }
+
+  .el-button.is-disabled,
+  .el-button.is-disabled:hover,
+  .el-button.is-disabled:focus {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #fff;
+    border-color: #ebeef5;
+  }
+
+  .el-button--primary {
+    color: #fff;
+    background-color: #303137;
+    border-color: #303137;
+  }
+
+  .el-button--primary:hover,
+  .el-button--primary:focus {
+    background: #595a5f;
+    border-color: #595a5f;
+    color: #fff;
+  }
+
+  .el-button--primary:active {
+    background: #2b2c32;
+    border-color: #2b2c32;
+    color: #fff;
+    outline: none;
+  }
+
+  .el-button--primary.is-disabled,
+  .el-button--primary.is-disabled:hover,
+  .el-button--primary.is-disabled:focus,
+  .el-button--primary.is-disabled:active {
+    color: #fff;
+    background-color: #98989b;
+    border-color: #98989b;
   }
 
   .el-row {
@@ -853,4 +1126,176 @@
   .el-row::after {
     clear: both;
   }
+
+  [class*="el-col-"] {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  .el-col-6 {
+    width: 25%;
+  }
+
+  .el-button {
+    display: inline-block;
+    line-height: 1;
+    white-space: nowrap;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid #dcdfe6;
+    border-color: #dcdfe6;
+    color: #606166;
+    -webkit-appearance: none;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    margin: 0;
+    -webkit-transition: .1s;
+    transition: .1s;
+    font-weight: 500;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    padding: 12px 20px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .el-button:hover,
+  .el-button:focus {
+    color: #303137;
+    border-color: #c1c1c3;
+    background-color: #eaeaeb;
+  }
+
+  .el-button:active {
+    color: #2b2c32;
+    border-color: #2b2c32;
+    outline: none;
+  }
+
+  .el-button::-moz-focus-inner {
+    border: 0;
+  }
+
+  .el-button.is-disabled,
+  .el-button.is-disabled:hover,
+  .el-button.is-disabled:focus {
+    color: #c0c4cc;
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #fff;
+    border-color: #ebeef5;
+  }
+
+  .el-button--primary {
+    color: #fff;
+    background-color: #303137;
+    border-color: #303137;
+  }
+
+  .el-button--primary:hover,
+  .el-button--primary:focus {
+    background: #595a5f;
+    border-color: #595a5f;
+    color: #fff;
+  }
+
+  .el-button--primary:active {
+    background: #2b2c32;
+    border-color: #2b2c32;
+    color: #fff;
+    outline: none;
+  }
+
+  .el-button--primary.is-disabled,
+  .el-button--primary.is-disabled:hover,
+  .el-button--primary.is-disabled:focus,
+  .el-button--primary.is-disabled:active {
+    color: #fff;
+    background-color: #98989b;
+    border-color: #98989b;
+  }
+
+  .el-button--primary:hover,
+  .el-button--primary:focus {
+    background-color: #4E4F57;
+    border-color: #4E4F57;
+    color: #fff;
+  }
+
+  .el-button--primary:active {
+    background-color: #1A1B1E;
+    border-color: #1A1B1E;
+    color: #fff;
+  }
+
+  .el-button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    min-width: 96px;
+    font-weight: normal;
+    border-radius: 0;
+  }
+
+  .left {
+    float: left;
+  }
+
+  .right {
+    float: right;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .clearfix:after {
+    clear: both;
+    content: '';
+    display: table;
+  }
+
+  * {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *:focus {
+    outline: none;
+  }
+
+  .clearfix:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+  }
+
+  .clearfix {
+    zoom: 1;
+  }
+
+  .swiper-pagination-bullet {
+    opacity: .6;
+  }
+
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+
+  /*! CSS Used from: Embedded */
+
+  * {
+    -webkit-user-select: text !important;
+    -moz-user-select: text !important;
+  }
+}
 </style>
