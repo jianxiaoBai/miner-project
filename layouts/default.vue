@@ -2,7 +2,6 @@
   <div class="app-container">
     <div id="gn-header">
       <div class="header__inner">
-        <!-- <a href="/" class="logo"></a> -->
         <nuxt-link class="logo" to="/" />
         <!-- <ul role="menubar" class="menu el-menu--horizontal el-menu"> -->
           <!-- <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item" tag="li" to="/product">矿机</nuxt-link> -->
