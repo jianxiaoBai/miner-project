@@ -5,24 +5,21 @@
  * test
  */
 
-let articleUrl, lightWalletUrl
+let apiUrl
 
 switch (process.env.NODE_ENV) {
   case 'development':
-    // articleUrl = 'http://127.0.0.1:8001/api2'
-    articleUrl = 'http://39.105.125.189:8001/api2'
-    // lightWalletUrl = 'http://127.0.0.1:8989/api'
-    lightWalletUrl = 'http://39.105.125.189:7001/api'
+    apiUrl = 'http://127.0.0.1:7001'
+    // apiUrl = 'http://39.105.125.189:7001/api'
     break
   case 'production':
     // articleUrl = 'http://39.105.125.189:8001/'
-    // lightWalletUrl = 'http://39.105.125.189:7001/'
-    articleUrl = 'https://www.truechain.pro/api2/'
-    lightWalletUrl = 'https://www.truechain.pro/api/'
+    // apiUrl = 'http://39.105.125.189:7001/'
+    // articleUrl = 'https://www.truechain.pro/api2/'
+    // apiUrl = 'https://www.truechain.pro/api/'
     break
 }
 
 export {
-  articleUrl,
-  lightWalletUrl
+  apiUrl
 }
