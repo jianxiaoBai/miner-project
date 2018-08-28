@@ -28,7 +28,7 @@ class MinerController extends Controller {
     this.ctx.body = {
       code: 0,
       message: '成功',
-      data: result,
+      data: result
     };
   }
 }
