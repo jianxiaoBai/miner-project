@@ -26,6 +26,10 @@ class CaptchaController extends Controller {
   async sendSms(time, code, mobile) {
     const { ctx, app } = this;
     const { username, password, sendAddress } = app.config.sms;
+    console.log(username, 'time');
+    console.log(time, 'time');
+    console.log(md5(md5(password) + time), 'password');
+
     const result = await ctx.curl(sendAddress, {
       methods: 'GET',
       data: {

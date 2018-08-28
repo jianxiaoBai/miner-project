@@ -9,6 +9,7 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = [];
   config.secret = 'miner2018white';
+  config.toAddr = '0x753f19a08d752ab3a64789fa0b0fff41c9e3589b';
   config.sms = {
     username: 'TRUE888hy',
     password: 'ADljCe',
