@@ -1,5 +1,4 @@
 'use strict';
-/* eslint-disable no-debugger */
 const Controller = require('egg').Controller;
 class MinerController extends Controller {
   async index() {
