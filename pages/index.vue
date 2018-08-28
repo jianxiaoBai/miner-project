@@ -25,17 +25,17 @@
             <div class="product-count clearfix">
               <div class="left">
                 <p class="sale-price">
-                  <span>¥12,800.00</span>
+                  <span>$1000.00</span>
                 </p>
                 <p class="original-cost">
                   <span>矿机售价</span>
                 </p>
               </div>
-              <button type="button" class="el-button right el-button--primary">
+              <nuxt-link type="button" class="el-button right el-button--primary" to="/cart">
                   <span>
                     立即购买
                   </span>
-                </button>
+              </nuxt-link>
             </div>
           </div>
         </li>

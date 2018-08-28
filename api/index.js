@@ -3,11 +3,9 @@ import http from './http.js'
 const apiCaptcha = (options) => {
   return http.get('captcha', options);
 }
-
 const apiSendSms = (options) => {
   return http.get('sendSms', options);
 }
-
 const apiLogin = (options) => {
   return http.post('login', options);
 }
@@ -17,11 +15,31 @@ const apiSign = (options) => {
 const aaa = (options) => {
   return http.post('aaa', options);
 }
+const apiOkex = (options) => {
+  return http.post('okex', options);
+}
+const apiPayInfo = (options) => {
+  return http.post('payInfo', options);
+}
+const apiOrderForm = (options) => {
+  return http.get('orderForm', options);
+}
+const apiCheckAddr = (options) => {
+  return http.get('checkAddr', options);
+}
+const apiAuthAddr = (options) => {
+  return http.post('authAddr', options);
+}
 
 export {
   apiCaptcha,
   apiSendSms,
   apiLogin,
   apiSign,
-  aaa
+  aaa,
+  apiOkex,
+  apiPayInfo,
+  apiOrderForm,
+  apiCheckAddr,
+  apiAuthAddr
 }
