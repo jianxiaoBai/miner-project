@@ -16,7 +16,6 @@ class MinerController extends Controller {
   }
   async create () {
     const { ctx } = this;
-
     if(ctx.request.header.miner_token !== this.app.config.minerToken) {
       ctx.throw(403, '无权限');
     }
