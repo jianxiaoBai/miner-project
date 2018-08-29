@@ -7,7 +7,6 @@ const handler = createHandler({
   secret: 'miner_hook',
 });
 
-
 const runCommand = (cmd, args, callback) => {
   const child = spawn(cmd, args);
   let response = '';
