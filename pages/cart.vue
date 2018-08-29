@@ -94,10 +94,6 @@
                   <td rowspan="1" colspan="1" class="el-table_6_column_23  ">
                     <div class="cell">
                       <div data-v-457cfe48="" class="product-info">
-                        <div data-v-457cfe48="" class="product-img">
-                          <img data-v-457cfe48="" src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/hc/goods/f0352db7-c0a3-4801-bdc7-c6b33f31b4d4.png?Expires=1534761594&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=omq5k3AQ1pHF2c0pDxzk%2BBtEmX4%3D"
-                            alt="">
-                        </div>
                         <div data-v-457cfe48="" class="product-desc">
                           <p data-v-457cfe48="">飞行者 Miner 200</p>
                           <p data-v-457cfe48="">专业GPU以太坊矿机 选托管免90天管理费</p>
@@ -237,7 +233,8 @@
   }
 
   .product-info[data-v-457cfe48] {
-    padding-left: 120px;
+    // padding-left: 120px;
+    text-align center
     position: relative;
     min-height: 100px;
   }

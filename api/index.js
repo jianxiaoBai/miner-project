@@ -30,8 +30,14 @@ const apiCheckAddr = (options) => {
 const apiAuthAddr = (options) => {
   return http.post('authAddr', options);
 }
+const apiPower = (options) => {
+  return http.get('power', options);
+}
+const apiUser = (options) => {
+  return http.get('user', options);
+}
 
-export {
+export  {
   apiCaptcha,
   apiSendSms,
   apiLogin,
@@ -41,5 +47,7 @@ export {
   apiPayInfo,
   apiOrderForm,
   apiCheckAddr,
-  apiAuthAddr
+  apiAuthAddr,
+  apiPower,
+  apiUser
 }

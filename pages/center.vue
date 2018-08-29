@@ -5,13 +5,13 @@
         <div class="page-component">
           <div aria-label="Breadcrumb" role="navigation" class="el-breadcrumb x-breadcrumb">
             <span class="el-breadcrumb__item">
-                    <span role="link" class="el-breadcrumb__inner is-link">
-                      个人中心
-                    </span>
+              <span role="link" class="el-breadcrumb__inner is-link">
+                个人中心
+              </span>
             <i class="el-breadcrumb__separator el-icon-arrow-right"></i>
             </span>
             <span class="el-breadcrumb__item" aria-current="page">
-                    <span role="link" class="el-breadcrumb__inner">我的账户</span>
+              <span role="link" class="el-breadcrumb__inner">我的账户</span>
             <i class=" el-breadcrumb__separator el-icon-arrow-right"></i>
             </span>
           </div>
@@ -19,11 +19,23 @@
             <div class="page-container__inner">
               <div class="page-component__nav">
                 <h2 class="nav-title">个人中心</h2>
+                <!-- <nuxt-link to="/center" class="nav-link">我的账户</nuxt-link> -->
                 <nuxt-link to="/center" class="nav-link">我的账户</nuxt-link>
                 <!-- <nuxt-link to="/center/order" class="nav-link">我的订单</nuxt-link> -->
                 <!-- <nuxt-link to="/center/trust" class="nav-link">我的托管</nuxt-link> -->
-                <nuxt-link to="/center/power" class="nav-link">我的矿机</nuxt-link>
                 <nuxt-link to="/center/safety" class="nav-link">安全中心</nuxt-link>
+                <div class="nav-link" @click="dialogVisible = true">退出登录</div>
+                <el-dialog
+                  title="提示"
+                  :visible.sync="dialogVisible"
+                  width="30%"
+                  :before-close="handleClose">
+                  <span>确认退出登录？</span>
+                  <span slot="footer" class="dialog-footer">
+                    <el-button @click="dialogVisible = false">取 消</el-button>
+                    <el-button type="primary" @click="onSignOut">确 定</el-button>
+                  </span>
+                </el-dialog>
               </div>
               <div class="page-component__content">
                 <div class="page">
@@ -39,15 +51,28 @@
 </template>
 
 <script>
-// import { aaa } from '~/api';
-  // export default {
-  //   mounted () {
-  //      aaa().then(x => {
-  //       console.log(x);
-
-  //     })
-  //   }
-  // }
+  import { removeStore } from '~/util';
+  export default {
+    data () {
+      return {
+         dialogVisible: false
+      }
+    },
+    methods: {
+      onSignOut () {
+        this.dialogVisible = false
+        removeStore('token')
+        this.$router.push('/sign-up')
+      },
+      handleClose(done) {
+        this.$confirm('确认关闭？')
+          .then(_ => {
+            done();
+          })
+          .catch(_ => {});
+      }
+    }
+  }
 </script>
 
 <style lang="stylus" scpoed>

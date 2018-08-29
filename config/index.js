@@ -9,14 +9,10 @@ let apiUrl
 
 switch (process.env.NODE_ENV) {
   case 'development':
-    apiUrl = 'http://127.0.0.1:7001'
-    // apiUrl = 'http://39.105.125.189:7001/api'
+    apiUrl = 'http://127.0.0.1:8011'
     break
   case 'production':
-    // articleUrl = 'http://39.105.125.189:8001/'
-    // apiUrl = 'http://39.105.125.189:7001/'
-    // articleUrl = 'https://www.truechain.pro/api2/'
-    // apiUrl = 'https://www.truechain.pro/api/'
+    apiUrl = 'http://45.40.243.125:8011'
     break
 }
 

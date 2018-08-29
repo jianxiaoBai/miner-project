@@ -29,7 +29,7 @@ service.interceptors.response.use(res => {
   console.log(status);
 
   if(status === 401) {
-    location.href = 'sign-in'
+    location.href = '/sign-in'
   } else {
     that.$message({
       message: data.message,
