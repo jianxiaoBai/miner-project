@@ -23,6 +23,7 @@
     "egg-mock": "^3.14.0",
     "eslint": "^4.11.0",
     "eslint-config-egg": "^6.0.0",
+    "github-webhook-handler": "^0.7.1",
     "webstorm-disable-index": "^1.2.0"
   },
   "engines": {
@@ -31,7 +32,7 @@
   "scripts": {
     "start": "egg-scripts start --daemon --title=egg-server-miner-server",
     "stop": "egg-scripts stop --title=egg-server-miner-server",
-    "dev": "egg-bin dev",
+    "dev": "egg-bin dev --port=8911",
     "debug": "egg-bin debug",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
