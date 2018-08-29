@@ -31,7 +31,6 @@ const getLocalTime = () => {
 };
 
 module.exports = {
-  iterface,
   getAothCode,
   getLocalTime,
   getRandomStrArr,
