@@ -4,8 +4,10 @@ const Service = require('egg').Service;
 class GetAddrService extends Service {
   async get () {
     return await this.app.mysql.query(`
-      SELECT bind_address, mobile, buy_count
-      FROM user
+      SELECT
+        bind_address, mobile, buy_count
+      FROM
+        user
       WHERE
         bind_address IS NOT NULL
       AND
@@ -13,15 +15,15 @@ class GetAddrService extends Service {
     `);
   }
   async insert ({
-    mobile = 'mobile',
-    bind_address = 'bind_address',
-    power = 'power',
-    status = 'status',
-    output = 'output',
-    deplete = 'deplete',
-    manage = 'manage',
-    fact = 'fact' ,
-    run_time  = 'run_time'
+    mobile = '1758712562',
+    bind_address = 'k21hg3j12g3j',
+    power = '12M',
+    status = '2',
+    output = '34',
+    deplete = '12Mbs',
+    manage = '12',
+    fact = '88' ,
+    run_time  = '24h'
   }) {
     return await this.app.mysql.insert('miner', {
       mobile,
@@ -35,6 +37,15 @@ class GetAddrService extends Service {
       run_time ,
       create_time: +new Date(),
     });
+  }
+  async getPower () {
+    return await this.app.mysql.select('miner', {
+      where: {
+        mobile: this.ctx.encode.mobile
+      },
+      columns: ['id', 'bind_address', 'create_time', 'power', 'status', 'output', 'deplete', 'manage', 'fact', 'run_time']
+      // orders: [['create_time','desc']]
+    })
   }
 }
 

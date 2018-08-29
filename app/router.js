@@ -14,5 +14,7 @@ module.exports = app => {
   router.post('/authAddr', controller.pay.authAddr);
   router.get('/getAddress', controller.miner.index);
   router.post('/addInfo', controller.miner.create);
+  router.get('/power', controller.miner.power);
+  router.get('/user', controller.user.index);
   // router.get('/captcha', controller.login.captcha);
 };

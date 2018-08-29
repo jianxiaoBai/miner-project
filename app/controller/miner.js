@@ -28,6 +28,14 @@ class MinerController extends Controller {
       data: result
     };
   }
+  async power () {
+   const result = await this.service.miner.getPower();
+    this.ctx.body = {
+      code: 0,
+      message: '成功',
+      data: result,
+    };
+  }
 }
 
 module.exports = MinerController;
