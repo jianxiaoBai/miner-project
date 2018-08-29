@@ -9,7 +9,7 @@ class MinerController extends Controller {
       ctx.throw(403, '无权限');
     }
 
-    const result = await this.service.miner.get()
+    const result = await this.service.miner.get();
     this.ctx.body = {
       code: 0,
       message: '成功',
