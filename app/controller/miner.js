@@ -3,9 +3,7 @@ const Controller = require('egg').Controller;
 class MinerController extends Controller {
   async index() {
     const { ctx } = this;
-    const { mobile } = ctx.encode;
-
-    if(mobile !== '15101661380') {
+    if(ctx.request.header.miner_token !== this.app.config.minerToken) {
       ctx.throw(403, '无权限');
     }
 
@@ -18,9 +16,8 @@ class MinerController extends Controller {
   }
   async create () {
     const { ctx } = this;
-    const { mobile } = ctx.encode;
 
-    if(mobile !== '15101661380') {
+    if(ctx.request.header.miner_token !== this.app.config.minerToken) {
       ctx.throw(403, '无权限');
     }
 

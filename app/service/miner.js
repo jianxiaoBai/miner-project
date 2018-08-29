@@ -4,7 +4,7 @@ const Service = require('egg').Service;
 class GetAddrService extends Service {
   async get () {
     return await this.app.mysql.query(`
-      SELECT bind_address, buy_count
+      SELECT bind_address, mobile, buy_count
       FROM user
       WHERE
         bind_address IS NOT NULL
