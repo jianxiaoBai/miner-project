@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cart">
     <div data-v-457cfe48="" class="container">
       <div data-v-457cfe48="" class="cart-container">
         <div data-v-457cfe48="" aria-label="Breadcrumb" role="navigation" class="el-breadcrumb breadcrumb">
@@ -44,12 +44,7 @@
                 <tr class="tb-title">
                   <th colspan="1" rowspan="1" class="el-table_6_column_22   el-table-column--selection  is-leaf">
                     <div class="cell">
-                      <label role="checkbox" class="el-checkbox is-checked" aria-checked="true">
-                        <span aria-checked="mixed" class="el-checkbox__input is-checked">
-                          <span class="el-checkbox__inner"></span>
-                          <input type="checkbox" aria-hidden="true" class="el-checkbox__original" value="">
-                        </span>
-                      </label>
+                        <el-checkbox v-model="checked"></el-checkbox>
                     </div>
                   </th>
                   <th colspan="1" rowspan="1" class="el-table_6_column_23     is-leaf">
@@ -83,12 +78,7 @@
                 <tr class="el-table__row">
                   <td rowspan="1" colspan="1" class="el-table_6_column_22  el-table-column--selection">
                     <div class="cell">
-                      <label role="checkbox" class="el-checkbox is-checked" aria-checked="true">
-                        <span aria-checked="mixed" class="el-checkbox__input is-checked">
-                          <span class="el-checkbox__inner"></span>
-                          <input type="checkbox" aria-hidden="true" class="el-checkbox__original" value="">
-                        </span>
-                      </label>
+                        <el-checkbox v-model="checked"></el-checkbox>
                     </div>
                   </td>
                   <td rowspan="1" colspan="1" class="el-table_6_column_23  ">
@@ -130,21 +120,18 @@
         </div>
         <div data-v-457cfe48="" class="summary">
           <label data-v-457cfe48="" role="checkbox" class="el-checkbox is-checked" aria-checked="true">
-            <span aria-checked="mixed" class="el-checkbox__input is-checked">
-              <span class="el-checkbox__inner"></span>
-              <input type="checkbox" aria-hidden="true" class="el-checkbox__original" value="">
-            </span>
-            <span class="el-checkbox__label">全选
-            </span>
+            <div class="cell">
+                <el-checkbox v-model="checked">全选</el-checkbox>
+            </div>
           </label>
           <button data-v-457cfe48="" type="button" class="el-button submit el-button--primary" @click="onConfirm">
             <span style="color: white">确认购买</span>
           </button>
           <div data-v-457cfe48="" class="summary-content">
             <span data-v-457cfe48="">已选择商品
-              <em data-v-457cfe48="">{{buyNum}}</em>件</span>
+              <em data-v-457cfe48="">{{ checked ? buyNum : 0 }}</em>件</span>
             <span data-v-457cfe48="">商品总金额：
-              <em data-v-457cfe48="">{{ nowPrice * buyNum }}.00美元</em>
+              <em data-v-457cfe48="">{{ checked ? nowPrice * buyNum : 0 }}.00美元</em>
             </span>
           </div>
         </div>
@@ -163,11 +150,18 @@
     data () {
       return {
         buyNum: 1,
-        nowPrice: 1000
+        nowPrice: 1000,
+        checked: true
       }
     },
     methods: {
       onConfirm () {
+        if(!this.checked) {
+          return this.$message({
+            message: '请选择产品',
+            type: 'warning'
+          });
+        }
         apiPayInfo({
           buyNum: this.buyNum
         }).then(({ data: { orderForm } }) => {
@@ -193,7 +187,7 @@
 
 <style lang="stylus">
   /* CSS Used from: https://hash.hc.top/_nuxt/app.4188da40ee5b0a0b9632a89578998921.css */
-
+.cart {
   .features[data-v-36a43c6d] {
     background-color: #fff;
     text-align: center;
@@ -2527,5 +2521,5 @@
   .el-breadcrumb__item:last-child .el-breadcrumb__inner:hover {
     color: #303137;
   }
-
+}
 </style>

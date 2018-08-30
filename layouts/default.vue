@@ -197,7 +197,7 @@
       height: 61px;
       float: left; // background-image: url(https://hash.hc.top/_nuxt/img/logo-cn@1x.332b85e.png);
       // background-image: url(https://hash.hc.top/_nuxt/img/logo-cn@1x.332b85e.png);
-      background-image: url('https://hash.hc.top/_nuxt/img/logo-cn@2x.378c50c.png');
+      background-image: url('~/assets/img/logo-cn.png');
       background-repeat: no-repeat;
       background-position: center;
       background-size: 100% 100%;

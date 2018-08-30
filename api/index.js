@@ -36,6 +36,12 @@ const apiPower = (options) => {
 const apiUser = (options) => {
   return http.get('user', options);
 }
+const apiRecord = (options) => {
+  return http.get('record', options);
+}
+const apiDelOrder = (options) => {
+  return http.delete('order', options);
+}
 
 export  {
   apiCaptcha,
@@ -49,5 +55,7 @@ export  {
   apiCheckAddr,
   apiAuthAddr,
   apiPower,
-  apiUser
+  apiUser,
+  apiRecord,
+  apiDelOrder
 }

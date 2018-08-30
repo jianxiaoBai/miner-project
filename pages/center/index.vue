@@ -17,7 +17,6 @@
             <p>待交割</p>
             <strong>0T</strong>
           </div>
-          <span>算力明细 &gt;</span>
         </div>
         <div class="clearfix right detail-right">
           <div class="left detail-data">
@@ -115,9 +114,7 @@
     mounted () {
       apiPower().then(({ data }) => {
         this.powerList = data
-      }).catch((err) => {
-
-      });
+      })
     }
   }
 
@@ -332,47 +329,6 @@
     }
     .t-content table {
       width: 950px;
-    }
-    strong {
-      font-weight: bolder;
-    }
-    ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
-      background-color: #F5F5F5;
-    }
-    ::-webkit-scrollbar-track {
-      -webkit-box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
-      box-shadow: inset 0 0 1px rgba(0, 0, 0, 0);
-      border-radius: 10px;
-      background-color: #f5f5f5;
-    }
-    ::-webkit-scrollbar-thumb {
-      border-radius: 10px;
-      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-      box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-      background-color: #555;
-    }
-    ::-ms-clear,
-    ::-ms-reveal {
-      display: none;
-    }
-    ::-ms-expand {
-      display: none;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    h2,
-    h3,
-    p {
-      margin: 0;
-    }
-    h2 {
-      font-size: 22px;
-      line-height: 30px;
     }
 
     .el-tooltip:focus:not(.focusing),

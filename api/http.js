@@ -55,6 +55,18 @@ export default {
       }
     })
   },
+  delete (url, data = {}) {
+    return service({
+      method: 'delete',
+      url,
+      data: qs.stringify(data),
+      headers: {
+        'X-Requested-With': 'XMLHttpRequest',
+        'withCredentials': true,
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      }
+    })
+  },
   get (url, params = {}) {
     return service({
       method: 'get',

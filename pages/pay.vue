@@ -1,10 +1,10 @@
 <template>
-  <div data-v-32f2f1fc="" class="page">
+  <div data-v-32f2f1fc="" class="pay">
     <div data-v-32f2f1fc="" class="page-container">
       <div data-v-32f2f1fc="" class="order-info el-row">
         <div data-v-32f2f1fc="" class="el-col el-col-16">
           <p data-v-32f2f1fc="" class="">订单提交成功，请尽快付款，订单号：{{ $route.query.orderForm }}</p>
-          <p data-v-32f2f1fc="" class="order-tips">订单已提交成功，请在24小时内完成付款，否则订单将会过期</p>
+          <p data-v-32f2f1fc="" class="order-tips">订单已提交成功，请在当天23:00点钱内完成付款，否则订单将会失效</p>
           <p data-v-32f2f1fc="" style="margin-top: 10px; color: red;">确认付款成功并且认证地址后, 每天凌晨0点会进行挖矿打入认证地址</p>
         </div>
         <div data-v-32f2f1fc="" class="text-right el-col el-col-8">应付总金额
@@ -139,6 +139,7 @@
 </script>
 
 <style lang="stylus">
+.pay {
   .features[data-v-36a43c6d] {
     background-color: #fff;
     text-align: center;
@@ -2438,5 +2439,5 @@
   .pay-methods-list .el-checkbox .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner::after {
     border-color: #fff;
   }
-
+}
 </style>
