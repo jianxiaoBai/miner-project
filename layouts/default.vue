@@ -43,19 +43,19 @@
     </div>
     <div class="features el-row">
       <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_superb.8e98ef0.png" alt="">
+        <img src="~/assets/img/feature_superb.png" alt="">
         <p>算力卓越</p>
       </div>
       <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_flexible_trading.6dd96da.png" alt="">
+        <img src="~/assets/img/feature_flexible_trading.png" alt="">
         <p>灵活交易</p>
       </div>
       <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_low_risk.5ffc700.png" alt="">
+        <img src="~/assets/img/feature_low_risk.png" alt="">
         <p>超低风险</p>
       </div>
       <div class="el-col el-col-6">
-        <img src="~/assets/img/feature_buy_use.987034b.png" alt="">
+        <img src="~/assets/img/feature_buy_use.png" alt="">
         <p>随买随用</p>
       </div>
     </div>
