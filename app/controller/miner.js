@@ -20,7 +20,7 @@ class MinerController extends Controller {
     if(ctx.request.header.miner_token !== this.app.config.minerToken) {
       ctx.throw(403, '无权限');
     }
-    debugger;
+
     const result = await this.service.miner.insert(ctx.request.body);
     this.ctx.body = {
       code: 0,
