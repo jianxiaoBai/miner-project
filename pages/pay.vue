@@ -33,35 +33,29 @@
           </div>
           <div>
             <span>收款地址:&nbsp;</span>
-            <span>0x753F19A08D752ab3a64789FA0B0FFF41c9e3589b</span>
+            <span>0x2e9e11ea7435395837223fec1052a0e5787bbe73</span>
           </div>
           <div style="width: 200px">
             <span>收款二维码:</span>
             <img src="~/assets/img/moneyQR.png" alt="">
           </div>
         </div>
-        <div v-if="isBuy">
+        <div>
           <div>
             <el-input style="width: 40%" v-model="payAddress" placeholder="请输入付款地址, 用来确认是否已付款"></el-input>
           </div>
           <div data-v-32f2f1fc="" class="pay-info">
             <div data-v-32f2f1fc="">
-              <button data-v-32f2f1fc="" type="button" class="el-button el-button--primary" @click="onPay">
-                <span style="color: white">已付款成功</span>
-              </button>
+              <el-button type="primary" @click="onPay">已付款成功</el-button>
             </div>
           </div>
         </div>
-        <div v-else>
+        <div>
           <div>
-            <el-input style="width: 40%" v-model="authAddress" placeholder="认证后24小时内开启挖矿"></el-input>
+            <el-input style="width: 40%" :disabled="isBuy" v-model="authAddress" placeholder="绑定认证地址后24小时内开启挖矿"></el-input>
           </div>
           <div data-v-32f2f1fc="" class="pay-info">
-            <div data-v-32f2f1fc="">
-              <button data-v-32f2f1fc="" type="button" class="el-button el-button--primary" @click="onDig">
-                <span style="color: white">确认挖矿</span>
-              </button>
-            </div>
+             <el-button type="primary" :disabled="isBuy" @click="onDig">绑定挖矿地址</el-button>
           </div>
         </div>
       </div>
@@ -97,6 +91,12 @@
     },
     methods: {
       onDig () {
+        if(this.isBuy) {
+           return this.$message({
+            message: '请先付款',
+            type: 'warning'
+          })
+        }
         if (!this.authAddress) return
         if (this.authAddress.length !== 42) {
           return this.$message({
@@ -443,6 +443,9 @@
     color: #fff;
     background-color: #303137;
     border-color: #303137;
+    span {
+      color white
+    }
   }
 
   .el-button--primary:hover,
@@ -650,15 +653,6 @@
     outline: none;
   }
 
-  .el-button--primary.is-disabled,
-  .el-button--primary.is-disabled:hover,
-  .el-button--primary.is-disabled:focus,
-  .el-button--primary.is-disabled:active {
-    color: #fff;
-    background-color: #98989b;
-    border-color: #98989b;
-  }
-
   .el-checkbox {
     color: #606266;
     font-weight: 500;
@@ -946,14 +940,14 @@
     outline: none;
   }
 
-  .el-button--primary.is-disabled,
-  .el-button--primary.is-disabled:hover,
-  .el-button--primary.is-disabled:focus,
-  .el-button--primary.is-disabled:active {
-    color: #fff;
-    background-color: #98989b;
-    border-color: #98989b;
-  }
+  // .el-button--primary.is-disabled,
+  // .el-button--primary.is-disabled:hover,
+  // .el-button--primary.is-disabled:focus,
+  // .el-button--primary.is-disabled:active {
+  //   color: #fff;
+  //   background-color: #98989b;
+  //   border-color: #98989b;
+  // }
 
   .el-checkbox {
     color: #606266;
@@ -1028,27 +1022,6 @@
     border-color: #303137;
   }
 
-  .el-checkbox__inner::after {
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    content: '';
-    border: 1px solid #fff;
-    border-left: 0;
-    border-top: 0;
-    height: 7px;
-    left: 4px;
-    position: absolute;
-    top: 1px;
-    -webkit-transform: rotate(45deg) scaleY(0);
-    transform: rotate(45deg) scaleY(0);
-    width: 3px;
-    -webkit-transition: -webkit-transform 0.15s ease-in 0.05s;
-    transition: -webkit-transform 0.15s ease-in 0.05s;
-    transition: transform 0.15s ease-in 0.05s;
-    transition: transform 0.15s ease-in 0.05s, -webkit-transform 0.15s ease-in 0.05s;
-    -webkit-transform-origin: center;
-    transform-origin: center;
-  }
 
   .el-checkbox__original {
     opacity: 0;
@@ -1171,14 +1144,6 @@
     outline: none;
   }
 
-  .el-button--primary.is-disabled,
-  .el-button--primary.is-disabled:hover,
-  .el-button--primary.is-disabled:focus,
-  .el-button--primary.is-disabled:active {
-    color: #fff;
-    background-color: #98989b;
-    border-color: #98989b;
-  }
 
   .el-checkbox {
     color: #606266;

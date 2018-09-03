@@ -150,7 +150,7 @@
     data () {
       return {
         buyNum: 1,
-        nowPrice: 1000,
+        nowPrice: 10,
         checked: true
       }
     },

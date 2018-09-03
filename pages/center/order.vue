@@ -92,6 +92,7 @@
         apiDelOrder({
           orderForm: order
         }).then(res => {
+          this.dialogVisible = false
           this.init()
         })
       }

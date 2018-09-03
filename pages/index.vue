@@ -25,7 +25,7 @@
             <div class="product-count clearfix">
               <div class="left">
                 <p class="sale-price">
-                  <span>$1000.00</span>
+                  <span>$10.00</span>
                 </p>
                 <p class="original-cost">
                   <span>矿机售价</span>
