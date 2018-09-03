@@ -14,29 +14,18 @@ class GetAddrService extends Service {
         buy_count > 0
     `);
   }
-  async insert ({
-    mobile = '1758712562',
-    bind_address = 'k21hg3j12g3j',
-    power = '12M',
-    status = '2',
-    output = '34',
-    deplete = '12Mbs',
-    manage = '12',
-    fact = '88' ,
-    run_time  = '24h',
-    sum_output = '1232'
-  }) {
+  async insert (d) {
     return await this.app.mysql.insert('miner', {
-      mobile,
-      bind_address,
-      power,
-      status,
-      output,
-      deplete,
-      manage,
-      fact,
-      run_time,
-      sum_output,
+      mobile: d.mobile,
+      bind_address: d.bind_address,
+      power: d.power,
+      status: d.status,
+      output: d.output,
+      deplete: d.deplete,
+      manage: d.manage,
+      fact: d.fact,
+      run_time: d.run_time,
+      sum_output: d.sum_output,
       create_time: +new Date(),
     });
   }
