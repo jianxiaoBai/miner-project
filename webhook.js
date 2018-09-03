@@ -1,5 +1,6 @@
 'use strict';
 const http = require('http');
+const axios = require('axios');
 const createHandler = require('github-webhook-handler');
 const { spawn } = require('child_process');
 const handler = createHandler({
@@ -32,10 +33,19 @@ handler.on('push', function(event) {
     event.payload.repository.name,
     event.payload.ref);
   if (event.payload.ref === 'refs/heads/new_api') {
-    console.log('Start run command');
+    console.log('Start run command on New_api');
     runCommand('sh', [ './auto_deploy.sh' ], txt => {
       console.log(txt);
     });
+  } else if (event.payload.ref === 'refs/heads/master') {
+    console.log('Start run command on Master');
+    axios.get('http://47.75.198.92:7770/')
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+        });
   } else {
     console.log('Not the master branch, will not trigger');
   }
