@@ -23,7 +23,8 @@ class GetAddrService extends Service {
     deplete = '12Mbs',
     manage = '12',
     fact = '88' ,
-    run_time  = '24h'
+    run_time  = '24h',
+    sum_output = '1232'
   }) {
     return await this.app.mysql.insert('miner', {
       mobile,
@@ -34,7 +35,8 @@ class GetAddrService extends Service {
       deplete,
       manage,
       fact,
-      run_time ,
+      run_time,
+      sum_output,
       create_time: +new Date(),
     });
   }

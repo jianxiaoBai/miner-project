@@ -10,7 +10,7 @@ class SignService extends Service {
     if(Number(buyNum) < 1) {
       this.ctx.throw(403, '购买数量不能为0');
     }
-    const minerMoney = 1000;
+    const minerMoney = 10;
     const { mobile } = this.ctx.encode;
     const { data: { data } } = await this.ctx.curl('http://ok.truescan.net/', {
         dataType: 'json',
