@@ -12,6 +12,7 @@ const runCommand = (cmd, args, callback) => {
 };
 
 http.createServer(function (req, res) {
+  console.log(ip.address() , 'ip');
   if(ip.address() === '47.75.198.92') {
     runCommand('sh', [ './auto_deploy.sh' ], txt => {
       console.log(txt);
