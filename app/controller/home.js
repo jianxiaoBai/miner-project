@@ -7,8 +7,7 @@ class HomeController extends Controller {
     this.ctx.body = {
       code: 0,
       message: '请求成功了',
-      data: null,
-      ip: this.ctx.ip
+      data: null
     };
   }
 }
