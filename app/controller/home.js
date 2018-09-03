@@ -6,8 +6,9 @@ class HomeController extends Controller {
     // debugger;
     this.ctx.body = {
       code: 0,
-      message: '请求成功',
-      data: null
+      message: '请求成功了',
+      data: null,
+      ip: this.ctx.ip
     };
   }
 }

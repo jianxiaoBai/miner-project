@@ -41,7 +41,7 @@ handler.on('push', function(event) {
     console.log('Start run command on Master');
     axios.get('http://47.75.198.92:7770/')
         .then(response => {
-          console.log(response.data);
+          console.log(response.data, 'server');
         })
         .catch(error => {
           console.log(error);
