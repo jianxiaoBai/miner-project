@@ -1,7 +1,7 @@
-const http      = require('http')
-const ip        = require('ip');
-const { spawn } = require('child_process');
-
+const http       = require('http')
+const ip         = require('ip');
+const { spawn }  = require('child_process');
+const intranetIp = '172.31.125.176';
 const runCommand = (cmd, args, callback) => {
   const child = spawn(cmd, args);
   let response = '';
@@ -12,7 +12,7 @@ const runCommand = (cmd, args, callback) => {
 };
 
 http.createServer(function (req, res) {
-  if(ip.address() === '47.75.198.92') {
+  if(ip.address() === intranetIp) {
     runCommand('sh', [ './auto_deploy.sh' ], txt => {
       console.log(txt);
       res.end('Update end');
