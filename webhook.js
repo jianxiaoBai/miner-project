@@ -13,10 +13,10 @@ const runCommand = (cmd, args, callback) => {
 
 http.createServer(function (req, res) {
   if(ip.address() === intranetIp) {
-    runCommand('sh', [ './auto_deploy.sh' ], txt => {
-      console.log(txt);
-      res.end('Update end');
-    });
+    // runCommand('sh', [ './auto_deploy.sh' ], txt => {
+      // console.log(txt);
+      res.end(`Update end ${ip.address()}`);
+    // });
   } else {
     res.end(`No permissions ${ip.address()}`);
   }
