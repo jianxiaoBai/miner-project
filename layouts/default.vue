@@ -3,12 +3,6 @@
     <div id="gn-header">
       <div class="header__inner">
         <nuxt-link class="logo" to="/" />
-        <!-- <ul role="menubar" class="menu el-menu--horizontal el-menu"> -->
-          <!-- <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item" tag="li" to="/product">矿机</nuxt-link> -->
-          <!-- <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item"  tag="li" to="/q1">托管</nuxt-link> -->
-          <!-- <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item"  tag="li" to="/pool">矿池</nuxt-link> -->
-          <!-- <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item"  tag="li" to="/cloud">云算力</nuxt-link> -->
-        <!-- </ul> -->
         <div class="right text-right">
           <ul role="menubar" class="menu login el-menu--horizontal el-menu is-login">
             <template v-if="isLogin">
@@ -25,10 +19,10 @@
               </nuxt-link>
             </template>
             <template v-else>
-              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign-in" to="sign-in">
+              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign-in" to="/sign-in">
                 登录
               </nuxt-link>
-              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign-up" to="sign-up">
+              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign-up" to="/sign-up">
                 注册
               </nuxt-link>
             </template>
@@ -41,7 +35,7 @@
         <nuxt/>
       </transition>
     </div>
-    <div class="features el-row">
+    <div class="app-features el-row">
       <div class="el-col el-col-6">
         <img src="~/assets/img/feature_superb.png" alt="">
         <p>算力卓越</p>
@@ -62,54 +56,6 @@
     <div class="footer">
       <span>Copyright ⓒ TrueTW All Rights Reserved.</span>
     </div>
-    <!-- <div class="footer">
-      <div class="footer__inner el-row">
-        <div class="el-col el-col-7">
-          <img src="~/assets/img/footer-logo.60c2768.png" class="footer-logo">
-          <p>沪ICP备18000657号-2 Copyright © 算立方 版权所有</p>
-          <p>上海挖链科技有限公司</p>
-          <p>地址：上海市徐汇区云锦路500号绿地汇中心B座12楼</p>
-        </div>
-        <div class="el-col el-col-3">
-          <h5>挖链产品与服务</h5>
-          <p>
-            <a href="/" class="link">算立方</a>
-          </p>
-          <p>
-            <a href="#" target="_blank" class="link">挖链网</a>
-          </p>
-          <p>
-            <a href="#" target="_blank" class="link">通证指数</a>
-          </p>
-        </div>
-        <div class="el-col el-col-3">
-          <h5>关于算立方</h5>
-          <p>
-            <a href="/about-us" class="link">算立方简介</a>
-          </p>
-          <p>商务合作</p>
-          <p>bd@walian.cn</p>
-        </div>
-        <div class="text-center el-col el-col-4">
-          <h5>客服热线</h5>
-          <p class="footer-service">400-865-6688</p>
-          <p>周一至周五 09:00~18:00</p>
-          <p>（仅收市话费）</p>
-        </div>
-        <div class="el-col el-col-5 el-col-offset-2">
-          <div class="text-center el-row">
-            <div class="el-col el-col-12">
-              <h5>算立方客服微信</h5>
-              <img src="~/assets/img/wechat-services.06640be.jpg" class="download-img">
-            </div>
-            <div class="el-col el-col-12">
-              <h5>算立方公众号</h5>
-              <img src="~/assets/img/qrcode.c141531.jpg" class="download-img">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </div>
 </template>
 
@@ -147,7 +93,7 @@
     }
   }
   .app-container {
-    .features {
+    .app-features {
       background-color: #fff;
       text-align: center;
       padding: 50px 120px;

@@ -19,8 +19,8 @@
             <div class="page-container__inner">
               <div class="page-component__nav">
                 <h2 class="nav-title">个人中心</h2>
-                <!-- <nuxt-link to="/center" class="nav-link">我的账户</nuxt-link> -->
                 <nuxt-link to="/center" class="nav-link">我的账户</nuxt-link>
+                <nuxt-link to="/center/power" class="nav-link">我的云算力</nuxt-link>
                 <nuxt-link to="/center/order" class="nav-link">我的订单</nuxt-link>
                 <!-- <nuxt-link to="/center/trust" class="nav-link">我的托管</nuxt-link> -->
                 <nuxt-link to="/center/safety" class="nav-link">安全中心</nuxt-link>
@@ -61,8 +61,8 @@
     methods: {
       onSignOut () {
         this.dialogVisible = false
-        removeStore('token')
-        this.$router.push('/sign-up')
+        removeStore('token');
+        window.location.href = '/sign-up';
       },
       handleClose(done) {
         this.$confirm('确认关闭？')
@@ -100,7 +100,7 @@
     padding: 50px 120px;
   }
 
-  img {
+  .center-page img {
     height: 45px;
     width: auto;
   }

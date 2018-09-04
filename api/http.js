@@ -10,7 +10,10 @@ const that = Vue.prototype
 const service = axios.create({
   baseURL: apiUrl,
   timeout: 5000,
-  withCredentials: true
+  withCredentials: true,
+  headers: {
+    'X-Requested-With': 'XMLHttpRequest',
+  }
 })
 
 service.interceptors.request.use(config => {
@@ -29,7 +32,7 @@ service.interceptors.response.use(res => {
   console.log(status);
 
   if(status === 401) {
-    location.href = '/sign-in'
+    window.location.href = '/sign-in'
   } else {
     that.$message({
       message: data.message,
@@ -46,11 +49,9 @@ export default {
   post (url, data = {}) {
     return service({
       method: 'post',
-      url,
+      url: `api/${url}`,
       data: qs.stringify(data),
       headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-        'withCredentials': true,
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
     })
@@ -58,11 +59,9 @@ export default {
   delete (url, data = {}) {
     return service({
       method: 'delete',
-      url,
+      url: `api/${url}`,
       data: qs.stringify(data),
       headers: {
-        'X-Requested-With': 'XMLHttpRequest',
-        'withCredentials': true,
         'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
     })
@@ -70,11 +69,8 @@ export default {
   get (url, params = {}) {
     return service({
       method: 'get',
-      url,
+      url: `api/${url}`,
       params, // get 请求时带的参数
-      headers: {
-        'X-Requested-With': 'XMLHttpRequest'
-      }
     })
   }
 }

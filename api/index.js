@@ -42,6 +42,9 @@ const apiRecord = (options) => {
 const apiDelOrder = (options) => {
   return http.delete('order', options);
 }
+const apiAsset = (options) => {
+  return http.get('asset', options);
+}
 
 export  {
   apiCaptcha,
@@ -57,5 +60,6 @@ export  {
   apiPower,
   apiUser,
   apiRecord,
-  apiDelOrder
+  apiDelOrder,
+  apiAsset
 }

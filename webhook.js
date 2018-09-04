@@ -1,5 +1,4 @@
 const http       = require('http')
-const ip         = require('ip');
 const { spawn }  = require('child_process');
 const localhostIP = '47.75.198.92';
 const runCommand = (cmd, args, callback) => {

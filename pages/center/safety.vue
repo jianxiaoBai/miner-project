@@ -17,7 +17,7 @@
                 <span>绑定手机: {{ data.mobile }}</span>
               </p>
               <p>
-                <span>认证地址: {{ data.bind_address }}</span>
+                <span>认证地址: {{ data.bind_address || '暂无认证' }}</span>
                 <!-- <button type="button" class="el-button right el-button--default el-button--mini">
                   <span>&#21435;&#32465;&#23450;
                   </span>
