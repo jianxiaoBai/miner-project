@@ -3,7 +3,7 @@
 const Service = require('egg').Service;
 const Web3    = require('web3');
 const web3    = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/'));
-const { getLocalTime } = require('../utils')
+const { getLocalTime } = require('../utils');
 class SignService extends Service {
   async insert ({ buyNum }) {
     // 矿机定价 1000 $
@@ -62,16 +62,16 @@ class SignService extends Service {
             orderForm,
             pay_address: payAddress
           })
-          // 同步更新表
+          // sync update the table
           await this.app.mysql.query(`
             UPDATE user, (
-                SELECT mobile, sum(buy_record.buy_num) as sumBuy
+                SELECT mobile, sum(buy_record.buy_num) AS sumBuy
                 FROM buy_record
                 WHERE
                   is_success='1'
                 GROUP BY
                   mobile
-              ) as br
+              ) AS br
             SET
               user.buy_count = br.sumBuy
               user.update_time='${+new Date()}'

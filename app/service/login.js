@@ -6,12 +6,13 @@ class LoginServer extends Service {
   async select({ mobile, isCodeLogin, code = null, password = null }) {
     const { ctx, app } = this;
     const expired = 60 * 5;
-    const result = (await app.mysql.select(JSON.parse(isCodeLogin) ? 'sms_log' : 'user' , {
+    // const result = (await app.mysql.select(JSON.parse(isCodeLogin) ? 'sms_log' : 'user' , {
+    const result = (await app.mysql.select('user' , {
       where: { mobile }
     }))[0];
-
+    // debugger;
     if(!result) {
-      ctx.throw(403, '该手机号不存在');
+      ctx.throw(403, '请先完成手机号码注册');
     }
 
     if(JSON.parse(isCodeLogin)) {

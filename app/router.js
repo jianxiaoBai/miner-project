@@ -2,21 +2,21 @@
 
 module.exports = app => {
   const { router, controller } = app;
-  router.get('/', controller.home.index);
-  router.get('/captcha', controller.captcha.index);
-  router.get('/sendSms', controller.captcha.smsCaptcha);
-  router.post('/login', controller.login.index);
-  router.post('/sign', controller.sign.create);
-  router.post('/okex', controller.okex.index);
-  router.post('/payInfo', controller.pay.index);
-  router.get('/orderForm', controller.pay.getOrderForm);
-  router.get('/checkAddr', controller.pay.checkAddr);
-  router.post('/authAddr', controller.pay.authAddr);
-  router.get('/getAddress', controller.miner.index);
-  router.post('/addInfo', controller.miner.create);
-  router.get('/power', controller.miner.power);
-  router.get('/user', controller.user.index);
-  router.get('/record', controller.user.record);
-  router.del('/order', controller.user.delOrder);
-  // router.get('/captcha', controller.login.captcha);
+  router.get('/api/', controller.home.index);
+  router.get('/api/captcha', controller.captcha.index);
+  router.get('/api/sendSms', controller.captcha.smsCaptcha);
+  router.post('/api/login', controller.login.index);
+  router.post('/api/sign', controller.sign.create);
+  router.post('/api/okex', controller.okex.index);
+  router.post('/api/payInfo', controller.pay.index);
+  router.get('/api/orderForm', controller.pay.getOrderForm);
+  router.get('/api/checkAddr', controller.pay.checkAddr);
+  router.post('/api/authAddr', controller.pay.authAddr);
+  router.get('/api/getAddress', controller.miner.index);
+  router.post('/api/addInfo', controller.miner.create);
+  router.get('/api/power', controller.miner.power);
+  router.get('/api/user', controller.user.index);
+  router.get('/api/record', controller.user.record);
+  router.del('/api/order', controller.user.delOrder);
+  router.get('/api/asset', controller.asset.index);
 };

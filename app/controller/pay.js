@@ -1,6 +1,5 @@
 'use strict';
 const Controller = require('egg').Controller;
-const We3 = require('web3');
 
 class PayController extends Controller {
   async index () {
