@@ -8,13 +8,18 @@ module.exports = app => {
   router.post('/api/login', controller.login.index);
   router.post('/api/sign', controller.sign.create);
   router.post('/api/okex', controller.okex.index);
+
   router.post('/api/payInfo', controller.pay.index);
   router.get('/api/orderForm', controller.pay.getOrderForm);
   router.get('/api/checkAddr', controller.pay.checkAddr);
   router.post('/api/authAddr', controller.pay.authAddr);
+  router.post('/api/buy', controller.pay.buyRequest);
+  router.post('/api/sell', controller.pay.sellRequest);
+
   router.get('/api/getAddress', controller.miner.index);
   router.post('/api/addInfo', controller.miner.create);
   router.get('/api/power', controller.miner.power);
+
   router.get('/api/user', controller.user.index);
   router.get('/api/record', controller.user.record);
   router.del('/api/order', controller.user.delOrder);

@@ -8,11 +8,14 @@ class PayController extends Controller {
       buyNum: 'string'
     };
     ctx.validate(payInfoRule, ctx.request.body);
-    const result = await this.service.pay.insert(ctx.request.body);
+    const orderForm = await this.service.pay.insert(ctx.request.body);
+
     ctx.body = {
       code: 0,
       message: '成功',
-      data: result
+      data: {
+        orderForm
+      }
     }
   }
   async getOrderForm () {
@@ -21,13 +24,13 @@ class PayController extends Controller {
       orderForm: 'string'
     };
     ctx.validate(payInfoRule, ctx.query);
-    const { order_form, pay_eth, sum } = (await this.service.pay.select(ctx.query))[0];
+    const { order_form, pay_btc, sum } = (await this.service.pay.select(ctx.query))[0];
     ctx.body = {
       code: 0,
       message: '成功',
       data: {
         order_form,
-        pay_eth,
+        pay_btc,
         sum
       }
     }
@@ -59,6 +62,37 @@ class PayController extends Controller {
     ctx.validate(authRule, ctx.request.body);
     const result = await this.service.pay.bindAddr(ctx.request.body);
     this.ctx.body = {
+      code: 0,
+      message: '操作成功',
+      data: result
+    }
+  }
+  async buyRequest () {
+    const { ctx } = this;
+    const buyRule = {
+      order_form: 'string',
+      action: 'string',
+    };
+
+    ctx.validate(buyRule, ctx.request.body);
+    const result = await this.service.pay.updateBuy(ctx.request.body);
+    this.ctx.body = {
+      code: 0,
+      message: '操作成功',
+      data: result
+    }
+  }
+  async sellRequest () {
+    const { ctx } = this;
+    const actionRule = {
+      address: 'string',
+      number: 'string',
+    };
+
+    ctx.validate(actionRule, ctx.request.body);
+    // debugger
+    const result = await this.service.pay.insertSell(ctx.request.body);
+    ctx.body = {
       code: 0,
       message: '操作成功',
       data: result

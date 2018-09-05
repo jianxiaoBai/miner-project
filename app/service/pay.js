@@ -16,21 +16,22 @@ class SignService extends Service {
         dataType: 'json',
         timeout: 10000,
       });
-    const { open, usdCnyRate } = data.find(x => x.coinName === 'ETH');
+    // const { open, usdCnyRate } = data.find(x => x.coinName === 'ETH');
+    const { open, usdCnyRate } = data.find(x => x.coinName === 'BTC');
     // 订单号 = 当前时间 + 手机号码后四位
     const orderForm = 'b' + getLocalTime() + mobile.slice('7');
     const sum = minerMoney * buyNum;
-    const payETH = sum / open;
+    const payBTC = sum / open;
 
     await this.app.mysql.insert('buy_record', {
       mobile,
       order_form: orderForm,
       create_time: +new Date(),
       buy_num: buyNum,
-      pay_eth: payETH,
+      pay_btc: payBTC,
       sum
     });
-    return { orderForm };
+    return orderForm;
   }
   async select ({ orderForm }) {
     return await this.app.mysql.select('buy_record', {
@@ -49,13 +50,13 @@ class SignService extends Service {
       return x.value !== '0' && x.from === payAddress.toLowerCase() && x.to === this.app.config.toAddr;
     });
     /*
-      buy_num / create_time / id / is_success / mobile / order_form / pay_address / pay_eth / sum / tx / update_time
+      buy_num / create_time / id / is_success / mobile / order_form / pay_address / pay_btc / sum / tx / update_time
     */
-    const { pay_eth } = (await this.select({ orderForm }))[0];
+    const { pay_btc } = (await this.select({ orderForm }))[0];
     let _result ;
     for (let i = 0; i < findList.length; i++) {
       const item = findList[i];
-      if(`${pay_eth}` === web3.utils.fromWei(item.value)) {
+      if(`${pay_btc}` === web3.utils.fromWei(item.value)) {
         try {
           _result = await this.update({
             tx: item.hash,
@@ -102,6 +103,16 @@ class SignService extends Service {
        }
     });
   }
+  async updateBuy({ order_form, action }) {
+    return await this.app.mysql.update('buy_record', {
+      action,
+      update_time: +new Date(),
+    }, {
+      where: {
+        order_form
+       }
+    });
+  }
   async bindAddr ({ authAddress }) {
     const { ctx, app } = this;
     const result = await app.mysql.select('auth', {
@@ -120,6 +131,15 @@ class SignService extends Service {
     } else {
       ctx.throw(406, '地址认证失败');
     }
+  }
+  async insertSell ({ address, number }) {
+    return await this.app.mysql.insert('buy_record', {
+      mobile: this.ctx.encode.mobile,
+      create_time: +new Date(),
+      cash_address: address,
+      cash_number: number,
+      action: 2
+    });
   }
 }
 

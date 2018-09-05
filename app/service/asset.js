@@ -17,12 +17,15 @@ class CaptchaService extends Service {
     const result = await this.getAccount();
     for (let i = 0; i < result.length; i++) {
       const item = result[i];
+      // https://blockchain.info/q/addressbalance/1EzwoHtiXB4iFwedPr49iywjZn2nnekhoj
       if(item.coin === 1) {
+        // BTC
+        const { data } = await this.ctx.curl(`https://blockchain.info/q/addressbalance/${item.address}`)
+        await this.update(data.toString(), 1);
+      } else if(item.coin === 2) {
         // ETH
         const balance = await web3.eth.getBalance(item.address);
-        await this.update(web3.utils.fromWei(balance), 1);
-      } else {
-        // BTC
+        await this.update(web3.utils.fromWei(balance), 2);
       }
     }
     return await this.getAccount();
