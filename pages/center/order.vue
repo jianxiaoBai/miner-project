@@ -18,7 +18,7 @@
     </el-table-column>
     <el-table-column label="支付ETH/矿机个数" width="150">
       <template slot-scope="scope">
-        <span style="margin-left: 10px">{{ scope.row.pay_eth }} / {{scope.row.buy_num}}</span>
+        <span style="margin-left: 10px">{{ scope.row.pay_btc }} / {{scope.row.buy_num}}</span>
       </template>
     </el-table-column>
     <el-table-column label="操作">
@@ -28,14 +28,14 @@
         </template>
         <template v-else>
           <el-button size="mini" @click="goBuy(scope.row.order_form)">前往支付</el-button>
-          <el-button size="mini" type="danger" @click="dialogVisible = true">删除订单</el-button>
-          <el-dialog title="提示" :visible.sync="dialogVisible" width="30%" :before-close="handleClose">
-            <span>这是一段信息</span>
+          <el-button size="mini" type="danger" @click="onDelOrder(scope.row.order_form)">删除订单</el-button>
+          <!-- <el-dialog title="删除为完成订单" :visible.sync="dialogVisible" width="30%">
+            <span>确认删除{{scope.row.order_form}}</span>
             <span slot="footer" class="dialog-footer">
               <el-button @click="dialogVisible = false">取 消</el-button>
               <el-button type="primary" @click="onDelOrder(scope.row.order_form)">确 定</el-button>
             </span>
-          </el-dialog>
+          </el-dialog> -->
         </template>
       </template>
     </el-table-column>
@@ -68,13 +68,6 @@
         }) => {
           this.orderList = data;
         })
-      },
-      handleClose(done) {
-        this.$confirm('确认关闭？')
-          .then(_ => {
-            done();
-          })
-          .catch(_ => {});
       },
       getTime,
       goBuy(order) {

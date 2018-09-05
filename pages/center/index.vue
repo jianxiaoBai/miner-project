@@ -24,7 +24,7 @@
               <button type="button" class="el-button el-button--primary el-button--mini" @click="onRecharge">
                 <span>充值</span>
               </button>
-              <button type="button" class="el-button el-button--default el-button--mini" @click="onFetchCash">
+              <button type="button" class="el-button el-button--default el-button--mini" @click="fetchCash = true">
                 <span>提现</span>
               </button>
             </div>
@@ -47,12 +47,12 @@
             </el-form-item>
             <el-form-item label="提现数量" :label-width="formLabelWidth">
               <el-input v-model="cashForm.number" auto-complete="off"></el-input>
-              <div>最多提现数量: 123</div>
+              <!-- <div>最多提现数量: 123</div> -->
             </el-form-item>
           </el-form>
           <div slot="footer" class="dialog-footer">
             <el-button @click="fetchCash = false">取 消</el-button>
-            <el-button type="primary" @click="fetchCash = false">确 定</el-button>
+            <el-button type="primary" @click="onFetchCash">确 定</el-button>
           </div>
         </el-dialog>
 
@@ -172,6 +172,7 @@
 <script>
   import {
     apiAsset,
+    apiSell
   } from '~/api'
   export default {
     head: {
@@ -207,8 +208,13 @@
       onRecharge() {
         this.recharge = true;
       },
-      onFetchCash() {
-        this.fetchCash = true;
+      async onFetchCash() {
+        const result = await apiSell(this.cashForm)
+        this.fetchCash = !this.fetchCash;
+        this.$message({
+          message: '提现申请已提交',
+          type: 'success'
+        })
       }
     }
   }
@@ -216,6 +222,9 @@
 </script>
 
 <style lang="stylus" scpoed>
+  .el-dialog__footer {
+    text-align center
+  }
   #qrcode {
     width 150px margin-left 70px
   }

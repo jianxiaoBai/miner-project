@@ -28,9 +28,8 @@ service.interceptors.request.use(config => {
 
 service.interceptors.response.use(res => {
   return res.data
-}, ({ response: { data , status } }) => {
-  console.log(status);
-
+}, ({ response = {} }) => {
+  const { data = {}, status } = response;
   if(status === 401) {
     window.location.href = '/sign-in'
   } else {

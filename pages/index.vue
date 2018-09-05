@@ -31,7 +31,8 @@
                   <span>矿机售价</span>
                 </p>
               </div>
-              <nuxt-link type="button" class="el-button right el-button--primary" to="/cart">
+              <!-- <nuxt-link type="button" class="el-button right el-button--primary" to="/cart"> -->
+              <nuxt-link type="button" class="el-button right el-button--primary" to="/product">
                   <span>
                     立即购买
                   </span>

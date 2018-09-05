@@ -45,6 +45,12 @@ const apiDelOrder = (options) => {
 const apiAsset = (options) => {
   return http.get('asset', options);
 }
+const apiBuy = (options) => {
+  return http.post('buy', options);
+}
+const apiSell = (options) => {
+  return http.post('sell', options);
+}
 
 export  {
   apiCaptcha,
@@ -61,5 +67,7 @@ export  {
   apiUser,
   apiRecord,
   apiDelOrder,
-  apiAsset
+  apiAsset,
+  apiBuy,
+  apiSell
 }

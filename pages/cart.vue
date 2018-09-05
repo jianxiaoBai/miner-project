@@ -177,9 +177,6 @@
         if(this.buyNum === 1 && !isBuy) return
         this.buyNum = isBuy ? this.buyNum += 1 : this.buyNum -= 1
       }
-    },
-    mounted() {
-
     }
   }
 
