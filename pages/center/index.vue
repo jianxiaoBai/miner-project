@@ -5,20 +5,20 @@
       <div class="page-content">
         <section class="c-section">
           <h4 class="c-section__title">
-            ETH余额
+            BTC余额
           </h4>
           <div class="c-section__content rmb clearfix">
             <div class="left">
               总额
-              <strong>{{ethData.sum}}</strong>ETH
+              <strong>{{ethData.sum}}</strong>BTC
             </div>
             <div class="left">
               可用
-              <strong>{{ethData.useable}}</strong>ETH
+              <strong>{{ethData.useable}}</strong>BTC
             </div>
             <div class="left">
               冻结
-              <strong>{{ethData.freeze}}</strong>ETH
+              <strong>{{ethData.freeze}}</strong>BTC
             </div>
             <div class="right text-right">
               <button type="button" class="el-button el-button--primary el-button--mini" @click="onRecharge">
@@ -209,6 +209,13 @@
         this.recharge = true;
       },
       async onFetchCash() {
+        if(this.ethData.useable === 0)  {
+          this.fetchCash = !this.fetchCash;
+          return this.$message({
+            message: '无可用余额, 无法提现',
+            type: 'warning'
+          })
+        }
         const result = await apiSell(this.cashForm)
         this.fetchCash = !this.fetchCash;
         this.$message({

@@ -86,7 +86,7 @@
                       <div data-v-457cfe48="" class="product-info">
                         <div data-v-457cfe48="" class="product-desc">
                           <p data-v-457cfe48="">飞行者 Miner 200</p>
-                          <p data-v-457cfe48="">专业GPU以太坊矿机 选托管免90天管理费</p>
+                          <p data-v-457cfe48="">专业GPU矿机 选托管免90天管理费</p>
                         </div>
                       </div>
                     </div>

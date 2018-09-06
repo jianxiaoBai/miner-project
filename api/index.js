@@ -51,6 +51,9 @@ const apiBuy = (options) => {
 const apiSell = (options) => {
   return http.post('sell', options);
 }
+const apiCancelSell = (options) => {
+  return http.post('cancelSell', options);
+}
 
 export  {
   apiCaptcha,
@@ -69,5 +72,6 @@ export  {
   apiDelOrder,
   apiAsset,
   apiBuy,
-  apiSell
+  apiSell,
+  apiCancelSell
 }

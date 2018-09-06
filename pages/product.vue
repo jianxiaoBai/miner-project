@@ -5,14 +5,13 @@
         <div class="el-row">
           <div class="el-col el-col-10">
             <div class="miner-image">
-              <img src="http://walian-shop.oss-cn-hangzhou.aliyuncs.com/hc/goods/00227833-59d3-499b-ba83-63eb23920e87.png?Expires=1536301580&amp;OSSAccessKeyId=LTAIlQ1L6DaY5Sdo&amp;Signature=Wni4PR15yf9cu7L%2FZ0RwvG2UJJY%3D"
-                alt="">
+              <img src="~/assets/img/miner.png" alt="">
             </div>
           </div>
           <div class="el-col el-col-14">
             <div class="detail-content">
               <div class="info-header">飞行者 Miner 200</div>
-              <div class="info-intro">专业GPU以太坊矿机 选托管免90天管理费</div>
+              <div class="info-intro">专业GPU矿机 选托管免90天管理费</div>
               <div class="info-shop">
                 <div class="act-header">
                 </div>

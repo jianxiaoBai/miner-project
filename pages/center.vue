@@ -22,6 +22,7 @@
                 <nuxt-link to="/center" class="nav-link">我的账户</nuxt-link>
                 <nuxt-link to="/center/power" class="nav-link">我的云算力</nuxt-link>
                 <nuxt-link to="/center/order" class="nav-link">我的订单</nuxt-link>
+                <nuxt-link to="/center/sell" class="nav-link">我的提现</nuxt-link>
                 <!-- <nuxt-link to="/center/trust" class="nav-link">我的托管</nuxt-link> -->
                 <nuxt-link to="/center/safety" class="nav-link">安全中心</nuxt-link>
                 <div class="nav-link" @click="dialogVisible = true">退出登录</div>

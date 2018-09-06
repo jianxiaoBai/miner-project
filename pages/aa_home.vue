@@ -36,7 +36,7 @@
                 <h3 class="headline">
                   <span class="underscore">ETH算力</span>
                 </h3>
-                <p class="subhead">以太坊矿机 220M</p>
+                <p class="subhead">矿机 220M</p>
                 <h2 class="price">
                   ￥79.00
                   <span>/M</span>
@@ -108,7 +108,7 @@
                 <h3 class="headline">
                   <span class="underscore">ETH算力</span>
                 </h3>
-                <p class="subhead">以太坊矿机 220M</p>
+                <p class="subhead">矿机 220M</p>
                 <h2 class="price">
                   ￥79.00
                   <span>/M</span>
@@ -180,7 +180,7 @@
                 <h3 class="headline">
                   <span class="underscore">ETH算力</span>
                 </h3>
-                <p class="subhead">以太坊矿机 220M</p>
+                <p class="subhead">矿机 220M</p>
                 <h2 class="price">
                   ￥79.00
                   <span>/M</span>

@@ -19,7 +19,7 @@
               <span>飞行者 Miner 200</span>
               <span>TRUE矿机</span>
             </p>
-            <p class="product-detail">专业GPU以太坊矿机 选托管免90天管理费</p>
+            <p class="product-detail">专业GPU矿机 选托管免90天管理费</p>
             <!-- <p class="product-delivery">发货时间：2018-08-10</p> -->
             <p class="product-discount"></p>
             <div class="product-count clearfix">

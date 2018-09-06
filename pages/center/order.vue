@@ -28,14 +28,14 @@
         </template>
         <template v-else>
           <el-button size="mini" @click="goBuy(scope.row.order_form)">前往支付</el-button>
-          <el-button size="mini" type="danger" @click="onDelOrder(scope.row.order_form)">删除订单</el-button>
-          <!-- <el-dialog title="删除为完成订单" :visible.sync="dialogVisible" width="30%">
-            <span>确认删除{{scope.row.order_form}}</span>
+          <el-button size="mini" type="danger" @click="dialogVisible = true">删除订单</el-button>
+          <el-dialog title="删除未完成订单" :visible.sync="dialogVisible" width="30%">
+            <span>确认删除</span>
             <span slot="footer" class="dialog-footer">
               <el-button @click="dialogVisible = false">取 消</el-button>
               <el-button type="primary" @click="onDelOrder(scope.row.order_form)">确 定</el-button>
             </span>
-          </el-dialog> -->
+          </el-dialog>
         </template>
       </template>
     </el-table-column>
@@ -63,7 +63,9 @@
     },
     methods: {
       init() {
-        apiRecord().then(({
+        apiRecord({
+          action: '1'
+        }).then(({
           data
         }) => {
           this.orderList = data;
