@@ -14,11 +14,9 @@ class SignService extends Service {
       columns: [ 'code', 'update_time', 'create_time' ],
     }))[0];
 
-    debugger;
-    // if(((+new Date)  - (result.update_time || result.create_time)) / 1000 >= expired) {
-    //   ctx.throw(403, '手机验证码过期')
-    // }
-
+    if(((+new Date)  - (result.update_time || result.create_time)) / 1000 >= expired) {
+      ctx.throw(403, '手机验证码过期')
+    }
 
     if(!(result.code === code)) {
       ctx.throw(403, '验证码错误')
@@ -34,7 +32,6 @@ class SignService extends Service {
     const conn = await app.mysql.beginTransaction();
 
     try {
-
       // bind user info to BTC address
       await conn.insert('assets', {
         mobile,
