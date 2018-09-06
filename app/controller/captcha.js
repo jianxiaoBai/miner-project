@@ -2,11 +2,8 @@
 /* eslint-disable no-debugger */
 const svgCaptcha = require('svg-captcha');
 const Controller = require('egg').Controller;
-const md5 = require('md5');
-const {
-  getAothCode,
-  getLocalTime,
-} = require('../utils');
+const SMSClient = require('@alicloud/sms-sdk');
+const { getAothCode } = require('../utils');
 
 class CaptchaController extends Controller {
   async index() {
@@ -23,24 +20,25 @@ class CaptchaController extends Controller {
     };
   }
 
-  async sendSms(time, code, mobile) {
-    const { ctx, app } = this;
-    const { username, password, sendAddress } = app.config.sms;
-    console.log(username, 'time');
-    console.log(time, 'time');
-    console.log(md5(md5(password) + time), 'password');
+  async sendSms(code, mobile) {
+    const {
+      accessKeyId,
+      secretAccessKey,
+      SignName,
+      TemplateCode
+    } = this.app.config.aliSMS;
 
-    const result = await ctx.curl(sendAddress, {
-      methods: 'GET',
-      data: {
-        username,
-        tkey: time,
-        password: md5(md5(password) + time),
-        mobile,
-        content: `【TRUEWK】您好，您的验证码是 ${code}`,
-      },
-    });
-    return result.data.toString();
+    let smsClient = new SMSClient({
+      accessKeyId,
+      secretAccessKey
+    })
+    const { Code } = await smsClient.sendSMS({
+      PhoneNumbers: mobile, //必填:待发送手机号。支持以逗号分隔的形式进行批量调用，批量上限为1000个手机号码,批量调用相对于单条调用及时性稍有延迟,验证码类型的短信推荐使用单条调用的方式；发送国际/港澳台消息时，接收号码格式为00+国际区号+号码，如“0085200000000”
+      SignName, //必填:短信签名-可在短信控制台中找到
+      TemplateCode, //必填:短信模板-可在短信控制台中找到，发送国际/港澳台消息时，请使用国际/港澳台短信模版
+      TemplateParam: `{"code":"${code}"}` //可选:模板中的变量替换JSON串,如模板内容为"亲爱的${name},您的验证码为${code}"时。
+    })
+    return Code;
   }
 
   async smsCaptcha() {
@@ -62,7 +60,6 @@ class CaptchaController extends Controller {
     ctx.validate(smsRule, ctx.query);
 
     const smsCode = getAothCode();
-    const smsTime = getLocalTime();
     const reg     = new RegExp(`^${captcha}$`, 'i');
     const result  = await service.captcha.select(mobile);
     const nowDate = +new Date();
@@ -76,7 +73,7 @@ class CaptchaController extends Controller {
       ctx.throw(403, '图形验证码错误');
     }
 
-    let status          = await this.sendSms(smsTime, smsCode, mobile);
+    let status          = await this.sendSms(smsCode, mobile);
     ctx.session.captcha = null;
     const { insertId }  = await service.captcha[ result.length ? 'update' : 'insert' ]({
       mobile,

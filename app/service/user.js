@@ -11,11 +11,13 @@ class UserService extends Service {
       columns: ['mobile', 'bind_address']
     });
   }
-  async record () {
+  async record (obj) {
     return await this.app.mysql.select('buy_record', {
       where: {
-        mobile: this.ctx.encode.mobile
-      }
+        mobile: this.ctx.encode.mobile,
+        ...obj
+      },
+      orders: [['create_time','desc']],
     });
   }
   async delete (order) {
@@ -28,6 +30,18 @@ class UserService extends Service {
       AND
         is_success=0
     `, [order, this.ctx.encode.mobile]);
+  }
+  async cancel (id) {
+    debugger
+    return await this.app.mysql.update('buy_record', {
+      is_cash: '3',
+      update_time: +new Date()
+    }, {
+      where: {
+        id,
+        mobile: this.ctx.encode.mobile
+      }
+    })
   }
 }
 

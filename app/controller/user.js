@@ -11,7 +11,7 @@ class UserController extends Controller {
     };
   }
   async record() {
-    const result = await this.service.user.record();
+    const result = await this.service.user.record(this.ctx.query);
     this.ctx.body = {
       code: 0,
       message: '请求成功',
@@ -26,6 +26,20 @@ class UserController extends Controller {
     this.ctx.validate(delRule, body);
 
     const result = await this.service.user.delete(body.orderForm);
+    this.ctx.body = {
+      code: 0,
+      message: '请求成功',
+      data: result,
+    };
+  }
+  async cancelSell() {
+    const { body } = this.ctx.request;
+    const cancelRule = {
+      id: 'string'
+    }
+    this.ctx.validate(cancelRule, body);
+
+    const result = await this.service.user.cancel(body.id);
     this.ctx.body = {
       code: 0,
       message: '请求成功',

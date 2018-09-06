@@ -23,5 +23,6 @@ module.exports = app => {
   router.get('/api/user', controller.user.index);
   router.get('/api/record', controller.user.record);
   router.del('/api/order', controller.user.delOrder);
+  router.post('/api/cancelSell', controller.user.cancelSell);
   router.get('/api/asset', controller.asset.index);
 };

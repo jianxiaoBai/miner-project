@@ -29,7 +29,8 @@ class SignService extends Service {
       create_time: +new Date(),
       buy_num: buyNum,
       pay_btc: payBTC,
-      sum
+      sum,
+      action: 1
     });
     return orderForm;
   }
@@ -138,7 +139,8 @@ class SignService extends Service {
       create_time: +new Date(),
       cash_address: address,
       cash_number: number,
-      action: 2
+      action: 2,
+      is_cash: 1
     });
   }
 }

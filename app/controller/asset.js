@@ -11,9 +11,6 @@ class AssetController extends Controller {
       data: result,
     };
   }
-  async fetchCash () {
-
-  }
 }
 
 module.exports = AssetController;
