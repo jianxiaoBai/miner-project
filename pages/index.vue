@@ -6,8 +6,8 @@
         </li>
       </ul>
       <ul class="miner-product-list clearfix">
-        <li>
-          <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label">
+        <li v-for="(item, index) in shopList" :key="index">
+          <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label" v-if="item.is_new">
               <path fill="#4D87EA" d="M0 0h85.5l-30 30H0z"></path>
               <text x="10" y="20" fill="#fff" font-size="14">新上架</text>
             </svg>
@@ -16,23 +16,23 @@
           </div> -->
           <div class="product-detail-container">
             <p class="procuct-name">
-              <span>飞行者 Miner 200</span>
+              <span>{{ item.name }}</span>
               <span>TRUE矿机</span>
             </p>
-            <p class="product-detail">专业GPU矿机 选托管免90天管理费</p>
+            <p class="product-detail">{{ item.detail }}</p>
             <!-- <p class="product-delivery">发货时间：2018-08-10</p> -->
             <p class="product-discount"></p>
             <div class="product-count clearfix">
               <div class="left">
                 <p class="sale-price">
-                  <span>$10.00</span>
+                  <span>{{ item.price }}$</span>
                 </p>
                 <p class="original-cost">
                   <span>矿机售价</span>
                 </p>
               </div>
               <!-- <nuxt-link type="button" class="el-button right el-button--primary" to="/cart"> -->
-              <nuxt-link type="button" class="el-button right el-button--primary" to="/product">
+              <nuxt-link type="button" class="el-button right el-button--primary" :to="`/product?shop=${item.id}`">
                   <span>
                     立即购买
                   </span>
@@ -44,6 +44,21 @@
     </section>
   </div>
 </template>
+<script>
+import { apiShopList } from '~/api'
+export default {
+   data () {
+    return {
+      shopList: []
+    }
+  },
+  mounted () {
+    apiShopList().then(({ data }) => {
+      this.shopList = data;
+    })
+  }
+}
+</script>
 
 <style lang="stylus" scpoed>
 .product-container {

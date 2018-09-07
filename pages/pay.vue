@@ -111,23 +111,24 @@
     methods: {
       async onConfirmBuy () {
         if(this.btcData.useable - this.data.pay_btc < 0) {
-          return this.$message({
-            message: '可用数量不足请充值',
+          this.$message({
+            message: '可用数量不足将前往充值',
             type: 'warning'
           })
+        } else {
+          this.isConfirmBuy = false;
+          await apiBuy({
+            order_form: this.data.order_form,
+            action: 1,
+          });
+          this.$message({
+            message: '购买申请已提交',
+            type: 'success'
+          })
         }
-        this.isConfirmBuy = false;
-        await apiBuy({
-          order_form: this.data.order_form,
-          action: 1,
-        });
-        this.$message({
-          message: '购买申请已提交',
-          type: 'success'
-        })
         setTimeout(() => {
-          this.$router.push('/center');
-        }, 1500);
+            this.$router.push('/center');
+          }, 1500);
       },
       onDig () {
         if (!this.authAddress) return

@@ -5,18 +5,22 @@
         <span style="margin-left: 10px">{{ scope.row.order_form }}</span>
       </template>
     </el-table-column>
+    <el-table-column label="商品" width="150">
+      <template slot-scope="scope">
+        <span style="margin-left: 10px">{{ shopJSON[scope.row.shop_id] }}</span>
+      </template>
+    </el-table-column>
     <el-table-column label="订单状态" width="100">
       <template slot-scope="scope">
-        <span style="margin-left: 10px">{{ scope.row.is_success ? '成交' : '未成交' }}</span>
+          <el-popover trigger="hover" placement="top">
+          <p>下单时间: {{ getTime(+scope.row.create_time) }}</p>
+          <div slot="reference" class="name-wrapper">
+            <el-tag size="medium">{{ scope.row.is_success ? '成交' : '未成交' }}</el-tag>
+          </div>
+        </el-popover>
       </template>
     </el-table-column>
-    <el-table-column label="下单时间" width="250">
-      <template slot-scope="scope">
-        <i class="el-icon-time"></i>
-        <span style="margin-left: 10px">{{ getTime(+scope.row.create_time) }}</span>
-      </template>
-    </el-table-column>
-    <el-table-column label="支付ETH/矿机个数" width="150">
+    <el-table-column label="支付ETH/矿机个数" width="200">
       <template slot-scope="scope">
         <span style="margin-left: 10px">{{ scope.row.pay_btc }} / {{scope.row.buy_num}}</span>
       </template>
@@ -58,7 +62,11 @@
     data() {
       return {
         orderList: [],
-        dialogVisible: false
+        dialogVisible: false,
+        shopJSON: {
+          '1': 'GMiner T1',
+          '2': 'GMiner T2',
+        }
       }
     },
     methods: {

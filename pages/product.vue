@@ -10,8 +10,8 @@
           </div>
           <div class="el-col el-col-14">
             <div class="detail-content">
-              <div class="info-header">飞行者 Miner 200</div>
-              <div class="info-intro">专业GPU矿机 选托管免90天管理费</div>
+              <div class="info-header">{{ shopDetail.name }}</div>
+              <div class="info-intro">{{ shopDetail.detail }}</div>
               <div class="info-shop">
                 <div class="act-header">
                 </div>
@@ -19,16 +19,16 @@
                   <div class="shop-item shop-item-price"><dt>单价:</dt>
                     <dd>
                     <span class="currentPrice">
-                      <span>10.00美元/台</span>
+                      <span>{{ shopDetail.price }}.00美元/台</span>
                     </span>
                     </dd>
                   </div>
                 </div>
               </div>
               <div class="deliver">
-                <div class="deliver-item"><dt>发货时间</dt>
+                <!-- <div class="deliver-item"><dt>发货时间</dt>
                   <dd>08月10日-08月20日</dd>
-                </div>
+                </div> -->
                 <div class="deliver-item num"><dt>数量</dt>
                   <dd>
                     <div class="el-input-number">
@@ -48,10 +48,10 @@
                 </div>
                 <div class="deliver-item price">
                   <dt>应付</dt>
-                  <dd><span>{{ buyNum * 10 }}.00美元</span></dd>
+                  <dd><span>{{ buyNum * shopDetail.price }}.00美元</span></dd>
                 </div>
                 <div class="deliver-item pay"><dt>实付</dt>
-                  <dd><span>{{ buyNum * 10 }}.00美元</span></dd>
+                  <dd><span>{{ buyNum * shopDetail.price }}.00美元</span></dd>
                 </div>
               </div>
               <div class="shop-pay">
@@ -84,20 +84,29 @@
 <script>
  import {
     apiOkex,
-    apiPayInfo
+    apiPayInfo,
+    apiShopDetail
   } from '~/api'
   export default {
+    mounted () {
+      apiShopDetail({
+        id: this.$route.query.shop
+      }).then(({ data }) => {
+        this.shopDetail = data;
+      });
+    },
     data () {
       return {
         buyNum: 1,
-        nowPrice: 10,
-        checked: true
+        checked: true,
+        shopDetail: {}
       }
     },
     methods: {
       onConfirm () {
         apiPayInfo({
-          buyNum: this.buyNum
+          buyNum: this.buyNum,
+          shopId: this.$route.query.shop
         }).then(({ data: { orderForm } }) => {
           this.$router.push({
             path: 'pay',
