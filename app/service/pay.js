@@ -5,12 +5,12 @@ const Web3    = require('web3');
 const web3    = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/'));
 const { getLocalTime } = require('../utils');
 class SignService extends Service {
-  async insert ({ buyNum }) {
+  async insert ({ buyNum, shopId }) {
     // 矿机定价 1000 $
     if(Number(buyNum) < 1) {
       this.ctx.throw(403, '购买数量不能为0');
     }
-    const minerMoney = 10;
+    const { price } = await this.service.shops.getDetail({ id: shopId })
     const { mobile } = this.ctx.encode;
     const { data: { data } } = await this.ctx.curl('http://ok.truescan.net/', {
         dataType: 'json',
@@ -20,7 +20,7 @@ class SignService extends Service {
     const { open, usdCnyRate } = data.find(x => x.coinName === 'BTC');
     // 订单号 = 当前时间 + 手机号码后四位
     const orderForm = 'b' + getLocalTime() + mobile.slice('7');
-    const sum = minerMoney * buyNum;
+    const sum = price * buyNum;
     const payBTC = sum / open;
 
     await this.app.mysql.insert('buy_record', {
@@ -30,7 +30,8 @@ class SignService extends Service {
       buy_num: buyNum,
       pay_btc: payBTC,
       sum,
-      action: 1
+      action: 1,
+      shop_id: shopId
     });
     return orderForm;
   }

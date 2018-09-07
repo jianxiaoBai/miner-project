@@ -25,4 +25,8 @@ module.exports = app => {
   router.del('/api/order', controller.user.delOrder);
   router.post('/api/cancelSell', controller.user.cancelSell);
   router.get('/api/asset', controller.asset.index);
+
+  router.get('/api/shopList', controller.shops.index);
+  router.get('/api/shopDetail', controller.shops.detail);
+  // router.get('/api/asset', controller.asset.index);
 };
