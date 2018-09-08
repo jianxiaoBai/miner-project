@@ -31,7 +31,7 @@
           </div>
         </section>
         <el-dialog title="充值" :visible.sync="recharge" width="30%" @click="recharge = false">
-          <span>充值到ETH地址</span>
+          <span>充值到BTC地址</span>
           <span slot="footer" class="dialog-footer">
             <div>
               <div id="qrcode"></div>
@@ -48,6 +48,7 @@
             <el-form-item label="提现数量" :label-width="formLabelWidth">
               <el-input v-model="cashForm.number" auto-complete="off"></el-input>
               <!-- <div>最多提现数量: 123</div> -->
+              <span style="color: red;">*旷工费需消耗0.001BTC</span>
             </el-form-item>
           </el-form>
           <div slot="footer" class="dialog-footer">

@@ -18,7 +18,7 @@
               <div class="el-input captcha-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
                 <input type="text" autocomplete="off" placeholder="请输入图形验证码" name="phone" v-model="captchaCode" class="el-input__inner">
               </div>
-              <div class="captcha-img">
+              <div class="captcha-img" @click="initCaptcha">
                 <span v-html="captchaImg"></span>
               </div>
             </div>
@@ -67,10 +67,13 @@
   import { setStore } from '~/util';
   export default {
     async mounted () {
-      const { data } = await apiCaptcha();
-      this.captchaImg = data
+      this.initCaptcha()
     },
     methods: {
+      async initCaptcha () {
+        const { data } = await apiCaptcha();
+        this.captchaImg = data
+      },
       toggleLogin () {
         this.isCodeLogin = !this.isCodeLogin
         this.code = null;

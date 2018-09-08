@@ -23,14 +23,14 @@
             <!-- <p class="product-delivery">发货时间：2018-08-10</p> -->
             <p class="product-discount"></p>
             <div class="product-count clearfix">
-              <div class="left">
+              <!-- <div class="left">
                 <p class="sale-price">
                   <span>{{ item.price }}$</span>
                 </p>
                 <p class="original-cost">
                   <span>矿机售价</span>
                 </p>
-              </div>
+              </div> -->
               <!-- <nuxt-link type="button" class="el-button right el-button--primary" to="/cart"> -->
               <nuxt-link type="button" class="el-button right el-button--primary" :to="`/product?shop=${item.id}`">
                   <span>

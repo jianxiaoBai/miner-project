@@ -19,7 +19,7 @@
                   <div class="shop-item shop-item-price"><dt>单价:</dt>
                     <dd>
                     <span class="currentPrice">
-                      <span>{{ shopDetail.price }}.00美元/台</span>
+                      <span>{{ shopDetail.price }}.00美元/台, {{buyBase}}台起购</span>
                     </span>
                     </dd>
                   </div>
@@ -39,25 +39,56 @@
                         <i class="el-icon-plus"></i>
                       </span>
                       <div class="el-input">
-                        <input type="text" autocomplete="off" max="Infinity" min="1" v-model="buyNum" class="el-input__inner" role="spinbutton"
-                          aria-valuemax="Infinity" aria-valuemin="1" aria-valuenow="1">
+                        <input
+                          type="number"
+                          autocomplete="off"
+                          max="Infinity"
+                          min="1"
+                          v-model="buyNum"
+                          @input="handlerInput(buyNum)"
+                          class="el-input__inner"
+                          role="spinbutton"
+                          aria-valuemax="Infinity"
+                          :disabled="shop === '1'"
+                          aria-valuemin="1"
+                          aria-valuenow="1">
                       </div>
-                    </div><span class="limit">台</span><span class="limit-num"><span>1台起购</span>
+                    </div><span class="limit">台</span><span class="limit-num"><span></span>
                     </span>
                   </dd>
                 </div>
                 <div class="deliver-item price">
                   <dt>应付</dt>
-                  <dd><span>{{ buyNum * shopDetail.price }}.00美元</span></dd>
+                  <dd><span>{{ buyNum * shopDetail.price }}美元</span></dd>
                 </div>
-                <div class="deliver-item pay"><dt>实付</dt>
-                  <dd><span>{{ buyNum * shopDetail.price }}.00美元</span></dd>
+                <div class="deliver-item price">
+                  <dt>管理费</dt>
+                  <dd><del style="font-size: 14px">69美元/月/台</del>&nbsp;&nbsp;<span style="marigin-left: 20px; font-size: 12px; color: red;">优惠期免管理费</span></dd>
                 </div>
+                <!-- <div class="deliver-item pay"><dt>实付</dt>
+                  <dd><span>{{ buyNum * shopDetail.price }}.00美元</span></dd>
+                </div> -->
               </div>
               <div class="shop-pay">
                 <button type="button" @click="onConfirm" class="el-button btn el-button--primary">
                   <span style="color: white">立即购买</span>
-                  </button>
+                </button>
+                <button type="button" @click="$router.push('/center')" class="el-button btn el-button--primary">
+                  <span style="color: white">充 值</span>
+                </button>
+                <!-- <nuxt-link to="/center" tag="button">
+                  <span style="color: white">充值</span>
+                </nuxt-link> -->
+                <!-- <button type="button" @click="onConfirm" class="el-button btn el-button--primary">
+                  <span style="color: white">立即购买</span>
+                </button> -->
+                </div>
+                <br/>
+                <br/>
+                <div>
+                  <p style="color: red">备注: 请注意购买矿机前确保余额充足, 如余额不足请充值后购买。</p>
+                  <br/>
+                  <p style="color: red">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;本产品仅接受BTC购买, 购买时按照OKEX的实时价格进行换算。</p>
                 </div>
             </div>
           </div>
@@ -89,24 +120,37 @@
   } from '~/api'
   export default {
     mounted () {
+      this.shop = this.$route.query.shop;
+      if(this.shop === '1') {
+        this.buyNum =  0.25;
+        this.buyBase =  0.25;
+      } else {
+        this.buyNum =  1;
+        this.buyBase =  1;
+      }
       apiShopDetail({
-        id: this.$route.query.shop
+        id: this.shop
       }).then(({ data }) => {
         this.shopDetail = data;
       });
     },
     data () {
       return {
-        buyNum: 1,
+        buyNum: null,
+        buyBase: null,
         checked: true,
-        shopDetail: {}
+        shopDetail: {},
+        shop: null
       }
     },
     methods: {
+      handlerInput (num) {
+        this.buyNum = parseInt(num);
+      },
       onConfirm () {
         apiPayInfo({
           buyNum: this.buyNum,
-          shopId: this.$route.query.shop
+          shopId: this.shop
         }).then(({ data: { orderForm } }) => {
           this.$router.push({
             path: 'pay',
@@ -117,8 +161,8 @@
         })
       },
       onBuy (isBuy) {
-        if(this.buyNum === 1 && !isBuy) return
-        this.buyNum = isBuy ? this.buyNum += 1 : this.buyNum -= 1
+        if(this.buyNum === this.buyBase && !isBuy) return
+        this.buyNum = isBuy ? this.buyNum += this.buyBase : this.buyNum -= this.buyBase
       }
     }
 

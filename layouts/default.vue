@@ -14,7 +14,7 @@
               <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" to="/center">
                 <div class="el-submenu__title" style="border-bottom-color:transparent;color:;">
                   <span style="color:#FFF;border-bottom-color:transparent;">
-                    <img src="~/assets/img/person.1cee58e.svg" class="icon-my-center">个人中心 </span>
+                    <img src="~/assets/img/person.1cee58e.svg" class="icon-my-center">个人中心 & 充值 </span>
                 </div>
               </nuxt-link>
             </template>
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="footer">
-      <span>Copyright ⓒ TrueTW All Rights Reserved.</span>
+      <span>Copyright ⓒ Galois All Rights Reserved.</span>
     </div>
   </div>
 </template>

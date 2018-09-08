@@ -4,11 +4,11 @@
       <div data-v-32f2f1fc="" class="order-info el-row">
         <div data-v-32f2f1fc="" class="el-col el-col-16">
           <p data-v-32f2f1fc="" class="">订单提交成功，请尽快付款，订单号：{{ $route.query.orderForm }}</p>
-          <p data-v-32f2f1fc="" class="order-tips">订单已提交成功，请在当天23:00点钱内完成付款，否则订单将会失效</p>
-          <p data-v-32f2f1fc="" style="margin-top: 10px; color: red;">确认付款成功并且认证地址后, 每天凌晨0点会进行挖矿打入认证地址</p>
+          <p data-v-32f2f1fc="" class="order-tips">订单已提交成功，请在1小时内完成支付，否则订单将会失效</p>
+          <p data-v-32f2f1fc="" style="margin-top: 10px; color: red;">确认付款成功后48小时内部署矿机并开始计算收益</p>
         </div>
         <div data-v-32f2f1fc="" class="text-right el-col el-col-8">应付总金额
-          <em data-v-32f2f1fc="" class="money">{{ data.sum }}.00</em>美元</div>
+          <em data-v-32f2f1fc="" class="money">{{ data.sum }}</em>美元</div>
       </div>
       <div data-v-32f2f1fc="" class="pay-methods">
         <ul data-v-32f2f1fc="" class="pay-methods-list">
@@ -35,6 +35,7 @@
             <span style="color: red; font-size: 18px;">
               <strong>{{ data.pay_btc }}</strong>
             </span>
+            <span style="font-size: 12px;">&nbsp; (以OKEX实时汇率计算数量)</span>
           </div>
           <!-- <div>
             <span>收款地址:&nbsp;</span>
@@ -57,7 +58,7 @@
         </div>
         <div>
           <div>
-            <el-input style="width: 40%" v-model="authAddress" placeholder="绑定认证地址后24小时内开启挖矿"></el-input>&nbsp;&nbsp;<el-button type="primary" @click="onDig">绑定挖矿地址</el-button>
+            <el-input style="width: 40%" v-model="authAddress" placeholder="购买时支付总金额超2万美元可赠送认证地址"></el-input>&nbsp;&nbsp;<el-button type="primary" @click="onDig">绑定挖矿认证地址</el-button>
           </div>
         </div>
         <div>
@@ -67,6 +68,13 @@
           title="确认购买 ? "
           :visible.sync="isConfirmBuy"
           width="30%">
+          <span>当前订单: {{ $route.query.orderForm }}</span>
+          <br/>
+          <span>可用余额: {{ btcData.useable }}</span>
+          <br/>
+          <span>支付总额: {{ data.pay_btc }}</span>
+          <br/>
+          <span>认证地址: {{authAddress || '无'}}</span>
           <span slot="footer" class="dialog-footer">
             <el-button @click="isConfirmBuy = false">取 消</el-button>
             <el-button type="primary" @click="onConfirmBuy">确 定</el-button>
@@ -119,7 +127,7 @@
           this.isConfirmBuy = false;
           await apiBuy({
             order_form: this.data.order_form,
-            action: 1,
+            is_buy: 1,
           });
           this.$message({
             message: '购买申请已提交',
