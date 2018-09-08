@@ -7,9 +7,9 @@ const { getLocalTime } = require('../utils');
 class SignService extends Service {
   async insert ({ buyNum, shopId }) {
     // 矿机定价 1000 $
-    if(Number(buyNum) < 1) {
-      this.ctx.throw(403, '购买数量不能为0');
-    }
+    // if(Number(buyNum) < 1) {
+    //   this.ctx.throw(403, '购买数量不能为0');
+    // }
     const { price } = await this.service.shops.getDetail({ id: shopId })
     const { mobile } = this.ctx.encode;
     const { data: { data } } = await this.ctx.curl('http://ok.truescan.net/', {
@@ -93,7 +93,7 @@ class SignService extends Service {
       return _result;
     }
   }
-  async update({ tx, orderForm, pay_address }) {
+  /* async update({ tx, orderForm, pay_address }) {
     return await this.app.mysql.update('buy_record', {
       tx,
       is_success: '1',
@@ -104,16 +104,48 @@ class SignService extends Service {
         order_form: orderForm
        }
     });
-  }
-  async updateBuy({ order_form, action }) {
-    return await this.app.mysql.update('buy_record', {
-      action,
+  } */
+  async updateBuy({ order_form, is_buy }) {
+    // debugger;
+    const { create_time } = (await this.select({ orderForm: order_form }))[0];
+    if(+new Date() - create_time > 300000) {
+      this.ctx.throw(405, '订单已失效');
+    }
+
+    await this.app.mysql.update('buy_record', {
+      is_buy,
       update_time: +new Date(),
     }, {
       where: {
         order_form
        }
     });
+
+    /* return await this.service.asset.update({
+      useable: myAccount.sum - pay_btc,
+      freeze: pay_btc
+    }); */
+    return await this.syncAssetTable();
+  }
+  async syncAssetTable () {
+    return await this.app.mysql.query(`
+      UPDATE assets AS a,
+        (
+          SELECT
+            mobile, IFNULL(sum( pay_btc ), 0) AS payBtc
+          FROM
+            buy_record
+          WHERE
+            is_buy = '1'
+          AND
+          mobile = ?
+        ) AS b
+      SET
+        a.freeze = b.payBtc,
+        a.useable = a.sum - b.payBtc
+      WHERE
+        a.mobile = b.mobile
+    `, [ this.ctx.encode.mobile ]);
   }
   async bindAddr ({ authAddress }) {
     const { ctx, app } = this;

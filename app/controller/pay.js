@@ -71,7 +71,7 @@ class PayController extends Controller {
     const { ctx } = this;
     const buyRule = {
       order_form: 'string',
-      action: 'string',
+      is_buy: 'string',
     };
 
     ctx.validate(buyRule, ctx.request.body);

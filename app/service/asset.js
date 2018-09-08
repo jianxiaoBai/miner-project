@@ -18,28 +18,33 @@ class CaptchaService extends Service {
     for (let i = 0; i < result.length; i++) {
       const item = result[i];
       // https://blockchain.info/q/addressbalance/1EzwoHtiXB4iFwedPr49iywjZn2nnekhoj
+      let sumValue = 0;
       if(item.coin === 1) {
         // BTC
         const { data } = await this.ctx.curl(`https://blockchain.info/q/addressbalance/${item.address}`)
-        await this.update(data.toString(), 1);
+        sumValue = data.toString() / 100000000;
       } else if(item.coin === 2) {
         // ETH
         const balance = await web3.eth.getBalance(item.address);
-        await this.update(web3.utils.fromWei(balance), 2);
+        sumValue = web3.utils.fromWei(balance);
       }
+      await this.update({
+        sum: sumValue,
+        useable: sumValue
+      }, item.coin);
     }
     return await this.getAccount();
   }
-  async update (balance, coin) {
-    return await this.app.mysql.update('assets', {
-      sum: balance,
-      useable: balance
+  async update (item, coin = 1) {
+    await this.app.mysql.update('assets', {
+      ...item
     }, {
       where: {
         mobile: this.ctx.encode.mobile,
         coin
       }
     })
+    return await this.service.pay.syncAssetTable();
   }
 }
 
