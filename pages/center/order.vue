@@ -1,11 +1,11 @@
 <template>
   <el-table :data="orderList" style="width: 100%">
-    <el-table-column label="订单号" width="220">
+    <el-table-column label="订单号" width="200">
       <template slot-scope="scope">
-        <span style="margin-left: 10px">{{ scope.row.order_form }}</span>
+        <span>{{ scope.row.order_form }}</span>
       </template>
     </el-table-column>
-    <el-table-column label="商品" width="150">
+    <el-table-column label="商品" width="120">
       <template slot-scope="scope">
         <span style="margin-left: 10px">{{ shopJSON[scope.row.shop_id] }}</span>
       </template>
