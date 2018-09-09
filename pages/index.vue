@@ -6,7 +6,6 @@
       <div class="home-introduce">
         <div>矿机云算力托管费用包括电费、运费、安装费、管理费等，收费为69美元/台/月</div>
         <div>首批购买用户暂免首月托管费</div>
-        <div>全球唯一 TRUE 币矿场，最强算力无可替代</div>
       </div>
     </div>
     <section class="minerList">
