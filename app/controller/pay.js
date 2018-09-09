@@ -35,7 +35,9 @@ class PayController extends Controller {
       }
     }
   }
-  async checkAddr () {
+  /*
+    KMKAS&ASQW
+    async checkAddr () {
     const { ctx } = this;
     const checkRule = {
       payAddress: 'string',
@@ -52,7 +54,7 @@ class PayController extends Controller {
         affectedRows
       }
     }
-  }
+  } */
   async authAddr () {
     const { ctx } = this;
     const authRule = {

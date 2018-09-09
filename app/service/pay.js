@@ -31,6 +31,7 @@ class SignService extends Service {
       pay_btc: payBTC,
       sum,
       action: 1,
+      rate: open,
       shop_id: shopId
     });
     return orderForm;
@@ -42,7 +43,7 @@ class SignService extends Service {
       }
     });
   }
-  async check ({ payAddress, orderForm }) {
+  /* async check ({ payAddress, orderForm }) {
     const { data: { result } } = await this.ctx.curl(`http://api.etherscan.io/api?module=account&action=txlist&address=${payAddress}`, {
       timeout: 10000,
       dataType: 'json'
@@ -51,9 +52,7 @@ class SignService extends Service {
     const findList = result.filter(x => {
       return x.value !== '0' && x.from === payAddress.toLowerCase() && x.to === this.app.config.toAddr;
     });
-    /*
-      buy_num / create_time / id / is_success / mobile / order_form / pay_address / pay_btc / sum / tx / update_time
-    */
+
     const { pay_btc } = (await this.select({ orderForm }))[0];
     let _result ;
     for (let i = 0; i < findList.length; i++) {
@@ -92,7 +91,7 @@ class SignService extends Service {
     } else {
       return _result;
     }
-  }
+  } */
   /* async update({ tx, orderForm, pay_address }) {
     return await this.app.mysql.update('buy_record', {
       tx,

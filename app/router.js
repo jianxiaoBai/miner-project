@@ -11,7 +11,7 @@ module.exports = app => {
 
   router.post('/api/payInfo', controller.pay.index);
   router.get('/api/orderForm', controller.pay.getOrderForm);
-  router.get('/api/checkAddr', controller.pay.checkAddr);
+  // KMKAS&ASQW router.get('/api/checkAddr', controller.pay.checkAddr);
   router.post('/api/authAddr', controller.pay.authAddr);
   router.post('/api/buy', controller.pay.buyRequest);
   router.post('/api/sell', controller.pay.sellRequest);

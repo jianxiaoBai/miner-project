@@ -34,8 +34,8 @@ class GetAddrService extends Service {
       where: {
         mobile: this.ctx.encode.mobile
       },
-      columns: ['id', 'bind_address', 'create_time', 'power', 'status', 'output', 'deplete', 'manage', 'fact', 'run_time']
-      // orders: [['create_time','desc']]
+      columns: ['id', 'bind_address', 'create_time', 'power', 'status', 'output', 'deplete', 'manage', 'fact', 'run_time'],
+      orders: [['create_time','desc']]
     })
   }
 }

@@ -29,6 +29,7 @@ class MinerController extends Controller {
     };
   }
   async power () {
+    // debugger;
    const result = await this.service.miner.getPower();
     this.ctx.body = {
       code: 0,

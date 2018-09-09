@@ -27,8 +27,6 @@ class UserService extends Service {
         order_form= ?
       AND
         mobile= ?
-      AND
-        is_success=0
     `, [order, this.ctx.encode.mobile]);
   }
   async cancel (id) {
