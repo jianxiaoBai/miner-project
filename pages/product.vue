@@ -5,7 +5,7 @@
         <div class="el-row">
           <div class="el-col el-col-10">
             <div class="miner-image">
-              <img src="~/assets/img/miner.png" alt="">
+              <img src="~/assets/img/miner.jpg" alt="">
             </div>
           </div>
           <div class="el-col el-col-14">
@@ -120,14 +120,6 @@
   } from '~/api'
   export default {
     mounted () {
-      this.shop = this.$route.query.shop;
-      if(this.shop === '1') {
-        this.buyNum =  0.25;
-        this.buyBase =  0.25;
-      } else {
-        this.buyNum =  1;
-        this.buyBase =  1;
-      }
       apiShopDetail({
         id: this.shop
       }).then(({ data }) => {
@@ -136,11 +128,11 @@
     },
     data () {
       return {
-        buyNum: null,
-        buyBase: null,
         checked: true,
         shopDetail: {},
-        shop: null
+        shop: this.$route.query.shop,
+        buyNum: this.$route.query.shop === '1' ? 0.25 : 1,
+        buyBase: this.$route.query.shop === '1' ? 0.25 : 1,
       }
     },
     methods: {
@@ -194,7 +186,7 @@
 
   .miner-image img,
   .image-wrapper img {
-    width: 80%;
+    width: 100%;
     position: absolute;
     left: 0;
     top: 0;

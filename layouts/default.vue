@@ -3,14 +3,23 @@
     <div id="gn-header">
       <div class="header__inner">
         <nuxt-link class="logo" to="/" />
+        <div class="left text-right">
+           <ul role="menubar" class="menu login el-menu--horizontal el-menu is-login">
+              <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" to="/mine">
+                <div class="el-submenu__title">
+                  <span style="color:#FFF;border-bottom-color:transparent;">矿机</span>
+                </div>
+              </nuxt-link>
+          </ul>
+        </div>
         <div class="right text-right">
           <ul role="menubar" class="menu login el-menu--horizontal el-menu is-login">
             <template v-if="isLogin">
-              <li role="menuitem" tabindex="0" class="el-menu-item menu-item cart">
+              <!-- <li role="menuitem" tabindex="0" class="el-menu-item menu-item cart">
                 <a href="/cart">
                   <img src="~/assets/img/cart.9bdd50b.svg">
                 </a>
-              </li>
+              </li> -->
               <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" to="/center">
                 <div class="el-submenu__title" style="border-bottom-color:transparent;color:;">
                   <span style="color:#FFF;border-bottom-color:transparent;">
@@ -96,7 +105,7 @@
     .app-features {
       background-color: #fff;
       text-align: center;
-      padding: 50px 120px;
+      padding: 40px 120px;
       img {
         width: 65px;
       }

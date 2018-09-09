@@ -10,7 +10,7 @@
         <span style="margin-left: 10px">{{ shopJSON[scope.row.shop_id] }}</span>
       </template>
     </el-table-column>
-    <el-table-column label="订单状态" width="100">
+    <el-table-column label="订单状态" width="120">
       <template slot-scope="scope">
         <el-popover trigger="hover" placement="top">
           <p>下单时间: {{ getTime(+scope.row.create_time) }}</p>
@@ -19,7 +19,7 @@
               <el-tag size="medium">已失效</el-tag>
             </template>
             <template v-else>
-              <el-tag size="medium">{{ scope.row.is_buy ? '成交' : '未成交' }}</el-tag>
+              <el-tag size="medium">{{ buyJOSN[scope.row.is_buy] }}</el-tag>
             </template>
           </div>
         </el-popover>
@@ -28,6 +28,11 @@
     <el-table-column label="支付BTC/矿机个数" width="200">
       <template slot-scope="scope">
         <span style="margin-left: 10px">{{ scope.row.pay_btc }} / {{scope.row.buy_num}}</span>
+      </template>
+    </el-table-column>
+    <el-table-column label="下单时BTC币价" width="120">
+      <template slot-scope="scope">
+        <span style="margin-left: 10px">{{ scope.row.rate }} $</span>
       </template>
     </el-table-column>
     <el-table-column label="操作">
@@ -76,6 +81,11 @@
         shopJSON: {
           '1': 'GMiner T1',
           '2': 'GMiner T2',
+        },
+        buyJOSN: {
+          '0': '未购买',
+          '1': '交易确认中',
+          '2': '购买成功'
         }
       }
     },

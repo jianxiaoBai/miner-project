@@ -279,12 +279,13 @@
     padding-left: 2em;
     vertical-align: top;
     height: 32px;
-    width: 280px;
+    width: auto;
+    padding-right: 15px;
   }
 
   .c-section__content>div:first-child {
     padding-left: 0;
-    width: 260px;
+    width: auto;
   }
 
   .c-section__content>div:first-child strong {
@@ -301,7 +302,7 @@
   }
 
   .c-section__content.rmb>div:nth-child(3) {
-    width: 180px;
+    width: auto;
   }
 
   .c-section__content.rmb>div:last-child {

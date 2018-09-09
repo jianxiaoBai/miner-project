@@ -4,7 +4,7 @@
       <div data-v-32f2f1fc="" class="order-info el-row">
         <div data-v-32f2f1fc="" class="el-col el-col-16">
           <p data-v-32f2f1fc="" class="">订单提交成功，请尽快付款，订单号：{{ $route.query.orderForm }}</p>
-          <p data-v-32f2f1fc="" class="order-tips">订单已提交成功，请在1小时内完成支付，否则订单将会失效</p>
+          <p data-v-32f2f1fc="" class="order-tips">订单已提交成功，请在5分钟内完成支付，否则订单将会失效</p>
           <p data-v-32f2f1fc="" style="margin-top: 10px; color: red;">确认付款成功后48小时内部署矿机并开始计算收益</p>
         </div>
         <div data-v-32f2f1fc="" class="text-right el-col el-col-8">应付总金额
@@ -63,6 +63,7 @@
         </div>
         <div>
           <el-button type="success" @click="isConfirmBuy = true">确认购买</el-button>
+          <el-button @click="onDelOrder">取消订单</el-button>
         </div>
         <el-dialog
           title="确认购买 ? "
@@ -88,10 +89,11 @@
 <script>
   import {
     apiOrderForm,
-    apiCheckAddr,
+    // KMKAS&ASQW apiCheckAddr,
     apiAuthAddr,
     apiAsset,
-    apiBuy
+    apiBuy,
+    apiDelOrder
   } from '~/api'
 
   export default {
@@ -117,6 +119,19 @@
       }
     },
     methods: {
+      onDelOrder(order) {
+        apiDelOrder({
+          orderForm: this.$route.query.orderForm
+        }).then(res => {
+           this.$message({
+            message: '订单已取消',
+            type: 'success'
+          })
+          setTimeout(() => {
+            this.$router.back()
+          }, 1000);
+        })
+      },
       async onConfirmBuy () {
         if(this.btcData.useable - this.data.pay_btc < 0) {
           this.$message({
@@ -155,6 +170,7 @@
           })
         })
       },
+      /* KMKAS&ASQW
       onPay() {
         if (!this.payAddress) return
         if (this.payAddress.length !== 42) {
@@ -174,7 +190,7 @@
           })
           this.isBuy = false;
         })
-      }
+      } */
     }
   }
 

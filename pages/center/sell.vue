@@ -23,11 +23,7 @@
     </el-table-column>
     <el-table-column label="操作">
       <template slot-scope="scope">
-        <template v-if="scope.row.is_success">
-          <el-button size="mini" type="primary" v-if="scope.row.is_success" @click="onJumpEth(scope.row.tx)">订单详情</el-button>
-        </template>
-        <template v-else>
-          <template v-if="scope.row.is_cash === 1">
+         <template v-if="scope.row.is_cash === 1">
             <el-button size="mini" type="danger" @click="sellDialogVisible = true">取消提现</el-button>
           </template>
           <template v-else-if="scope.row.is_cash === 2">
@@ -43,7 +39,6 @@
               <el-button type="primary" @click="onCancelSell(scope.row.id)">确 定</el-button>
             </span>
           </el-dialog>
-        </template>
       </template>
     </el-table-column>
   </el-table>
