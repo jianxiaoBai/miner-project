@@ -3,7 +3,7 @@
     <div id="gn-header">
       <div class="header__inner">
         <nuxt-link class="logo" to="/" />
-        <div class="left text-right">
+        <!-- <div class="left text-right">
            <ul role="menubar" class="menu login el-menu--horizontal el-menu is-login">
               <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" to="/mine">
                 <div class="el-submenu__title">
@@ -11,7 +11,7 @@
                 </div>
               </nuxt-link>
           </ul>
-        </div>
+        </div> -->
         <div class="right text-right">
           <ul role="menubar" class="menu login el-menu--horizontal el-menu is-login">
             <template v-if="isLogin">
