@@ -44,20 +44,20 @@
         <nuxt/>
       </transition>
     </div>
-    <div class="app-features el-row">
-      <div class="el-col el-col-6">
+    <div class="app-features">
+      <div>
         <img src="~/assets/img/feature_superb.png" alt="">
         <p>算力卓越</p>
       </div>
-      <div class="el-col el-col-6">
+      <div>
         <img src="~/assets/img/feature_flexible_trading.png" alt="">
         <p>灵活交易</p>
       </div>
-      <div class="el-col el-col-6">
+      <div>
         <img src="~/assets/img/feature_low_risk.png" alt="">
         <p>超低风险</p>
       </div>
-      <div class="el-col el-col-6">
+      <div>
         <img src="~/assets/img/feature_buy_use.png" alt="">
         <p>随买随用</p>
       </div>
@@ -106,8 +106,11 @@
       background-color: #fff;
       text-align: center;
       padding: 40px 120px;
+      display flex
+      justify-content space-around
       img {
         width: 65px;
+        height auto
       }
 
       p {
@@ -119,7 +122,7 @@
     }
 
     .main-container {
-      min-height: calc(100vh - 276px);
+      // min-height: calc(100vh - 276px);
     }
     .menu.lang .el-submenu__title {
       padding-right: 5px;
@@ -142,7 +145,7 @@
     }
 
     #gn-header .header__inner {
-      width: 1200px;
+      padding: 0 100px;
       margin: 0 auto;
     }
 

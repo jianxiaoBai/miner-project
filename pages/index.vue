@@ -79,6 +79,7 @@ export default {
     background-repeat no-repeat
     background-size 100% 100%
     width 70%
+    // width 920px
     height 500px
     margin 0 auto
   }
@@ -131,10 +132,8 @@ export default {
     cursor: pointer;
   }
 
-
-
   .minerList {
-    width: 1200px;
+    width 80%
     margin: 0 auto;
     padding-top: 50px;
   }
@@ -161,10 +160,10 @@ export default {
   }
 
   .miner-product-list li {
-    width: 570px;
+    width: 500px;
     overflow: auto;
     position: relative;
-    margin-right: 60px;
+    margin-right: 100px;
     background: #fff;
     float: left;
     margin-bottom: 60px;

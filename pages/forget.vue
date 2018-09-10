@@ -3,7 +3,7 @@
     <div class="x-tabs">
       <div class="x-tabs__header">
         <ul class="x-tabs__nav">
-          <li class="x-tabs__item active">手机登录</li>
+          <li class="x-tabs__item active">忘记密码</li>
         </ul>
       </div>
       <div class="x-tabs__content">
@@ -14,21 +14,43 @@
                 <input type="text" autocomplete="off" placeholder="手机号码" name="phone" v-model="phone" class="el-input__inner">
               </div>
             </div>
-             <div class="input-group">
-                <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
-                  <input type="password" autocomplete="off" placeholder="请输入密码" name="code" v-model="password" class="el-input__inner">
-                </div>
+            <div class="input-group">
+              <div class="el-input captcha-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
+                <input type="text" autocomplete="off" placeholder="请输入图形验证码" name="phone" v-model="captchaCode" class="el-input__inner">
               </div>
-            <button @click="onSubmit" type="button" class="el-button btn-login el-button--primary ">
-              <span>
-                登录
-              </span>
-            </button>
-            <div class="extra el-row">
-              <div class="text-left el-col el-col-12" @click="onForget">
-                <span class="text-secondary pointer">忘记密码？</span>
+              <div class="captcha-img" @click="initCaptcha">
+                <span v-html="captchaImg"></span>
               </div>
             </div>
+            <div class="input-group">
+              <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
+                <input type="text" autocomplete="off" placeholder="请输入验证码" name="code" v-model="code" class="el-input__inner">
+                <span class="el-input__suffix">
+                    <span class="el-input__suffix-inner">
+                      <button  type="button" @click="onSendCode" class="el-button text-secondary el-button--text">
+                        <span>
+                          发送验证码
+                        </span>
+                </button>
+                </span>
+                </span>
+              </div>
+            </div>
+            <div class="input-group">
+              <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
+                <input type="password" autocomplete="off" placeholder="填写重设密码" name="code" v-model="password" class="el-input__inner">
+              </div>
+            </div>
+            <div class="input-group">
+              <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
+                <input type="password" autocomplete="off" placeholder="请再一次输入密码" name="code" v-model="repassword" class="el-input__inner">
+              </div>
+            </div>
+            <button @click="onSubmit" type="button" class="el-button btn-login el-button--primary ">
+                <span>
+                  确认
+                </span>
+              </button>
           </form>
         </div>
       </div>
@@ -37,106 +59,89 @@
 </template>
 
 <script>
-  import {
-    apiCaptcha,
-    apiSendSms,
-    apiLogin,
-    aaa
-  } from '~/api';
-  import {
-    setStore
-  } from '~/util';
+  import { apiCaptcha, apiSendSms, apiForget } from '~/api';
   export default {
-    async mounted() {
+    async mounted () {
       this.initCaptcha()
     },
     methods: {
-      async initCaptcha() {
-        const {
-          data
-        } = await apiCaptcha();
+      async initCaptcha () {
+        const { data } = await apiCaptcha();
         this.captchaImg = data
       },
-      onForget() {
-        this.$router.push('/forget');
+      async onSubmit () {
+        if(this.password !== this.repassword) {
+          return this.$message({
+            message: '俩次密码不一致',
+            type: 'error'
+          });
+        }
+
+        await apiForget({
+          mobile: this.phone,
+          code: this.code,
+          password: this.password
+        });
+
+        this.$message({
+          message: '密码已重置跳转登录页...',
+          type: 'success'
+        });
+        setTimeout(() => {
+          this.$router.replace('sign-in')
+        }, 1500);
       },
-      onSubmit() {
-        try {
-          this.checkPhone()
-          apiLogin({
-            mobile: this.phone,
-            code: this.code,
-            password: this.password,
-            isCodeLogin: this.isCodeLogin
-          }).then(res => {
-            this.$message({
-              message: '登录成功, 2秒后跳转',
-              type: 'success'
-            });
-            setStore('token', res.data.token);
-            setTimeout(() => {
-              location.href = '/'
-            }, 2000);
-          })
-        } catch (error) {
-          this.$message({
-            message: error.message,
+      async onSendCode () {
+        const _phoneReg = new RegExp(this.phoneReg);
+        if(!_phoneReg.test(this.phone)) {
+           return this.$message({
+            message: '请输入合法手机号',
             type: 'warning'
           });
         }
-      },
-      checkPhone() {
-        const _phoneReg = new RegExp(this.phoneReg);
-        if (!_phoneReg.test(this.phone)) {
-          throw new Error('手机号不合法')
-        }
-      },
-      async onSendCode() {
-        try {
-          this.checkPhone()
-          if (!this.captchaCode) {
-            return this.$message({
+        if(!this.captchaCode) {
+          return this.$message({
               message: '发送失败',
               type: 'error'
             });
-          }
+        }
+        try {
           await apiSendSms({
             mobile: this.phone,
             captcha: this.captchaCode
           })
-          this.$message('验证码已发送');
-        } catch (error) {
-          this.$message({
-            message: error.message,
-            type: 'warning'
-          });
-        }
+            this.$message('验证码已发送');
+          } catch (error) {
+            this.$message({
+              message: error,
+              type: 'error'
+            });
+          }
       }
     },
     data() {
       return {
-        isCodeLogin: false,
         phone: null,
         captchaCode: null,
         captchaImg: '',
         code: null,
         password: '',
+        repassword: '',
         phoneReg: '^(13[0-9]|14[0-9]|15[0-9]|166|17[0-9]|18[0-9]|19[8|9])\\d{8}$'
       };
     },
   };
-
 </script>
 
 <style lang="stylus" scoped>
   .captcha-img {
-    position absolute top -12px right 0
+    position absolute
+    top -12px
+    right 0
   }
-
   .captcha-input {
     width 60%
   }
-
   #wy_captcha {
     width: 100%;
     height: 40px;
@@ -205,7 +210,6 @@
     height: 44px;
     font-size: 16px;
     margin-top: 50px;
-
     span {
       color white
     }

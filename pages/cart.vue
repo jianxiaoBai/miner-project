@@ -215,7 +215,7 @@
   .cart-container[data-v-457cfe48] {
     max-width: 996px;
     margin: 0 auto 60px;
-    min-height: calc(100vh - 522px);
+    // min-height: calc(100vh - 522px);
   }
 
   .breadcrumb[data-v-457cfe48] {
