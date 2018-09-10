@@ -1,27 +1,12 @@
 'use strict';
 
 const Service = require('egg').Service;
-const Web3 = require('web3');
+// const Web3 = require('web3');
 class SignService extends Service {
   async insert ({ mobile, code, password }) {
     const { ctx, app } = this;
 
-    const expired                 = 60 * 5;
-    // const web3                    = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/'));
-    // const { address, privateKey } = web3.eth.accounts.create();
-    const result                  = (await app.mysql.select('sms_log', {
-      where: { mobile },
-      columns: [ 'code', 'update_time', 'create_time' ],
-    }))[0];
-
-    if(((+new Date)  - (result.update_time || result.create_time)) / 1000 >= expired) {
-      ctx.throw(403, '手机验证码过期')
-    }
-
-    if(!(result.code === code)) {
-      ctx.throw(403, '验证码错误')
-    }
-
+    await this.check(mobile, code);
     // get to bind BTC address
     const bindItem = (await app.mysql.select('btc_address', {
       where: {
@@ -61,9 +46,38 @@ class SignService extends Service {
       await conn.commit();
     } catch (err) {
       await conn.rollback();
-      throw err;
+      ctx.throw(400, '该手机号码已注册');
     }
     return { success: true }
+  }
+  async update ({ mobile, code, password }) {
+    await this.check(mobile, code);
+    return await this.app.mysql.update('user', {
+      password
+    }, {
+      where: {
+        mobile
+      }
+    })
+  }
+  async check (mobile, code) {
+    const expired                 = 60 * 5;
+    // const web3                    = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/'));
+    // const { address, privateKey } = web3.eth.accounts.create();
+    const result                  = (await this.app.mysql.select('sms_log', {
+      where: {
+        mobile
+      },
+      columns: [ 'code', 'update_time', 'create_time' ],
+    }))[0];
+
+    if(((+new Date)  - (result.update_time || result.create_time)) / 1000 >= expired) {
+      this.ctx.throw(403, '手机验证码过期')
+    }
+
+    if(!(result.code === code)) {
+      this.ctx.throw(403, '验证码错误')
+    }
   }
 }
 

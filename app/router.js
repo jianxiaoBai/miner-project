@@ -20,6 +20,7 @@ module.exports = app => {
   router.post('/api/addInfo', controller.miner.create);
   router.get('/api/power', controller.miner.power);
 
+  router.post('/api/forget', controller.sign.forget);
   router.get('/api/user', controller.user.index);
   router.get('/api/record', controller.user.record);
   router.del('/api/order', controller.user.delOrder);
