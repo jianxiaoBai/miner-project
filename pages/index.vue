@@ -157,13 +157,15 @@ export default {
 
   .miner-product-list {
     margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
   }
 
   .miner-product-list li {
     width: 500px;
     overflow: auto;
     position: relative;
-    margin-right: 100px;
+    // margin-right: 100px;
     background: #fff;
     float: left;
     margin-bottom: 60px;

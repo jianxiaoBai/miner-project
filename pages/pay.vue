@@ -35,7 +35,7 @@
             <span style="color: red; font-size: 18px;">
               <strong>{{ data.pay_btc }}</strong>
             </span>
-            <span style="font-size: 12px;">&nbsp; (以OKEX实时汇率计算数量)</span>
+            <span style="font-size: 12px;">&nbsp; (以OKEX实时汇率计算数量, 含交易费)</span>
           </div>
           <!-- <div>
             <span>收款地址:&nbsp;</span>
