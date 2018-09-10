@@ -17,11 +17,11 @@ class SignService extends Service {
         timeout: 10000,
       });
     // const { open, usdCnyRate } = data.find(x => x.coinName === 'ETH');
-    const { open, usdCnyRate } = data.find(x => x.coinName === 'BTC');
+    const { low } = data.find(x => x.coinName === 'BTC');
     // 订单号 = 当前时间 + 手机号码后四位
     const orderForm = 'b' + getLocalTime() + mobile.slice('7');
     const sum = price * buyNum;
-    const payBTC = sum / open;
+    const payBTC = sum / low;
 
     await this.app.mysql.insert('buy_record', {
       mobile,
@@ -31,7 +31,7 @@ class SignService extends Service {
       pay_btc: payBTC,
       sum,
       action: 1,
-      rate: open,
+      rate: low,
       shop_id: shopId
     });
     return orderForm;
