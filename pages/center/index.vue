@@ -199,9 +199,7 @@
       }
     },
     async mounted() {
-      const {
-        data
-      } = await apiAsset();
+      const { data } = await apiAsset();
       this.ethData = data.find(x => x.coin === 1);
       new QRCode(document.getElementById('qrcode'), this.ethData.address);
     },
