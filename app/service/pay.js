@@ -105,10 +105,13 @@ class SignService extends Service {
     });
   } */
   async updateBuy({ order_form, is_buy }) {
-    // debugger;
-    const { create_time } = (await this.select({ orderForm: order_form }))[0];
+    const { create_time, pay_btc } = (await this.select({ orderForm: order_form }))[0];
+    const { useable } = (await this.service.asset.getAccount())[0];
     if(+new Date() - create_time > 300000) {
       this.ctx.throw(405, '订单已失效');
+    }
+    if(useable < pay_btc) {
+      this.ctx.throw(405, '余额不足, 请先充值');
     }
 
     await this.app.mysql.update('buy_record', {
