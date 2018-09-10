@@ -47,12 +47,12 @@
             <el-button size="mini" @click="goBuy(scope.row.order_form)">前往支付</el-button>
           </template>
           <template v-if="!scope.row.is_buy">
-            <el-button size="mini" type="danger" @click="dialogVisible = true">删除订单</el-button>
+            <el-button size="mini" type="danger" @click="onMarkForm(scope.row.order_form)">删除订单</el-button>
             <el-dialog title="删除未完成订单" :visible.sync="dialogVisible" width="30%">
               <span>确认删除</span>
               <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="onDelOrder(scope.row.order_form)">确 定</el-button>
+                <el-button type="primary" @click="onDelOrder">确 定</el-button>
               </span>
             </el-dialog>
           </template>
@@ -78,6 +78,7 @@
       return {
         orderList: [],
         dialogVisible: false,
+        delForm: null,
         shopJSON: {
           '1': 'GMiner T1',
           '2': 'GMiner T2',
@@ -90,6 +91,10 @@
       }
     },
     methods: {
+      onMarkForm (form) {
+        this.delForm = form;
+        this.dialogVisible = true;
+      },
       init() {
         apiRecord({
           action: '1'
@@ -111,9 +116,9 @@
       onJumpEth(tx) {
         window.open(`https://etherscan.io/tx/${tx}`)
       },
-      onDelOrder(order) {
+      onDelOrder() {
         apiDelOrder({
-          orderForm: order
+          orderForm: this.delForm
         }).then(res => {
           this.dialogVisible = false
           this.init()
