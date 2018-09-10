@@ -120,6 +120,7 @@
   } from '~/api'
   export default {
     mounted () {
+      window.scrollTo(0, 0);
       apiShopDetail({
         id: this.shop
       }).then(({ data }) => {
