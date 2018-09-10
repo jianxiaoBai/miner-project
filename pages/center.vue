@@ -174,6 +174,7 @@
     color: #666;
     line-height: 36px;
     padding-left: 5px;
+    cursor: pointer;
   }
 
   .nav-link.active ,

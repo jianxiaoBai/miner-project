@@ -16,7 +16,7 @@
                 <div class="act-header">
                 </div>
                 <div class="shop-content">
-                  <div class="shop-item shop-item-price"><dt>单价:</dt>
+                  <div class="shop-item shop-item-price"><dt>算力托管费(2年期)：</dt>
                     <dd>
                     <span class="currentPrice">
                       <span>{{ shopDetail.price }}.00美元/台, {{buyBase}}台起购</span>

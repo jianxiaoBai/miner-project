@@ -3,15 +3,15 @@
     <div id="gn-header">
       <div class="header__inner">
         <nuxt-link class="logo" to="/" />
-        <!-- <div class="left text-right">
+        <div class="left text-right">
            <ul role="menubar" class="menu login el-menu--horizontal el-menu is-login">
-              <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" to="/mine">
-                <div class="el-submenu__title">
-                  <span style="color:#FFF;border-bottom-color:transparent;">矿机</span>
+              <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" to="/">
+                <div class="el-submenu__title" style="border-bottom-color:transparent;color:;">
+                  <span style="color:#FFF;border-bottom-color:transparent;">首页</span>
                 </div>
               </nuxt-link>
           </ul>
-        </div> -->
+        </div>
         <div class="right text-right">
           <ul role="menubar" class="menu login el-menu--horizontal el-menu is-login">
             <template v-if="isLogin">

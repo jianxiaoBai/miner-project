@@ -225,6 +225,7 @@ export default {
 
   .product-detail-container {
     padding: 30px 40px 38px;
+    cursor: default;
   }
 
   .product-detail {
