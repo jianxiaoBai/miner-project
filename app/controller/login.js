@@ -1,9 +1,5 @@
 'use strict';
-/* eslint-disable no-debugger */
-const svgCaptcha = require('svg-captcha');
 const Controller = require('egg').Controller;
-const md5 = require('md5');
-const jwt = require('jwt-simple');
 const {
   getAothCode,
   getLocalTime,
@@ -17,7 +13,7 @@ class HomeController extends Controller {
       mobile: 'string',
       isCodeLogin: ['true', 'false']
     };
-    debugger;
+    // debugger;
     ctx.validate(loginRule, ctx.request.body);
 
     const token = await service.login.select(ctx.request.body);

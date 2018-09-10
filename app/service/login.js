@@ -2,6 +2,7 @@
 
 const Service = require('egg').Service;
 const jwt = require('jwt-simple');
+const { aesDecrypt } = require('../utils');
 class LoginServer extends Service {
   async select({ mobile, isCodeLogin, code = null, password = null }) {
     const { ctx, app } = this;
@@ -25,8 +26,9 @@ class LoginServer extends Service {
         }
       }
     } else {
+      debugger
       if (result.password) {
-        if(password !== result.password) {
+        if(password !== aesDecrypt(result.password, this.app.config.aesKey)) {
           ctx.throw(403, '密码错误');
         }
       }

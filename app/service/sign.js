@@ -2,6 +2,7 @@
 
 const Service = require('egg').Service;
 // const Web3 = require('web3');
+const { aesEncrypt } = require('../utils');
 class SignService extends Service {
   async insert ({ mobile, code, password }) {
     const { ctx, app } = this;
@@ -36,11 +37,10 @@ class SignService extends Service {
         AND
           address = ?
       `, [ bindItem.address ]);
-
       // insert base info to user
       await conn.insert('user', {
         mobile,
-        password,
+        password: aesEncrypt(password, this.app.config.aesKey),
         create_time: +new Date()
       });
       await conn.commit();
@@ -53,7 +53,7 @@ class SignService extends Service {
   async update ({ mobile, code, password }) {
     await this.check(mobile, code);
     return await this.app.mysql.update('user', {
-      password
+      password: aesEncrypt(password, this.app.config.aesKey)
     }, {
       where: {
         mobile
