@@ -3,17 +3,32 @@
     <div class="x-tabs">
       <div class="x-tabs__header">
         <ul class="x-tabs__nav">
-          <li class="x-tabs__item active">手机注册</li>
+          <li class="x-tabs__item" :class="{ active: loginType === 1 }" @click="loginType = 1">手机注册</li>
+          <li class="x-tabs__item" :class="{ active: loginType === 2 }" @click="loginType = 2">邮箱注册</li>
         </ul>
       </div>
       <div class="x-tabs__content">
         <div class="tabs-pane">
           <form class="login-form" _lpchecked="1">
-            <div class="input-group">
+            <template v-if="loginType === 1">
+              <div class="input-group">
               <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
                 <input type="text" autocomplete="off" placeholder="手机号码" name="phone" v-model="phone" class="el-input__inner">
               </div>
             </div>
+            </template>
+            <template v-else>
+              <div class="input-group">
+                <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
+                  <input type="text" autocomplete="off" placeholder="邮箱" name="mail" v-model="mail" class="el-input__inner">
+                </div>
+              </div>
+            </template>
+            <!-- <div class="input-group">
+              <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
+                <input type="text" autocomplete="off" placeholder="手机号码" name="phone" v-model="phone" class="el-input__inner">
+              </div>
+            </div> -->
             <div class="input-group">
               <div class="el-input captcha-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
                 <input type="text" autocomplete="off" placeholder="请输入图形验证码" name="phone" v-model="captchaCode" class="el-input__inner">
@@ -79,6 +94,8 @@
 
         await apiSign({
           mobile: this.phone,
+          mail: this.mail,
+          loginType: this.loginType,
           code: this.code,
           password: this.password
         });
@@ -92,10 +109,11 @@
         }, 1500);
       },
       async onSendCode () {
-        const _phoneReg = new RegExp(this.phoneReg);
-        if(!_phoneReg.test(this.phone)) {
+        const _phoneReg = new RegExp(this.Regs[this.loginType]);
+
+        if(!_phoneReg.test(this.loginType === 1 ? this.phone : this.mail)) {
            return this.$message({
-            message: '请输入合法手机号',
+            message: `请输入合法${ this.loginType === 1 ? '手机号' : '邮箱' }`,
             type: 'warning'
           });
         }
@@ -108,7 +126,9 @@
         try {
           await apiSendSms({
             mobile: this.phone,
-            captcha: this.captchaCode
+            mail: this.mail,
+            captcha: this.captchaCode,
+            loginType: this.loginType
           })
             this.$message('验证码已发送');
           } catch (error) {
@@ -122,12 +142,19 @@
     data() {
       return {
         phone: null,
+        mail: null,
         captchaCode: null,
         captchaImg: '',
         code: null,
         password: '',
         repassword: '',
-        phoneReg: '^(13[0-9]|14[0-9]|15[0-9]|166|17[0-9]|18[0-9]|19[8|9])\\d{8}$'
+        phoneReg: '^(13[0-9]|14[0-9]|15[0-9]|166|17[0-9]|18[0-9]|19[8|9])\\d{8}$',
+        mailReg: '/^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$/',
+        loginType: 1,
+        Regs: {
+          1: '^(13[0-9]|14[0-9]|15[0-9]|166|17[0-9]|18[0-9]|19[8|9])\\d{8}$',
+          2: '^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$',
+        }
       };
     },
   };

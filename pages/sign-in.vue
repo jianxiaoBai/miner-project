@@ -3,17 +3,27 @@
     <div class="x-tabs">
       <div class="x-tabs__header">
         <ul class="x-tabs__nav">
-          <li class="x-tabs__item active">手机登录</li>
+          <li class="x-tabs__item" :class="{ active: loginType === 1 }" @click="loginType = 1">手机登录</li>
+          <li class="x-tabs__item" :class="{ active: loginType === 2 }" @click="loginType = 2">邮箱登录</li>
         </ul>
       </div>
       <div class="x-tabs__content">
         <div class="tabs-pane">
           <form class="login-form" _lpchecked="1">
-            <div class="input-group">
-              <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
-                <input type="text" autocomplete="off" placeholder="手机号码" name="phone" v-model="phone" class="el-input__inner">
+            <template v-if="loginType === 1">
+              <div class="input-group">
+                <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
+                  <input type="text" autocomplete="off" placeholder="手机号码" name="phone" v-model="phone" class="el-input__inner">
+                </div>
               </div>
-            </div>
+            </template>
+            <template v-else>
+              <div class="input-group">
+                <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
+                  <input type="text" autocomplete="off" placeholder="邮箱" name="mail" v-model="mail" class="el-input__inner">
+                </div>
+              </div>
+            </template>
              <div class="input-group">
                 <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
                   <input type="password" autocomplete="off" placeholder="请输入密码" name="code" v-model="password" class="el-input__inner">
@@ -65,7 +75,9 @@
           this.checkPhone()
           apiLogin({
             mobile: this.phone,
+            mail: this.mail,
             code: this.code,
+            loginType: this.loginType,
             password: this.password,
             isCodeLogin: this.isCodeLogin
           }).then(res => {
@@ -86,9 +98,9 @@
         }
       },
       checkPhone() {
-        const _phoneReg = new RegExp(this.phoneReg);
-        if (!_phoneReg.test(this.phone)) {
-          throw new Error('手机号不合法')
+        const _phoneReg = new RegExp(this.Regs[this.loginType]);
+        if(!_phoneReg.test(this.loginType === 1 ? this.phone : this.mail)) {
+          throw new Error(`请输入合法${ this.loginType === 1 ? '手机号' : '邮箱' }`)
         }
       },
       async onSendCode() {
@@ -102,6 +114,7 @@
           }
           await apiSendSms({
             mobile: this.phone,
+            mail: this.mail,
             captcha: this.captchaCode
           })
           this.$message('验证码已发送');
@@ -118,10 +131,16 @@
         isCodeLogin: false,
         phone: null,
         captchaCode: null,
+        loginType: 1,
         captchaImg: '',
+        mail: null,
         code: null,
         password: '',
-        phoneReg: '^(13[0-9]|14[0-9]|15[0-9]|166|17[0-9]|18[0-9]|19[8|9])\\d{8}$'
+        phoneReg: '^(13[0-9]|14[0-9]|15[0-9]|166|17[0-9]|18[0-9]|19[8|9])\\d{8}$',
+        Regs: {
+          1: '^(13[0-9]|14[0-9]|15[0-9]|166|17[0-9]|18[0-9]|19[8|9])\\d{8}$',
+          2: '^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$',
+        }
       };
     },
   };

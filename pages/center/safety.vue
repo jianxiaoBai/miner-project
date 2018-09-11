@@ -13,8 +13,11 @@
             </div>
             <div class="item-inner account">
               <h3>我的账户</h3>
-              <p>
+              <p v-if="data.mobile">
                 <span>绑定手机: {{ data.mobile }}</span>
+              </p>
+              <p v-else>
+                <span>绑定邮箱: {{ data.mail }}</span>
               </p>
               <p>
                 <span>认证地址: {{ data.bind_address || '暂无认证' }}</span>
