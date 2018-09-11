@@ -5,7 +5,7 @@ class GetAddrService extends Service {
   async get () {
     return await this.app.mysql.query(`
       SELECT
-        bind_address, mobile, buy_count
+        bind_address, mobile, mail, buy_count
       FROM
         user
       WHERE
@@ -16,7 +16,7 @@ class GetAddrService extends Service {
   }
   async insert (d) {
     return await this.app.mysql.insert('miner', {
-      mobile: d.mobile,
+      ...this.ctx.userAccout,
       bind_address: d.bind_address,
       power: d.power,
       status: d.status,
@@ -32,7 +32,7 @@ class GetAddrService extends Service {
   async getPower () {
     return await this.app.mysql.select('miner', {
       where: {
-        mobile: this.ctx.encode.mobile
+        ...this.ctx.userAccout
       },
       columns: ['id', 'bind_address', 'create_time', 'power', 'status', 'output', 'deplete', 'manage', 'fact', 'run_time'],
       orders: [['create_time','desc']]

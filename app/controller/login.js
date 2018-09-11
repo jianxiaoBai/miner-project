@@ -8,12 +8,12 @@ const {
 class HomeController extends Controller {
   async index () {
     const { ctx, service } = this;
-
+    debugger
     const loginRule = {
-      mobile: 'string',
-      isCodeLogin: ['true', 'false']
+      // mobile: 'string',
+      // isCodeLogin: ['true', 'false']
     };
-    // debugger;
+    debugger;
     ctx.validate(loginRule, ctx.request.body);
 
     const token = await service.login.select(ctx.request.body);

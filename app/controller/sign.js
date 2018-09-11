@@ -1,7 +1,7 @@
 'use strict';
 const Controller = require('egg').Controller;
 const signRule = {
-  mobile: 'string',
+  // mobile: 'string',
   code: 'string',
   password: 'string'
 };

@@ -4,12 +4,14 @@ const Service = require('egg').Service;
 const jwt = require('jwt-simple');
 const { aesDecrypt } = require('../utils');
 class LoginServer extends Service {
-  async select({ mobile, isCodeLogin, code = null, password = null }) {
+  async select({ mobile, mail, isCodeLogin, code = null, password = null, loginType}) {
     const { ctx, app } = this;
     const expired = 60 * 5;
     // const result = (await app.mysql.select(JSON.parse(isCodeLogin) ? 'sms_log' : 'user' , {
     const result = (await app.mysql.select('user' , {
-      where: { mobile }
+      where: {
+        [loginType === '1' ? 'mobile' : 'mail']: loginType === '1' ? mobile : mail,
+      }
     }))[0];
     // debugger;
     if(!result) {
@@ -35,7 +37,8 @@ class LoginServer extends Service {
     }
 
     const token = jwt.encode({
-      mobile: mobile,
+      loginType,
+      [loginType === '1' ? 'mobile' : 'mail']: loginType === '1' ? mobile : mail,
       createTime: +new Date()
     }, app.config.secret);
 

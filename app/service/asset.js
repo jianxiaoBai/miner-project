@@ -8,7 +8,7 @@ class CaptchaService extends Service {
   async getAccount () {
     return await this.app.mysql.select('assets', {
       where: {
-        mobile: this.ctx.encode.mobile
+        ...this.ctx.userAccout
       },
       columns: ['address', 'sum', 'useable', 'freeze', 'coin'],
     })
@@ -40,7 +40,7 @@ class CaptchaService extends Service {
       ...item
     }, {
       where: {
-        mobile: this.ctx.encode.mobile,
+        ...this.ctx.userAccout,
         coin
       }
     })

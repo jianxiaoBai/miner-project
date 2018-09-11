@@ -10,21 +10,21 @@ class SignService extends Service {
     // if(Number(buyNum) < 1) {
     //   this.ctx.throw(403, '购买数量不能为0');
     // }
+    debugger;
     const { price } = await this.service.shops.getDetail({ id: shopId })
-    const { mobile } = this.ctx.encode;
     const { data: { data } } = await this.ctx.curl('http://ok.truescan.net/', {
         dataType: 'json',
         timeout: 10000,
       });
     // const { open, usdCnyRate } = data.find(x => x.coinName === 'ETH');
     const { low } = data.find(x => x.coinName === 'BTC');
-    // 订单号 = 当前时间 + 手机号码后四位
-    const orderForm = 'b' + getLocalTime() + mobile.slice('7');
+    // 订单号 = 当前时间 + 随机字符串
+    const orderForm = 'b' + getLocalTime() + Math.random().toString(36).substr(8);
     const sum = price * buyNum;
     const payBTC = sum / low;
 
     await this.app.mysql.insert('buy_record', {
-      mobile,
+      ...this.ctx.userAccout,
       order_form: orderForm,
       create_time: +new Date(),
       buy_num: buyNum,
@@ -123,31 +123,32 @@ class SignService extends Service {
        }
     });
 
-    /* return await this.service.asset.update({
-      useable: myAccount.sum - pay_btc,
-      freeze: pay_btc
-    }); */
     return await this.syncAssetTable();
   }
   async syncAssetTable () {
+    debugger;
+    const key   = Object.keys(this.ctx.userAccout)[0];
+    const value = Object.values(this.ctx.userAccout)[0];
     return await this.app.mysql.query(`
       UPDATE assets AS a,
         (
           SELECT
-            mobile, IFNULL(sum( pay_btc ), 0) AS payBtc
+            ${key}, IFNULL(sum( pay_btc ), 0) AS payBtc
           FROM
             buy_record
           WHERE
             is_buy = '1'
           AND
-          mobile = ?
+            ${key} = ?
+          GROUP BY
+            ${key}
         ) AS b
       SET
         a.freeze = b.payBtc,
         a.useable = a.sum - b.payBtc
       WHERE
-        a.mobile = b.mobile
-    `, [ this.ctx.encode.mobile ]);
+        a.${key} = b.${key}
+    `, [ value ]);
   }
   async bindAddr ({ authAddress }) {
     const { ctx, app } = this;
@@ -161,7 +162,7 @@ class SignService extends Service {
         bind_address: authAddress
       }, {
         where: {
-          mobile: ctx.encode.mobile
+          ...this.ctx.userAccout
         }
       })
     } else {
@@ -170,7 +171,7 @@ class SignService extends Service {
   }
   async insertSell ({ address, number }) {
     return await this.app.mysql.insert('buy_record', {
-      mobile: this.ctx.encode.mobile,
+      ...this.ctx.userAccout,
       create_time: +new Date(),
       cash_address: address,
       cash_number: number,

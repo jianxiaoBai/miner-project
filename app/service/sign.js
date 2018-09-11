@@ -4,10 +4,10 @@ const Service = require('egg').Service;
 // const Web3 = require('web3');
 const { aesEncrypt } = require('../utils');
 class SignService extends Service {
-  async insert ({ mobile, code, password }) {
+  async insert ({ mobile, mail, code, password, loginType }) {
     const { ctx, app } = this;
-
-    await this.check(mobile, code);
+    debugger;
+    await this.check(loginType === '1' ? mobile : mail, code);
     // get to bind BTC address
     const bindItem = (await app.mysql.select('btc_address', {
       where: {
@@ -20,7 +20,7 @@ class SignService extends Service {
     try {
       // bind user info to BTC address
       await conn.insert('assets', {
-        mobile,
+        [loginType === '1' ? 'mobile' : 'mail']: loginType === '1' ? mobile : mail,
         address: bindItem.address,
         coin: 1,
         create_time: +new Date()
@@ -39,24 +39,25 @@ class SignService extends Service {
       `, [ bindItem.address ]);
       // insert base info to user
       await conn.insert('user', {
-        mobile,
+        [loginType === '1' ? 'mobile' : 'mail']: loginType === '1' ? mobile : mail,
         password: aesEncrypt(password, this.app.config.aesKey),
         create_time: +new Date()
       });
       await conn.commit();
     } catch (err) {
       await conn.rollback();
-      ctx.throw(400, '该手机号码已注册');
+      throw err;
+      // ctx.throw(400, '该手机号码已注册');
     }
     return { success: true }
   }
-  async update ({ mobile, code, password }) {
-    await this.check(mobile, code);
+  async update ({ mobile, mail, code, password, loginType }) {
+    await this.check(loginType === '1' ? mobile : mail, code);
     return await this.app.mysql.update('user', {
       password: aesEncrypt(password, this.app.config.aesKey)
     }, {
       where: {
-        mobile
+        [loginType === '1' ? 'mobile' : 'mail']: loginType === '1' ? mobile : mail
       }
     })
   }
