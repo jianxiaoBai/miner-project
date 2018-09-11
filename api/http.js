@@ -4,7 +4,7 @@ import axios from 'axios'
 import qs from 'qs'
 import Vue from 'vue'
 import { apiUrl } from '../config/index.js'
-import { getStore } from '~/util';
+import { getStore, removeStore } from '~/util';
 const that = Vue.prototype
 
 const service = axios.create({
@@ -31,6 +31,7 @@ service.interceptors.response.use(res => {
 }, ({ response = {} }) => {
   const { data = {}, status } = response;
   if(status === 401) {
+    removeStore('token');
     window.location.href = '/sign-in'
   } else {
     that.$message({
