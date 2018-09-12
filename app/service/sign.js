@@ -4,7 +4,7 @@ const Service = require('egg').Service;
 // const Web3 = require('web3');
 const { aesEncrypt } = require('../utils');
 class SignService extends Service {
-  async insert ({ mobile, mail, code, password, loginType }) {
+  async insert ({ mobile, mail, code, password, loginType, inviteCode }) {
     const { ctx, app } = this;
     debugger;
     await this.check(loginType === '1' ? mobile : mail, code);
@@ -41,13 +41,14 @@ class SignService extends Service {
       await conn.insert('user', {
         [loginType === '1' ? 'mobile' : 'mail']: loginType === '1' ? mobile : mail,
         password: aesEncrypt(password, this.app.config.aesKey),
+        invite_code: inviteCode,
         create_time: +new Date()
       });
       await conn.commit();
     } catch (err) {
       await conn.rollback();
-      throw err;
-      // ctx.throw(400, '该手机号码已注册');
+      // throw err;
+      ctx.throw(400, '该手机号码已注册');
     }
     return { success: true }
   }

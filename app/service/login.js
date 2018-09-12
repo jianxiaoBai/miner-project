@@ -28,7 +28,6 @@ class LoginServer extends Service {
         }
       }
     } else {
-      debugger
       if (result.password) {
         if(password !== aesDecrypt(result.password, this.app.config.aesKey)) {
           ctx.throw(403, '密码错误');
