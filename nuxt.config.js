@@ -44,7 +44,11 @@ module.exports = {
   ** Add element-ui in our app, see plugins/element-ui.js file
   */
   plugins: [
+    '~/plugins/i18n.js',
     '@/plugins/element-ui'
-  ]
+  ],
+  router: {
+    middleware: 'i18n'
+  }
 }
 

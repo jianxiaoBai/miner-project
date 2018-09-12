@@ -1,15 +1,4 @@
-<template>
-  <div>
-    订单
-  </div>
-</template>
-
 <script>
-  export default {
-
-  }
+import Trust from '~/pages/_lang/center/trust'
+export default Trust
 </script>
-
-<style scoped>
-
-</style>

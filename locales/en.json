@@ -1,0 +1,137 @@
+{
+  "language": "中文",
+  "root": "/en",
+  "header": {
+    "logo": "http:www.asdaasd.asd/xx.jpg",
+    "home": "home",
+    "center": "Personal center & Recharge",
+    "login": "log in",
+    "reg": "registered"
+  },
+  "footer": {
+    "list": {
+      "item1": "Superior computing power",
+      "item2": "Flexible trading",
+      "item3": "Ultra low risk",
+      "item4": "With the purchase"
+    }
+  },
+  "home": {
+    "slogan": "The mining machine cloud computing power management fee includes electricity, freight, installation fee, management fee, etc., and the fee is 69 USD/set/month.",
+    "slogan1": "The first batch of purchase users temporarily waive the first month custodian fee",
+    "shopTitle": "Mining machine management"
+  },
+  "center": {
+    "title": "Personal center",
+    "signOut": "sign out",
+    "listRouter": [
+      {
+        "name": "my account",
+        "to": "/center"
+      },
+      {
+        "name": "My cloud computing power",
+        "to": "/center/power"
+      },
+      {
+        "name": "My Order",
+        "to": "/center/order"
+      },
+      {
+        "name": "My withdrawal",
+        "to": "/center/sell"
+      },
+      {
+        "name": "Security center",
+        "to": "/center/safety"
+      }
+    ],
+    "index": {
+      "title": "my account",
+      "balance": "balance",
+      "item": {
+        "sum": "lump sum",
+        "usable": "usable",
+        "freeze": "freeze",
+        "output": "withdraw",
+        "input": "recharge"
+      }
+    },
+    "power": {
+      "title": "My income",
+      "subhead": "Calculation output record",
+      "tableTitle": "Computational output",
+      "tableHead": {
+        "item1": "Computing powerID",
+        "item2": "Computing power(T)",
+        "item3": "Current state",
+        "item4": "Output currency",
+        "item5": "Actual currency",
+        "item6": "start operation",
+        "item7": "Running time"
+      }
+    },
+    "order": {
+      "tableHead": {
+        "order": "order number",
+        "shop": "commodity",
+        "status": "Order Status",
+        "pay": "payBTC/Number of mining machines",
+        "rate": "BTC currency price when ordering",
+        "handle": "operating"
+      },
+      "item": {
+        "lose": "expired",
+        "backOut": "Order void",
+        "delete": "Delete order",
+        "pay": "Go to pay"
+      }
+    },
+    "sell": {
+      "address": "Withdrawal address",
+      "number": "Cash withdrawal amount",
+      "status": "Order Status",
+      "time": "Cash withdrawal time",
+      "handle": "operating"
+    },
+    "safety": {
+      "title": "Security center",
+      "subhead": "my account",
+      "mail": "Bind mailbox",
+      "mobile": "Bind phone number",
+      "address": "Authentication address"
+    }
+  },
+  "product": {
+    "yingfu": "Handle",
+    "cost": "Calculation of custody fees (2 years)",
+    "number": "Quantity",
+    "unit": "Dollar",
+    "unit1": "",
+    "month": "month",
+    "qigou": "Purchase",
+    "manage": "management fee",
+    "manageState": "Free management fee during the promotion period",
+    "payBtn": "Buy now",
+    "rechargeBtn": "Recharge",
+    "remark1": "Remarks: Please pay attention to ensure sufficient balance before purchasing the mining machine. If the balance is insufficient, please recharge and purchase.",
+    "remark2": "This product is only accepted by BTC and is converted at the real-time price of OKEX at the time of purchase.",
+    "minerDetaile": "Mining machine details"
+  },
+  "pay": {
+    "state1": "Order submission is successful, please pay as soon as possible, order number",
+    "state2": "The order has been submitted successfully, please complete the payment within 5 minutes, otherwise the order will be invalid.",
+    "state3": "Confirm the payment of the mining machine within 48 hours after the payment is successful and start calculating the revenue",
+    "unit": "Dollar",
+    "yingfu": "Total amount payable",
+    "pay": "pay",
+    "commend": "commend",
+    "useable": "Available quantity",
+    "xufu": "Amount to be paid",
+    "xufuState": "(Calculate the quantity at OKEX real-time exchange rate, including transaction fee)",
+    "zhanwei": "The total amount paid at the time of purchase is over US$20,000.",
+    "bindBtn": "Bind mining certification address",
+    "payBtn": "confirm purchase",
+    "cancelBtn": "cancel order"
+  }
+}

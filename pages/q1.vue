@@ -1,15 +1,4 @@
-<template>
-  <div>
-    我是去打的
-  </div>
-</template>
-
 <script>
-  export default {
-
-  }
+import Q1 from '~/pages/_lang/q1'
+export default Q1
 </script>
-
-<style scoped>
-
-</style>

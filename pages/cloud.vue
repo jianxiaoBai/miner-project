@@ -1,15 +1,4 @@
-<template>
-  <div>
-    Im 运算力
-  </div>
-</template>
-
 <script>
-  export default {
-
-  }
+import Cloud from '~/pages/_lang/cloud'
+export default Cloud
 </script>
-
-<style scoped>
-
-</style>

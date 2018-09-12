@@ -1,15 +1,4 @@
-<template>
-  <div>
-    收货地址
-  </div>
-</template>
-
 <script>
-  export default {
-
-  }
+import Address from '~/pages/_lang/center/address'
+export default Address
 </script>
-
-<style scoped>
-
-</style>

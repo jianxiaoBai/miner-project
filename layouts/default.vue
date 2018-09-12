@@ -2,12 +2,12 @@
   <div class="app-container">
     <div id="gn-header">
       <div class="header__inner">
-        <nuxt-link class="logo" to="/" />
+        <nuxt-link class="logo" :to="$t(`root`) + '/'" />
         <div class="left text-right">
            <ul role="menubar" class="menu login el-menu--horizontal el-menu is-login">
-              <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" to="/">
+              <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" :to="$t(`root`) + '/'">
                 <div class="el-submenu__title" style="border-bottom-color:transparent;color:;">
-                  <span style="color:#FFF;border-bottom-color:transparent;">首页</span>
+                  <span style="color:#FFF;border-bottom-color:transparent;">{{ $t(`header.home`) }}</span>
                 </div>
               </nuxt-link>
           </ul>
@@ -20,21 +20,32 @@
                   <img src="~/assets/img/cart.9bdd50b.svg">
                 </a>
               </li> -->
-              <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" to="/center">
+              <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" :to="`${$t(`root`)}/center`">
                 <div class="el-submenu__title" style="border-bottom-color:transparent;color:;">
                   <span style="color:#FFF;border-bottom-color:transparent;">
-                    <img src="~/assets/img/person.1cee58e.svg" class="icon-my-center">个人中心 & 充值 </span>
+                    <img src="~/assets/img/person.1cee58e.svg" class="icon-my-center">{{ $t(`header.center`) }}</span>
                 </div>
               </nuxt-link>
             </template>
             <template v-else>
-              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign-in" to="/sign-in">
-                登录
+              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign_in" :to="`${$t(`root`)}/sign_in`">
+                {{ $t(`header.login`) }}
               </nuxt-link>
-              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign-up" to="/sign-up">
-                注册
+              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign_up" :to="`${$t(`root`)}/sign_up`">
+                {{ $t(`header.reg`) }}
               </nuxt-link>
             </template>
+            <li class="el-menu-item menu-item sign_in">
+              <el-dropdown>
+                <span class="el-dropdown-link" style="color: white">
+                  {{ $t(`language`)}}<i class="el-icon-arrow-down el-icon--right"></i>
+                </span>
+                <el-dropdown-menu slot="dropdown">
+                  <el-dropdown-item @click.native="changeLanguage('zh')">EN</el-dropdown-item>
+                  <el-dropdown-item @click.native="changeLanguage('en')">中文</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
+            </li>
           </ul>
         </div>
       </div>
@@ -47,19 +58,19 @@
     <div class="app-features">
       <div>
         <img src="~/assets/img/feature_superb.png" alt="">
-        <p>算力卓越</p>
+        <p>{{ $t(`footer.list.item1`) }}</p>
       </div>
       <div>
         <img src="~/assets/img/feature_flexible_trading.png" alt="">
-        <p>灵活交易</p>
+        <p>{{ $t(`footer.list.item2`) }}</p>
       </div>
       <div>
         <img src="~/assets/img/feature_low_risk.png" alt="">
-        <p>超低风险</p>
+        <p>{{ $t(`footer.list.item3`) }}</p>
       </div>
       <div>
         <img src="~/assets/img/feature_buy_use.png" alt="">
-        <p>随买随用</p>
+        <p>{{ $t(`footer.list.item4`) }}</p>
       </div>
     </div>
     <div class="footer">
@@ -73,6 +84,26 @@
     getStore
   } from '~/util';
   export default {
+    methods: {
+      test () {
+        alert('asas')
+      },
+      changeLanguage (lang) {
+        // debugger
+        if (this.$store.state.locale === lang) return
+
+        const { $route: { fullPath, params }, $router } = this
+        const path = fullPath.split(`/${params.lang}`).join('')
+
+        // setStore('lang', lang)
+        if (lang === 'zh') {
+          const to = fullPath.replace(/^\/[^\/]+/, '');
+          $router.push(to || '/')
+        } else {
+          $router.push(`/${lang}${path}`)
+        }
+      }
+    },
     mounted() {
       this.isLogin = Boolean(getStore('token'))
     },
@@ -92,6 +123,9 @@
 <style lang="stylus" scpoed>
   @import '~@/assets/stylus/index.styl';
   @import '~@/assets/stylus/mixin.styl';
+  .el-dropdown-selfdefine {
+    color white
+  }
   .footer {
     height 50px
     line-height 50px
@@ -227,16 +261,16 @@
       vertical-align: -3px;
     }
 
-    #gn-header .menu-item.sign-in,
-    #gn-header .menu-item.sign-up {
+    #gn-header .menu-item.sign_in,
+    #gn-header .menu-item.sign_up {
       padding-left: 10px;
       padding-right: 10px;
     }
 
-    #gn-header .menu-item.sign-in:focus,
-    #gn-header .menu-item.sign-in:hover,
-    #gn-header .menu-item.sign-up:focus,
-    #gn-header .menu-item.sign-up:hover {
+    #gn-header .menu-item.sign_in:focus,
+    #gn-header .menu-item.sign_in:hover,
+    #gn-header .menu-item.sign_up:focus,
+    #gn-header .menu-item.sign_up:hover {
       background-color: transparent !important;
     }
 

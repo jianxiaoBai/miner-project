@@ -26,7 +26,8 @@
     "pug": "^2.0.3",
     "qs": "^6.5.2",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2"
+    "stylus-loader": "^3.0.2",
+    "vue-i18n": "^8.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",

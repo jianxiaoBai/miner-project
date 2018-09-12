@@ -1,0 +1,137 @@
+{
+  "language": "EN",
+  "root": "",
+  "header": {
+    "logo": "http:www.asdaasd.asd/xx.jpg",
+    "home": "首页",
+    "center": "个人中心 & 充值",
+    "login": "登录",
+    "reg": "注册"
+  },
+  "footer": {
+    "list": {
+      "item1": "算力卓越",
+      "item2": "灵活交易",
+      "item3": "超低风险",
+      "item4": "随买随用"
+    }
+  },
+  "home": {
+    "slogan": "矿机云算力托管费用包括电费、运费、安装费、管理费等，收费为69美元/台/月",
+    "slogan1": "首批购买用户暂免首月托管费",
+    "shopTitle": "矿机运算力托管"
+  },
+  "center": {
+    "title": "个人中心",
+    "signOut": "退出登录",
+    "listRouter": [
+      {
+        "name": "我的账户",
+        "to": "/center"
+      },
+      {
+        "name": "我的云算力",
+        "to": "/center/power"
+      },
+      {
+        "name": "我的订单",
+        "to": "/center/order"
+      },
+      {
+        "name": "我的提现",
+        "to": "/center/sell"
+      },
+      {
+        "name": "安全中心",
+        "to": "/center/safety"
+      }
+    ],
+    "index": {
+      "title": "我的账户",
+      "balance": "余额",
+      "item": {
+        "sum": "总额",
+        "usable": "可用",
+        "freeze": "冻结",
+        "output": "提现",
+        "input": "充值"
+      }
+    },
+    "power": {
+      "title": "我的收益",
+      "subhead": "算力产出记录",
+      "tableTitle": "算力产出",
+      "tableHead": {
+        "item1": "算力ID",
+        "item2": "算力(T)",
+        "item3": "当前状态",
+        "item4": "产出币量",
+        "item5": "实际币量",
+        "item6": "开始运行",
+        "item7": "运行时长"
+      }
+    },
+    "order": {
+      "tableHead": {
+        "order": "订单号",
+        "shop": "商品",
+        "status": "订单状态",
+        "pay": "支付BTC/矿机个数",
+        "rate": "下单时BTC币价",
+        "handle": "操作"
+      },
+      "item": {
+        "lose": "已失效",
+        "backOut": "订单作废",
+        "delete": "删除订单",
+        "pay": "前往支付"
+      }
+    },
+    "sell": {
+      "address": "提现地址",
+      "number": "提现数量",
+      "status": "订单状态",
+      "time": "提现时间",
+      "handle": "操作"
+    },
+    "safety": {
+      "title": "安全中心",
+      "subhead": "我的账户",
+      "mail": "绑定邮箱",
+      "mobile": "绑定手机号",
+      "address": "认证地址"
+    }
+  },
+  "product": {
+    "yingfu": "应付",
+    "cost": "算力托管费(2年期)",
+    "number": "数量",
+    "unit": "美元",
+    "unit1": "台",
+    "month": "月",
+    "qigou": "起购",
+    "manage": "管理费",
+    "manageState": "优惠期免管理费",
+    "payBtn": "立即购买",
+    "rechargeBtn": "充 值",
+    "remark1": "备注: 请注意购买矿机前确保余额充足, 如余额不足请充值后购买。",
+    "remark2": "本产品仅接受BTC购买, 购买时按照OKEX的实时价格进行换算。",
+    "minerDetaile": "矿机详情"
+  },
+  "pay": {
+    "state1": "订单提交成功，请尽快付款，订单号",
+    "state2": "订单已提交成功，请在5分钟内完成支付，否则订单将会失效",
+    "state3": "确认付款成功后48小时内部署矿机并开始计算收益",
+    "unit": "美元",
+    "yingfu": "应付总金额",
+    "pay": "支付",
+    "commend": "推荐",
+    "useable": "现可用数量",
+    "xufu": "需支付数量",
+    "xufuState": "(以OKEX实时汇率计算数量, 含交易费)",
+    "zhanwei": "购买时支付总金额超2万美元可赠送认证地址",
+    "bindBtn": "绑定挖矿认证地址",
+    "payBtn": "确认购买",
+    "cancelBtn": "取消订单"
+  }
+}
