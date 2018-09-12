@@ -175,8 +175,10 @@
 
   .x-tabs {
     background-color: #fff;
-    padding: 40px 530px;
-    height: 515px;
+    width 40%
+    max-width 400px
+    margin 0 auto
+    padding: 40px 0;
   }
 
   .x-tabs__header {

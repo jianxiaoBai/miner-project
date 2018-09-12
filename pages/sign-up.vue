@@ -24,11 +24,6 @@
                 </div>
               </div>
             </template>
-            <!-- <div class="input-group">
-              <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
-                <input type="text" autocomplete="off" placeholder="手机号码" name="phone" v-model="phone" class="el-input__inner">
-              </div>
-            </div> -->
             <div class="input-group">
               <div class="el-input captcha-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
                 <input type="text" autocomplete="off" placeholder="请输入图形验证码" name="phone" v-model="captchaCode" class="el-input__inner">
@@ -59,6 +54,11 @@
             <div class="input-group">
               <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
                 <input type="password" autocomplete="off" placeholder="再一次输入密码" name="code" v-model="repassword" class="el-input__inner">
+              </div>
+            </div>
+            <div class="input-group">
+              <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
+                <input type="password" autocomplete="off" placeholder="邀请码(选填)" name="invite" v-model="inviteCode" class="el-input__inner">
               </div>
             </div>
             <button @click="onSubmit" type="button" class="el-button btn-login el-button--primary ">
@@ -97,7 +97,8 @@
           mail: this.mail,
           loginType: this.loginType,
           code: this.code,
-          password: this.password
+          password: this.password,
+          inviteCode: this.inviteCode
         });
 
         this.$message({
@@ -143,6 +144,7 @@
       return {
         phone: null,
         mail: null,
+        inviteCode: null,
         captchaCode: null,
         captchaImg: '',
         code: null,
@@ -181,10 +183,11 @@
 
   .x-tabs {
     background-color: #fff;
-    padding: 40px 530px;
-    height: 515px;
+    width 40%
+    max-width 400px
+    margin 0 auto
+    padding: 40px 0;
   }
-
   .x-tabs__header {
     margin-bottom: 30px;
   }
