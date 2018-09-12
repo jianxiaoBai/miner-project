@@ -67,7 +67,7 @@ class CaptchaController extends Controller {
     const result  = await service.captcha.select(mobile || mail);
     const nowDate = +new Date();
     const expired = 60;
-    debugger;
+    // debugger;
     if (result.length && (nowDate - result[0].update_time) / 1000 < expired) {
       ctx.throw(403, '一分钟内不能频繁请求');
     }
@@ -80,7 +80,7 @@ class CaptchaController extends Controller {
     if(loginType === '1') {
       status = await this.sendSms(smsCode, mobile);
     } else if(loginType === '2') {
-      debugger
+      // debugger;
       status = await this.sendMail(smsCode, mail);
     } else {
       this.ctx.throw(402, '不识别');
@@ -102,8 +102,8 @@ class CaptchaController extends Controller {
     };
   }
   async sendMail (code, to) {
-    debugger
-    const { user, pass } = this.app.config.mail;
+    // debugger
+    const { user, pass, name } = this.app.config.mail;
     let transporter      = nodemailer.createTransport({
       service: 'qq',
       port: 465,
@@ -114,14 +114,14 @@ class CaptchaController extends Controller {
       }
     });
     let option = {
-      from: 'Galois <839780963@qq.com>',
+      from: `${name} <${user}>`,
       to,
       subject: '短信验证',
       // 发送text或者html格式
       // text: 'Hello world', // text 格式
       html: `
         <h3>亲爱的算立方用户，您好！<h3>
-        您的Galois验证码是：<b>${code}</b>
+        您的${name}验证码是：<b>${code}</b>
         <p>此邮件由系统自动发出，5分钟内有效，请勿直接回复。</p>
         <p>感谢你的访问，祝你使用愉快!</p>
       `

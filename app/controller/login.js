@@ -8,7 +8,7 @@ const {
 class HomeController extends Controller {
   async index () {
     const { ctx, service } = this;
-    debugger
+    // debugger
     const loginRule = {
       // mobile: 'string',
       // isCodeLogin: ['true', 'false']

@@ -16,7 +16,8 @@ class GetAddrService extends Service {
   }
   async insert (d) {
     return await this.app.mysql.insert('miner', {
-      ...this.ctx.userAccout,
+      mobile: d.mobile,
+      mail: d.mail,
       bind_address: d.bind_address,
       power: d.power,
       status: d.status,
