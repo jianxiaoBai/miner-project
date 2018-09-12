@@ -48,7 +48,7 @@ class SignService extends Service {
     } catch (err) {
       await conn.rollback();
       // throw err;
-      ctx.throw(400, '该手机号码已注册');
+      ctx.throw(400, `该${loginType === '1' ? '手机号码' : '邮箱' } 已注册`);
     }
     return { success: true }
   }

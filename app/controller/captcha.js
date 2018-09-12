@@ -122,7 +122,7 @@ class CaptchaController extends Controller {
       html: `
         <h3>亲爱的算立方用户，您好！<h3>
         您的Galois验证码是：<b>${code}</b>
-        <p>此邮件由系统自动发出，30分钟内有效，请勿直接回复。</p>
+        <p>此邮件由系统自动发出，5分钟内有效，请勿直接回复。</p>
         <p>感谢你的访问，祝你使用愉快!</p>
       `
     };

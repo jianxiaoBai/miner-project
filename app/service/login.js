@@ -15,13 +15,13 @@ class LoginServer extends Service {
     }))[0];
     // debugger;
     if(!result) {
-      ctx.throw(403, '请先完成手机号码注册');
+      ctx.throw(403, `请先完成${loginType === '1' ? '手机号码': '邮箱' }注册`);
     }
 
     if(JSON.parse(isCodeLogin)) {
       if(result.code) {
         if(((+new Date)  - result.update_time) / 1000 >= expired) {
-          this.ctx.throw(403, '手机验证码过期')
+          this.ctx.throw(403, '验证码过期')
         }
         if(code !== result.code) {
           ctx.throw(403, '验证码错误');
