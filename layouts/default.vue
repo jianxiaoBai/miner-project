@@ -81,13 +81,11 @@
 
 <script>
   import {
-    getStore
+    getStore,
+    setStore
   } from '~/util';
   export default {
     methods: {
-      test () {
-        alert('asas')
-      },
       changeLanguage (lang) {
         // debugger
         if (this.$store.state.locale === lang) return

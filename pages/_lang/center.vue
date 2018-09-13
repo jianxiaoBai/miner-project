@@ -23,13 +23,13 @@
               </template>
               <div class="nav-link" @click="dialogVisible = true">{{ $t(`center.signOut`) }}</div>
               <el-dialog
-                title="提示"
+                :title="$t(`prompt.confirm`)"
                 :visible.sync="dialogVisible"
                 width="30%">
-                <span>确认退出登录？</span>
+                <span>{{ $t(`prompt.quitOut`) }}？</span>
                 <span slot="footer" class="dialog-footer">
-                  <el-button @click="dialogVisible = false">取 消</el-button>
-                  <el-button type="primary" @click="onSignOut">确 定</el-button>
+                  <el-button @click="dialogVisible = false">{{ $t(`prompt.cancel`) }}</el-button>
+                  <el-button type="primary" @click="onSignOut">{{ $t(`prompt.confirm`) }}</el-button>
                 </span>
               </el-dialog>
             </div>

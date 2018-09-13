@@ -18,6 +18,7 @@ const service = axios.create({
 
 service.interceptors.request.use(config => {
   const token = getStore('token');
+  config.headers['lang'] = that.$nuxt.$i18n.locale;
   if (token) {
     config.headers['token'] = token;
   }
@@ -32,7 +33,8 @@ service.interceptors.response.use(res => {
   const { data = {}, status } = response;
   if(status === 401) {
     removeStore('token');
-    window.location.href = '/login'
+    const lang = that.$nuxt.$i18n.locale === 'zh' ? '' : '/en';
+    window.location.href = `${lang}/login`;
   } else {
     that.$message({
       message: data.message,

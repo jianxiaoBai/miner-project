@@ -87,7 +87,7 @@
             });
             setStore('token', res.data.token);
             setTimeout(() => {
-              location.href = '/'
+              window.location.href = this.$store.state.locale === 'zh' ? '/' : '/en';
             }, 2000);
           })
         } catch (error) {
