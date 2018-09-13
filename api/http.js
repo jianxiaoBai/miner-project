@@ -32,7 +32,7 @@ service.interceptors.response.use(res => {
   const { data = {}, status } = response;
   if(status === 401) {
     removeStore('token');
-    window.location.href = '/sign_in'
+    window.location.href = '/login'
   } else {
     that.$message({
       message: data.message,

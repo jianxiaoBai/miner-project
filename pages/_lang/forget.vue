@@ -100,7 +100,7 @@
           type: 'success'
         });
         setTimeout(() => {
-          this.$router.replace('sign_in')
+          this.$router.replace('login')
         }, 1500);
       },
       async onSendCode () {

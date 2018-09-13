@@ -58,7 +58,7 @@
       onSignOut () {
         this.dialogVisible = false
         removeStore('token');
-        window.location.href = '/sign_up';
+        window.location.href = '/register';
       },
       handleClose(done) {
         this.$confirm('确认关闭？')

@@ -28,14 +28,14 @@
               </nuxt-link>
             </template>
             <template v-else>
-              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign_in" :to="`${$t(`root`)}/sign_in`">
+              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item login" :to="`${$t(`root`)}/login`">
                 {{ $t(`header.login`) }}
               </nuxt-link>
-              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item sign_up" :to="`${$t(`root`)}/sign_up`">
+              <nuxt-link role="menuitem" tabindex="0" class="el-menu-item menu-item register" :to="`${$t(`root`)}/register`">
                 {{ $t(`header.reg`) }}
               </nuxt-link>
             </template>
-            <li class="el-menu-item menu-item sign_in">
+            <li class="el-menu-item menu-item login">
               <el-dropdown>
                 <span class="el-dropdown-link" style="color: white">
                   {{ $t(`language`)}}<i class="el-icon-arrow-down el-icon--right"></i>
@@ -261,16 +261,16 @@
       vertical-align: -3px;
     }
 
-    #gn-header .menu-item.sign_in,
-    #gn-header .menu-item.sign_up {
+    #gn-header .menu-item.login,
+    #gn-header .menu-item.register {
       padding-left: 10px;
       padding-right: 10px;
     }
 
-    #gn-header .menu-item.sign_in:focus,
-    #gn-header .menu-item.sign_in:hover,
-    #gn-header .menu-item.sign_up:focus,
-    #gn-header .menu-item.sign_up:hover {
+    #gn-header .menu-item.login:focus,
+    #gn-header .menu-item.login:hover,
+    #gn-header .menu-item.register:focus,
+    #gn-header .menu-item.register:hover {
       background-color: transparent !important;
     }
 
