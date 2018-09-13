@@ -5,7 +5,7 @@
       <div class="page-content">
         <section class="c-section">
           <h4 class="c-section__title">
-            BTC{{ $t(`center.index.balance`) }}
+            BTC {{ $t(`center.index.balance`) }}
           </h4>
           <div class="c-section__content rmb clearfix">
             <div class="left">

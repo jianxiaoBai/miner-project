@@ -17,10 +17,8 @@
         </div>
       </div>
       <div class="home-introduce">
-        <div>{{ $t(`home.slogan`) }}</div>
-        <!-- <i class="icon iconfont icon-zhuanyenengli"></i> -->
-        <!-- <i class="icon iconfont icon-shengchan"></i> -->
-        <div>{{ $t(`home.slogan1`) }}</div>
+        <div><i class="icon iconfont icon-biaoqian"></i>{{ $t(`home.slogan`) }}</div>
+        <div><i class="icon iconfont icon-biaoqian"></i>{{ $t(`home.slogan1`) }}</div>
       </div>
     </div>
     <section class="minerList">
@@ -84,6 +82,12 @@ export default {
 </script>
 
 <style lang="stylus" scpoed>
+.icon-biaoqian {
+  color #F95959
+  vertical-align middle
+  font-size 20px
+  margin-right 5px
+}
 .home-head {
   background white
   // height 500px
@@ -103,8 +107,14 @@ export default {
       font-weight bold
       padding-top 50px
       text-shadow 1px 1px 5px #929396
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
     }
     .subhead {
+      overflow hidden
+      text-overflow ellipsis
+      white-space nowrap
       span {
         line-height: 40px;
         background-color: #fff;
@@ -124,7 +134,9 @@ export default {
         padding 0 48px
         li {
           width 251px
+          max-height 270px
           // padding-top 20px
+          overflow auto
           background white
           .iconfont {
             font-size 45px

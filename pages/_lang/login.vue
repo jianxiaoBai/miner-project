@@ -58,10 +58,6 @@
   } from '~/util';
   export default {
     async mounted() {
-      // console.log(this.$i18n.messages[this.$i18n.locale].prompt.home);
-      // console.log(this);
-      // console.log();
-
       this.initCaptcha()
     },
     methods: {

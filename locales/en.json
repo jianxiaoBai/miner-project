@@ -24,17 +24,17 @@
     "shopTitle": "Hash Cloud",
     "list": [
       {
-        "icon": "icon zhuanyenengli",
+        "icon": "icon-zhuanyenengli",
         "title": "Professional Team",
         "content": "Continue following up the latest TRUE algorithms, to improve the hash rate and reduce the energy consumption of the mining machine."
       },
       {
-        "icon": "icon shengchan",
+        "icon": "icon-shengchan",
         "title": "Independent Design and Production",
         "content": "Design, processing and production are all completed in our own factories to ensure continuous and stable supply. Guarantee exclusive supply of mining machines and ensure the user's excess profit."
       },
       {
-        "icon": "icon wending",
+        "icon": "icon-wending",
         "title": "Stable Operation and Management",
         "content": "The container for mining machine is adopted and deployed globally to ensure stable and safe computing power, with anti-attack, high efficiency, and stable network."
       }
