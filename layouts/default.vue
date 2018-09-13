@@ -41,8 +41,8 @@
                   {{ $t(`language`)}}<i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
-                  <el-dropdown-item @click.native="changeLanguage('zh')">EN</el-dropdown-item>
-                  <el-dropdown-item @click.native="changeLanguage('en')">中文</el-dropdown-item>
+                  <el-dropdown-item @click.native="changeLanguage('en')">EN</el-dropdown-item>
+                  <el-dropdown-item @click.native="changeLanguage('zh')">中文</el-dropdown-item>
                 </el-dropdown-menu>
               </el-dropdown>
             </li>

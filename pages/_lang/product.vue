@@ -11,7 +11,7 @@
           <div class="el-col el-col-14">
             <div class="detail-content">
               <div class="info-header">{{ shopDetail.name }}</div>
-              <div class="info-intro">{{ shopDetail.detail }}</div>
+              <div class="info-intro">{{ $store.state.locale === 'zh' ? shopDetail.detail : 'Professional GPU mining machine'}}</div>
               <div class="info-shop">
                 <div class="act-header">
                 </div>
@@ -146,7 +146,7 @@
           shopId: this.shop
         }).then(({ data: { orderForm } }) => {
           this.$router.push({
-            path: 'pay',
+            path: `${this.$i18n.messages[this.$i18n.locale].root}/pay`,
             query: {
               orderForm
             }

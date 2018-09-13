@@ -82,7 +82,7 @@
               </template>
               <template v-else>
                 <tr>
-                  <td colspan="8" class="nodata">暂无数据</td>
+                  <td colspan="8" class="nodata">no data</td>
                 </tr>
               </template>
             </tbody>

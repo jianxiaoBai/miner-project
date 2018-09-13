@@ -66,19 +66,19 @@
           <el-button @click="onDelOrder">{{ $t(`pay.cancelBtn`) }}</el-button>
         </div>
         <el-dialog
-          title="确认购买 ? "
+          :title="$t(`pay.payBtn`) +  '?' "
           :visible.sync="isConfirmBuy"
           width="30%">
-          <span>当前订单: {{ $route.query.orderForm }}</span>
+          <span>{{ $t(`prompt.confirmInfo.order`) }}: {{ $route.query.orderForm }}</span>
           <br/>
-          <span>可用余额: {{ btcData.useable }}</span>
+          <span>{{ $t(`prompt.confirmInfo.useable`) }}: {{ btcData.useable }}</span>
           <br/>
-          <span>支付总额: {{ data.pay_btc }}</span>
+          <span>{{ $t(`prompt.confirmInfo.paySum`) }}: {{ data.pay_btc }}</span>
           <br/>
-          <span>认证地址: {{authAddress || '无'}}</span>
+          <span>{{ $t(`prompt.confirmInfo.bindAddr`) }}: {{authAddress || '无'}}</span>
           <span slot="footer" class="dialog-footer">
-            <el-button @click="isConfirmBuy = false">取 消</el-button>
-            <el-button type="primary" @click="onConfirmBuy">确 定</el-button>
+            <el-button @click="isConfirmBuy = false">{{ $t(`prompt.cancel`) }}</el-button>
+            <el-button type="primary" @click="onConfirmBuy">{{ $t(`prompt.confirm`) }}</el-button>
           </span>
         </el-dialog>
       </div>
@@ -124,7 +124,7 @@
           orderForm: this.$route.query.orderForm
         }).then(res => {
            this.$message({
-            message: '订单已取消',
+            message: this.$i18n.messages[this.$i18n.locale].prompt.confirmInfo.orderCancel,
             type: 'success'
           })
           setTimeout(() => {
@@ -135,7 +135,7 @@
       async onConfirmBuy () {
         if(this.btcData.useable - this.data.pay_btc < 0) {
           this.$message({
-            message: '可用数量不足将前往充值',
+            message: this.$i18n.messages[this.$i18n.locale].prompt.confirmInfo.useableLack,
             type: 'warning'
           })
         } else {
@@ -145,19 +145,19 @@
             is_buy: 1,
           });
           this.$message({
-            message: '购买申请已提交',
+            message: this.$i18n.messages[this.$i18n.locale].prompt.confirmInfo.buyRequest,
             type: 'success'
           })
         }
         setTimeout(() => {
-            this.$router.push('/center');
+            this.$router.push(`${this.$i18n.messages[this.$i18n.locale].root}/center`);
           }, 1500);
       },
       onDig () {
         if (!this.authAddress) return
         if (this.authAddress.length !== 42) {
           return this.$message({
-            message: '地址长度不够',
+            message: this.$i18n.messages[this.$i18n.locale].prompt.addrLength,
             type: 'warning'
           })
         }
@@ -165,7 +165,7 @@
           authAddress: this.authAddress
         }).then(x => {
           this.$message({
-            message: '绑定成功',
+            message: this.$i18n.messages[this.$i18n.locale].prompt.bindSuccess,
             type: 'success'
           })
         })

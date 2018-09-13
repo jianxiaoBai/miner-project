@@ -20,7 +20,7 @@
                 <span>{{ $t(`center.safety.mail`) }}: {{ data.mail }}</span>
               </p>
               <p>
-                <span>{{ $t(`center.safety.address`) }}: {{ data.bind_address || '暂无认证' }}</span>
+                <span>{{ $t(`center.safety.address`) }}: {{ data.bind_address || $t(`prompt.noBindAddr`) }}</span>
                 <!-- <button type="button" class="el-button right el-button--default el-button--mini">
                   <span>&#21435;&#32465;&#23450;
                   </span>

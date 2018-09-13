@@ -3,8 +3,8 @@
     <div class="x-tabs">
       <div class="x-tabs__header">
         <ul class="x-tabs__nav">
-          <li class="x-tabs__item" :class="{ active: loginType === 1 }" @click="loginType = 1">手机登录</li>
-          <li class="x-tabs__item" :class="{ active: loginType === 2 }" @click="loginType = 2">邮箱登录</li>
+          <li class="x-tabs__item" :class="{ active: loginType === 1 }" @click="loginType = 1">{{ $t(`login.mobileL`) }}</li>
+          <li class="x-tabs__item" :class="{ active: loginType === 2 }" @click="loginType = 2">{{ $t(`login.mailL`) }}</li>
         </ul>
       </div>
       <div class="x-tabs__content">
@@ -13,30 +13,30 @@
             <template v-if="loginType === 1">
               <div class="input-group">
                 <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
-                  <input type="text" autocomplete="off" placeholder="手机号码" name="phone" v-model="phone" class="el-input__inner">
+                  <input type="text" autocomplete="off" :placeholder="$t(`register.mobile`)" name="phone" v-model="phone" class="el-input__inner">
                 </div>
               </div>
             </template>
             <template v-else>
               <div class="input-group">
                 <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
-                  <input type="text" autocomplete="off" placeholder="邮箱" name="mail" v-model="mail" class="el-input__inner">
+                  <input type="text" autocomplete="off" :placeholder="$t(`register.mail`)" name="mail" v-model="mail" class="el-input__inner">
                 </div>
               </div>
             </template>
              <div class="input-group">
                 <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
-                  <input type="password" autocomplete="off" placeholder="请输入密码" name="code" v-model="password" class="el-input__inner">
+                  <input type="password" autocomplete="off" :placeholder="$t(`register.password`)" name="code" v-model="password" class="el-input__inner">
                 </div>
               </div>
             <button @click="onSubmit" type="button" class="el-button btn-login el-button--primary ">
               <span>
-                登录
+                {{ $t(`login.btn`) }}
               </span>
             </button>
             <div class="extra el-row">
               <div class="text-left el-col el-col-12" @click="onForget">
-                <span class="text-secondary pointer">忘记密码？</span>
+                <span class="text-secondary pointer">{{ $t(`login.forget`) }}？</span>
               </div>
             </div>
           </form>
@@ -58,6 +58,10 @@
   } from '~/util';
   export default {
     async mounted() {
+      // console.log(this.$i18n.messages[this.$i18n.locale].prompt.home);
+      // console.log(this);
+      // console.log();
+
       this.initCaptcha()
     },
     methods: {
@@ -68,7 +72,7 @@
         this.captchaImg = data
       },
       onForget() {
-        this.$router.push('/forget');
+        this.$router.push(`${this.$i18n.messages[this.$i18n.locale].root}/forget`);
       },
       onSubmit() {
         try {
@@ -82,7 +86,7 @@
             isCodeLogin: this.isCodeLogin
           }).then(res => {
             this.$message({
-              message: '登录成功, 2秒后跳转',
+              message: this.$i18n.messages[this.$i18n.locale].prompt.loginSuccess,
               type: 'success'
             });
             setStore('token', res.data.token);
@@ -100,7 +104,13 @@
       checkPhone() {
         const _phoneReg = new RegExp(this.Regs[this.loginType]);
         if(!_phoneReg.test(this.loginType === 1 ? this.phone : this.mail)) {
-          throw new Error(`请输入合法${ this.loginType === 1 ? '手机号' : '邮箱' }`)
+          throw new Error(
+            this.loginType === 1
+            ?
+            this.$i18n.messages[this.$i18n.locale].prompt.legalMobile
+            :
+            this.$i18n.messages[this.$i18n.locale].prompt.legalMail
+          )
         }
       },
       async onSendCode() {
@@ -108,7 +118,7 @@
           this.checkPhone()
           if (!this.captchaCode) {
             return this.$message({
-              message: '发送失败',
+              message: this.$i18n.messages[this.$i18n.locale].prompt.fail,
               type: 'error'
             });
           }
@@ -117,7 +127,7 @@
             mail: this.mail,
             captcha: this.captchaCode
           })
-          this.$message('验证码已发送');
+          this.$message(this.$i18n.messages[this.$i18n.locale].prompt.codeSend);
         } catch (error) {
           this.$message({
             message: error.message,

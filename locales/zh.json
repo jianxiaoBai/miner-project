@@ -17,9 +17,33 @@
     }
   },
   "home": {
+    "title": "先人一步 即刻出TRUE",
+    "title1": "全球首家TRUE币矿场, 最强算力无可替代",
     "slogan": "矿机云算力托管费用包括电费、运费、安装费、管理费等，收费为69美元/台/月",
     "slogan1": "首批购买用户暂免首月托管费",
-    "shopTitle": "矿机运算力托管"
+    "shopTitle": "矿机运算力托管",
+    "list": [
+      {
+        "icon": "icon-zhuanyenengli",
+        "title": "专业开发团队",
+        "content": "基于 True 的算法特点持续进行深度开发和完善，不断跟进 True 算法更新并提升矿机算力能耗比。"
+      },
+      {
+        "icon": "icon-shengchan",
+        "title": "自主设计生产",
+        "content": "设计、加工、生产均为自有工厂完成，可保证持续稳定供货。保证矿机独家供应并确保用户的超额收益。"
+      },
+      {
+        "icon": "icon-wending",
+        "title": "稳定运营管理",
+        "content": "采用集装箱矿机模式，全球部署，保证算力稳定安全。防攻击、效率高、网络稳定。"
+      }
+    ]
+  },
+  "shop": {
+    "new": "新上架",
+    "name": "矿机",
+    "btn": "立即购买"
   },
   "center": {
     "title": "个人中心",
@@ -133,5 +157,79 @@
     "bindBtn": "绑定挖矿认证地址",
     "payBtn": "确认购买",
     "cancelBtn": "取消订单"
+  },
+  "login": {
+    "mobileL": "手机登录",
+    "mailL": "邮箱登录",
+    "password": "请输入密码",
+    "btn": "登录",
+    "forget": "忘记密码"
+  },
+  "register": {
+    "mobileR": "手机注册",
+    "mailR": "邮箱注册",
+    "mobile": "手机号码",
+    "mail": "邮箱",
+    "captcha": "请输入图形验证码",
+    "code": "发送验证码",
+    "password": "请输入密码",
+    "again": "请再一次输入密码",
+    "invite": "邀请码(选填)",
+    "btn": "注册"
+  },
+  "forget": {
+    "mobile": "重设手机密码",
+    "mail": "重设邮箱密码",
+    "password": "填写重设密码",
+    "again": "请再一次输入密码"
+  },
+  "prompt": {
+    "again": "俩次密码不一致",
+    "jump": "密码已重置跳转登录页",
+    "legalMobile": "请输入合法手机号",
+    "legalMail": "请输入合法邮箱",
+    "fail": "发送失败",
+    "codeSend": "验证码已发送",
+    "balanceLack": "无可用余额, 无法提现",
+    "sellRequest": "提现申请已提交",
+    "sellAddr": "提现地址",
+    "sellNum": "提现数量",
+    "expend": "旷工费需消耗",
+    "confirm": "确 定",
+    "cancel": "取 消",
+    "recharge": "充值",
+    "rechargeBTC": "充值到BTC地址",
+    "delOrder": "删除未完成订单",
+    "delConfirm": "确认删除",
+    "buyStatus": {
+      "0": "未购买",
+      "1": "交易确认中",
+      "2": "购买成功"
+    },
+    "noBindAddr": "暂无认证",
+    "cancelSell": "取消提现",
+    "successSell": "提现成功",
+    "canceled": "已取消",
+    "cancelNotSuc": "取消未完成提现",
+    "sellStatus": {
+      "0": "未提现",
+      "1": "提现中",
+      "2": "提现成功",
+      "3": "已取消"
+    },
+    "quitOut": "确认退出登录",
+    "loginSuccess": "登录成功, 2秒后跳转",
+    "confirmBuy": "确认购买",
+    "addrLength": "地址长度不够",
+    "bindSuccess": "绑定成功",
+    "confirmInfo": {
+      "order": "当前订单",
+      "useable": "可用余额",
+      "paySum": "支付总额",
+      "bindAddr": "认证地址",
+      "useableLack": "可用数量不足将前往充值",
+      "orderCancel": "订单已取消",
+      "buyRequest": "购买申请已提交"
+    }
   }
 }

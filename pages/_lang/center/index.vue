@@ -30,8 +30,8 @@
             </div>
           </div>
         </section>
-        <el-dialog title="充值" :visible.sync="recharge" width="30%" @click="recharge = false">
-          <span>充值到BTC地址</span>
+        <el-dialog :title="$t(`prompt.recharge`)" :visible.sync="recharge" width="30%" @click="recharge = false">
+          <span>{{ $t(`prompt.rechargeBTC`) }}</span>
           <span slot="footer" class="dialog-footer">
             <div>
               <div id="qrcode"></div>
@@ -40,131 +40,22 @@
             </div>
           </span>
         </el-dialog>
-        <el-dialog title="提现" :visible.sync="fetchCash" width="30%" @click="fetchCash = false">
+        <el-dialog :title="$t(`center.index.item.output`)" :visible.sync="fetchCash" width="30%" @click="fetchCash = false">
           <el-form :model="cashForm">
-            <el-form-item label="提现地址" :label-width="formLabelWidth">
+            <el-form-item :label="$t(`center.sell.address`)" :label-width="formLabelWidth">
               <el-input v-model="cashForm.address" auto-complete="off"></el-input>
             </el-form-item>
-            <el-form-item label="提现数量" :label-width="formLabelWidth">
+            <el-form-item :label="$t(`center.sell.number`)" :label-width="formLabelWidth">
               <el-input v-model="cashForm.number" auto-complete="off"></el-input>
               <!-- <div>最多提现数量: 123</div> -->
-              <span style="color: red;">*旷工费需消耗0.001BTC</span>
+              <span style="color: red;">* {{ $t(`prompt.expend`) }} 0.001BTC</span>
             </el-form-item>
           </el-form>
           <div slot="footer" class="dialog-footer">
-            <el-button @click="fetchCash = false">取 消</el-button>
-            <el-button type="primary" @click="onFetchCash">确 定</el-button>
+            <el-button @click="fetchCash = false">{{ $t(`prompt.cancel`) }}</el-button>
+            <el-button type="primary" @click="onFetchCash">{{ $t(`prompt.confirm`) }}</el-button>
           </div>
         </el-dialog>
-
-        <!-- <section class="c-section">
-          <h4 class="c-section__title">
-            BTC账户
-            <a href="/i/account/detail?currencyId=1" class="c-text-btn">
-                查看明细 &gt;
-              </a>
-          </h4>
-          <div class="c-section__content clearfix">
-            <div class="left">
-              总额
-              <strong>0</strong>BTC
-            </div>
-            <div class="left">
-              可用
-              <strong>0</strong>BTC
-            </div>
-            <div class="left">
-              冻结
-              <strong>0</strong>BTC
-            </div>
-            <div class="right text-right">
-              <button type="button" class="el-button el-button--primary el-button--mini">
-                  <span>提现</span>
-                </button>
-            </div>
-          </div>
-        </section> -->
-        <!-- <section class="c-section">
-          <h4 class="c-section__title">
-            DCR账户
-            <a href="/i/account/detail?currencyId=3" class="c-text-btn">
-                查看明细 &gt;
-              </a>
-          </h4>
-          <div class="c-section__content clearfix">
-            <div class="left">
-              总额
-              <strong>0</strong>DCR
-            </div>
-            <div class="left">
-              可用
-              <strong>0</strong>DCR
-            </div>
-            <div class="left">
-              冻结
-              <strong>0</strong>DCR
-            </div>
-            <div class="right text-right">
-              <button type="button" class="el-button el-button--primary el-button--mini">
-                  <span>提现</span>
-                </button>
-            </div>
-          </div>
-        </section>
-        <section class="c-section">
-          <h4 class="c-section__title">
-            BTM账户
-            <a href="/i/account/detail?currencyId=4" class="c-text-btn">
-                查看明细 &gt;
-              </a>
-          </h4>
-          <div class="c-section__content clearfix">
-            <div class="left">
-              总额
-              <strong>0</strong>BTM
-            </div>
-            <div class="left">
-              可用
-              <strong>0</strong>BTM
-            </div>
-            <div class="left">
-              冻结
-              <strong>0</strong>BTM
-            </div>
-            <div class="right text-right">
-              <button type="button" class="el-button el-button--primary el-button--mini">
-                  <span>提现</span>
-                </button>
-            </div>
-          </div>
-        </section>
-        <section class="c-section">
-          <h4 class="c-section__title">
-            BCH账户
-            <a href="/i/account/detail?currencyId=5" class="c-text-btn">
-                查看明细 &gt;
-              </a>
-          </h4>
-          <div class="c-section__content clearfix">
-            <div class="left">
-              总额
-              <strong>0</strong>BCH
-            </div>
-            <div class="left">
-              可用
-              <strong>0</strong>BCH
-            </div>
-            <div class="left">
-              冻结
-              <strong>0</strong>BCH
-            </div>
-            <div class="right text-right">
-              <button type="button" class="el-button el-button--primary el-button--mini">
-                  <span>提现</span>
-                </button>
-            </div>
-          </div>
-        </section>-->
       </div>
     </div>
   </div>
@@ -211,14 +102,14 @@
         if(this.ethData.useable === 0)  {
           this.fetchCash = !this.fetchCash;
           return this.$message({
-            message: '无可用余额, 无法提现',
+            message: this.$i18n.messages[this.$i18n.locale].prompt.balanceLack,
             type: 'warning'
           })
         }
         const result = await apiSell(this.cashForm)
         this.fetchCash = !this.fetchCash;
         this.$message({
-          message: '提现申请已提交',
+          message: this.$i18n.messages[this.$i18n.locale].prompt.sellRequest,
           type: 'success'
         })
       }

@@ -10,7 +10,7 @@
           <i class="el-breadcrumb__separator el-icon-arrow-right"></i>
           </span>
           <span class="el-breadcrumb__item" aria-current="page">
-            <span role="link" class="el-breadcrumb__inner">==我的账户==</span>
+            <span role="link" class="el-breadcrumb__inner">{{ currentRoute }}</span>
           <i class=" el-breadcrumb__separator el-icon-arrow-right"></i>
           </span>
         </div>
@@ -19,14 +19,13 @@
             <div class="page-component__nav">
               <h2 class="nav-title">{{ $t(`center.title`) }}</h2>
               <template v-for="(item, index) in $t(`center.listRouter`)">
-                <nuxt-link :to="$t(`root`) + item.to" class="nav-link" :key="index">{{item.name}}</nuxt-link>
+                <nuxt-link :to="$t(`root`) + item.to" class="nav-link" :key="index" @click.native="onChangeRoute(item.name)">{{item.name}}</nuxt-link>
               </template>
               <div class="nav-link" @click="dialogVisible = true">{{ $t(`center.signOut`) }}</div>
               <el-dialog
                 title="提示"
                 :visible.sync="dialogVisible"
-                width="30%"
-                :before-close="handleClose">
+                width="30%">
                 <span>确认退出登录？</span>
                 <span slot="footer" class="dialog-footer">
                   <el-button @click="dialogVisible = false">取 消</el-button>
@@ -51,21 +50,18 @@
   export default {
     data () {
       return {
-         dialogVisible: false
+         dialogVisible: false,
+         currentRoute: this.$i18n.messages[this.$i18n.locale].center.listRouter[0].name,
       }
     },
     methods: {
+      onChangeRoute (name) {
+        this.currentRoute = name;
+      },
       onSignOut () {
         this.dialogVisible = false
         removeStore('token');
-        window.location.href = '/register';
-      },
-      handleClose(done) {
-        this.$confirm('确认关闭？')
-          .then(_ => {
-            done();
-          })
-          .catch(_ => {});
+        window.location.href = `${this.$i18n.messages[this.$i18n.locale].root}/register`;
       }
     }
   }
@@ -151,7 +147,7 @@
     height: 100%;
     min-height: 430px;
     background-color: #fff;
-    padding: 20px;
+    padding: 15px 0 0 15px;
   }
 
   .page-component__content {

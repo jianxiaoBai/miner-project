@@ -3,8 +3,8 @@
     <div class="x-tabs">
       <div class="x-tabs__header">
         <ul class="x-tabs__nav">
-          <li class="x-tabs__item" :class="{ active: loginType === 1 }" @click="loginType = 1">手机注册</li>
-          <li class="x-tabs__item" :class="{ active: loginType === 2 }" @click="loginType = 2">邮箱注册</li>
+          <li class="x-tabs__item" :class="{ active: loginType === 1 }" @click="loginType = 1">{{ $t(`register.mobileR`) }}</li>
+          <li class="x-tabs__item" :class="{ active: loginType === 2 }" @click="loginType = 2">{{ $t(`register.mailR`) }}</li>
         </ul>
       </div>
       <div class="x-tabs__content">
@@ -13,20 +13,20 @@
             <template v-if="loginType === 1">
               <div class="input-group">
               <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
-                <input type="text" autocomplete="off" placeholder="手机号码" name="phone" v-model="phone" class="el-input__inner">
+                <input type="text" autocomplete="off" :placeholder="$t(`register.mobile`)" name="phone" v-model="phone" class="el-input__inner">
               </div>
             </div>
             </template>
             <template v-else>
               <div class="input-group">
                 <div class="el-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
-                  <input type="text" autocomplete="off" placeholder="邮箱" name="mail" v-model="mail" class="el-input__inner">
+                  <input type="text" autocomplete="off" :placeholder="$t(`register.mail`)" name="mail" v-model="mail" class="el-input__inner">
                 </div>
               </div>
             </template>
             <div class="input-group">
               <div class="el-input captcha-input el-input-group el-input-group--prepend" aria-required="true" aria-invalid="true">
-                <input type="text" autocomplete="off" placeholder="请输入图形验证码" name="phone" v-model="captchaCode" class="el-input__inner">
+                <input type="text" autocomplete="off" :placeholder="$t(`register.captcha`)" name="phone" v-model="captchaCode" class="el-input__inner">
               </div>
               <div class="captcha-img" @click="initCaptcha">
                 <span v-html="captchaImg"></span>
@@ -34,12 +34,12 @@
             </div>
             <div class="input-group">
               <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
-                <input type="text" autocomplete="off" placeholder="请输入验证码" name="code" v-model="code" class="el-input__inner">
+                <input type="text" autocomplete="off" :placeholder="$t(`register.code`)" name="code" v-model="code" class="el-input__inner">
                 <span class="el-input__suffix">
                     <span class="el-input__suffix-inner">
                       <button  type="button" @click="onSendCode" class="el-button text-secondary el-button--text">
                         <span>
-                          发送验证码
+                          {{ $t(`register.code`) }}
                         </span>
                 </button>
                 </span>
@@ -48,22 +48,22 @@
             </div>
             <div class="input-group">
               <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
-                <input type="password" autocomplete="off" placeholder="密码" name="code" v-model="password" class="el-input__inner">
+                <input type="password" autocomplete="off" :placeholder="$t(`register.password`)" name="code" v-model="password" class="el-input__inner">
               </div>
             </div>
             <div class="input-group">
               <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
-                <input type="password" autocomplete="off" placeholder="再一次输入密码" name="code" v-model="repassword" class="el-input__inner">
+                <input type="password" autocomplete="off" :placeholder="$t(`register.again`)" name="code" v-model="repassword" class="el-input__inner">
               </div>
             </div>
             <div class="input-group">
               <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
-                <input type="text" autocomplete="off" placeholder="邀请码(选填)" name="invite" v-model="inviteCode" class="el-input__inner">
+                <input type="text" autocomplete="off" :placeholder="$t(`register.invite`)" name="invite" v-model="inviteCode" class="el-input__inner">
               </div>
             </div>
             <button @click="onSubmit" type="button" class="el-button btn-login el-button--primary ">
                 <span>
-                  登录
+                  {{ $t(`register.btn`) }}
                 </span>
               </button>
           </form>
@@ -87,7 +87,7 @@
       async onSubmit () {
         if(this.password !== this.repassword) {
           return this.$message({
-            message: '俩次密码不一致',
+            message: this.$i18n.messages[this.$i18n.locale].prompt.again,
             type: 'error'
           });
         }
@@ -102,7 +102,7 @@
         });
 
         this.$message({
-          message: '注册成功后跳转登录页',
+          message: this.$i18n.messages[this.$i18n.locale].prompt.loginSuccess,
           type: 'success'
         });
         setTimeout(() => {
@@ -114,13 +114,13 @@
 
         if(!_phoneReg.test(this.loginType === 1 ? this.phone : this.mail)) {
            return this.$message({
-            message: `请输入合法${ this.loginType === 1 ? '手机号' : '邮箱' }`,
+            message: this.loginType === 1 ?  this.$i18n.messages[this.$i18n.locale].prompt.legalMobile : this.$i18n.messages[this.$i18n.locale].prompt.legalMail,
             type: 'warning'
           });
         }
         if(!this.captchaCode) {
           return this.$message({
-              message: '发送失败',
+              message: this.$i18n.messages[this.$i18n.locale].prompt.fail,
               type: 'error'
             });
         }
@@ -131,7 +131,7 @@
             captcha: this.captchaCode,
             loginType: this.loginType
           })
-            this.$message('验证码已发送');
+            this.$message(this.$i18n.messages[this.$i18n.locale].prompt.codeSend);
           } catch (error) {
             this.$message({
               message: error,

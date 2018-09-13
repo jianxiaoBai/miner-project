@@ -2,9 +2,24 @@
   <div class="product-container">
     <div class="home-head">
       <div class="home-banner">
+        <div class="slogan">{{ $t(`home.title`) }}</div>
+        <div class="subhead">
+          <span>{{ $t(`home.title1`) }}</span>
+        </div>
+        <div class="list">
+          <ul>
+            <li v-for="(item, index) in $t(`home.list`)" :key="index">
+              <div><i :class="[item.icon, 'icon', 'iconfont']"></i></div>
+              <div class="title">{{ item.title }}</div>
+              <div class="content">{{ item.content }}</div>
+            </li>
+          </ul>
+        </div>
       </div>
       <div class="home-introduce">
         <div>{{ $t(`home.slogan`) }}</div>
+        <!-- <i class="icon iconfont icon-zhuanyenengli"></i> -->
+        <!-- <i class="icon iconfont icon-shengchan"></i> -->
         <div>{{ $t(`home.slogan1`) }}</div>
       </div>
     </div>
@@ -17,7 +32,7 @@
         <li v-for="(item, index) in shopList" :key="index">
           <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label" v-if="item.is_new">
               <path fill="#4D87EA" d="M0 0h85.5l-30 30H0z"></path>
-              <text x="10" y="20" fill="#fff" font-size="14">新上架</text>
+              <text x="10" y="20" fill="#fff" font-size="14">{{ $t(`shop.new`) }}</text>
             </svg>
           <!-- <div class="product-img">
             <img src="" alt="miner">
@@ -25,9 +40,9 @@
           <div class="product-detail-container">
             <p class="procuct-name">
               <span>{{ item.name }}</span>
-              <span>TRUE矿机</span>
+              <span>TRUE {{ $t(`shop.name`) }}</span>
             </p>
-            <p class="product-detail">{{ item.detail }}</p>
+            <p class="product-detail">{{ $store.state.locale === 'zh' ? item.detail : 'Professional GPU mining machine'}}</p>
             <!-- <p class="product-delivery">发货时间：2018-08-10</p> -->
             <p class="product-discount"></p>
             <div class="product-count clearfix">
@@ -42,7 +57,7 @@
               <!-- <nuxt-link type="button" class="el-button right el-button--primary" to="/cart"> -->
               <nuxt-link type="button" class="el-button right el-button--primary" :to="`${$t(`root`)}/product?shop=${item.id}`">
                   <span>
-                    立即购买
+                    {{ $t(`shop.btn`) }}
                   </span>
               </nuxt-link>
             </div>
@@ -82,6 +97,51 @@ export default {
     // width 920px
     height 500px
     margin 0 auto
+    text-align center
+    .slogan {
+      font-size 50px
+      font-weight bold
+      padding-top 50px
+      text-shadow 1px 1px 5px #929396
+    }
+    .subhead {
+      span {
+        line-height: 40px;
+        background-color: #fff;
+        padding: 5px 25px;
+        border-radius: 50px;
+        font-size: 20px;
+        color: #FC5E5A;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    }
+    .list {
+      margin-top 35px
+      ul {
+        display flex
+        justify-content space-around
+        padding 0 48px
+        li {
+          width 251px
+          // padding-top 20px
+          background white
+          .iconfont {
+            font-size 45px
+            line-height 80px
+          }
+          .title {
+            font-size 18px
+            font-weight bold
+          }
+          .content {
+            margin-top 15px
+            padding 0 15px
+            line-height 30px
+          }
+        }
+      }
+    }
   }
   .home-introduce {
     margin 20px auto

@@ -15,8 +15,8 @@
         <el-popover trigger="hover" placement="top">
           <p>下单时间: {{ getTime(+scope.row.create_time) }}</p>
           <div slot="reference" class="name-wrapper">
-            <template v-if="+new Date() - scope.row.create_time > 3600000">
-              <el-tag size="medium">已失效</el-tag>
+            <template v-if="+new Date() - scope.row.create_time > 3600000 && scope.row.is_buy === 0">
+              <el-tag size="medium">{{ $t(`center.order.item.lose`) }}</el-tag>
             </template>
             <template v-else>
               <el-tag size="medium">{{ buyJOSN[scope.row.is_buy] }}</el-tag>
@@ -48,11 +48,11 @@
           </template>
           <template v-if="!scope.row.is_buy">
             <el-button size="mini" type="danger" @click="onMarkForm(scope.row.order_form)">{{ $t(`center.order.item.delete`) }}</el-button>
-            <el-dialog title="删除未完成订单" :visible.sync="dialogVisible" width="30%">
-              <span>确认删除</span>
+            <el-dialog :title="$t(`prompt.delOrder`)" :visible.sync="dialogVisible" width="30%">
+              <span>{{ $t(`prompt.delConfirm`) }}</span>
               <span slot="footer" class="dialog-footer">
-                <el-button @click="dialogVisible = false">取 消</el-button>
-                <el-button type="primary" @click="onDelOrder">确 定</el-button>
+                <el-button @click="dialogVisible = false">{{ $t(`prompt.cancel`) }}</el-button>
+                <el-button type="primary" @click="onDelOrder">{{ $t(`prompt.confirm`) }}</el-button>
               </span>
             </el-dialog>
           </template>
@@ -83,11 +83,7 @@
           '1': 'GMiner T1',
           '2': 'GMiner T2',
         },
-        buyJOSN: {
-          '0': '未购买',
-          '1': '交易确认中',
-          '2': '购买成功'
-        }
+        buyJOSN: this.$i18n.messages[this.$i18n.locale].prompt.buyStatus
       }
     },
     methods: {
