@@ -15,11 +15,6 @@
         <div class="right text-right">
           <ul role="menubar" class="menu login el-menu--horizontal el-menu is-login">
             <template v-if="isLogin">
-              <!-- <li role="menuitem" tabindex="0" class="el-menu-item menu-item cart">
-                <a href="/cart">
-                  <img src="~/assets/img/cart.9bdd50b.svg">
-                </a>
-              </li> -->
               <nuxt-link role="menuitem" aria-haspopup="true" menu-trigger="hover" class="mine el-submenu" tabindex="0" tag="li" :to="`${$t(`root`)}/center`">
                 <div class="el-submenu__title" style="border-bottom-color:transparent;color:;">
                   <span style="color:#FFF;border-bottom-color:transparent;">
