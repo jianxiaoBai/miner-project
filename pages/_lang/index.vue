@@ -98,7 +98,7 @@ export default {
     background-repeat no-repeat
     background-size 100% 100%
     width 70%
-    // width 920px
+    min-width 850px
     height 500px
     margin 0 auto
     text-align center
