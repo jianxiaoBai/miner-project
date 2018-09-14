@@ -1,7 +1,7 @@
 # mine-official
 
 > Nuxt.js project
-
+renml 20180914
 ## Build Setup
 
 ``` bash
