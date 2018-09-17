@@ -3,7 +3,6 @@
 const Service = require('egg').Service;
 const Web3 = require('web3');
 const web3    = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/'));
-
 class CaptchaService extends Service {
   async getAccount () {
     return await this.app.mysql.select('assets', {

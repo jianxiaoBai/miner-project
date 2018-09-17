@@ -1,10 +1,5 @@
 'use strict';
 const Controller = require('egg').Controller;
-const {
-  getAothCode,
-  getLocalTime,
-} = require('../utils');
-
 class HomeController extends Controller {
   async index() {
     const { ctx, service } = this;

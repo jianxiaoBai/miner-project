@@ -45,7 +45,6 @@ class CaptchaController extends Controller {
     const {
       ctx,
       service,
-      app,
     } = this;
 
     const {
