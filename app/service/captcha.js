@@ -3,7 +3,7 @@
 const Service = require('egg').Service;
 
 class CaptchaService extends Service {
-  async insert ({ mobile, smsCode, status }) {
+  async insert({ mobile, smsCode, status }) {
     return await this.app.mysql.insert('sms_log', {
       mobile,
       code: smsCode,
@@ -11,7 +11,7 @@ class CaptchaService extends Service {
       status,
     });
   }
-  async update ({ mobile, status, smsCode }) {
+  async update({ mobile, status, smsCode }) {
     return await this.app.mysql.update('sms_log', {
       update_time: +new Date(),
       code: smsCode,
@@ -20,7 +20,7 @@ class CaptchaService extends Service {
       where: { mobile },
     });
   }
-  async select (mobile) {
+  async select(mobile) {
     return await this.app.mysql.select('sms_log', {
       where: { mobile },
     });

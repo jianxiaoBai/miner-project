@@ -2,10 +2,10 @@
 const Controller = require('egg').Controller;
 
 class PayController extends Controller {
-  async index () {
+  async index() {
     const { ctx } = this;
     const payInfoRule = {
-      buyNum: 'string'
+      buyNum: 'string',
     };
     ctx.validate(payInfoRule, ctx.request.body);
     const orderForm = await this.service.pay.insert(ctx.request.body);
@@ -14,14 +14,14 @@ class PayController extends Controller {
       code: 0,
       message: '成功',
       data: {
-        orderForm
-      }
-    }
+        orderForm,
+      },
+    };
   }
-  async getOrderForm () {
+  async getOrderForm() {
     const { ctx } = this;
     const payInfoRule = {
-      orderForm: 'string'
+      orderForm: 'string',
     };
     ctx.validate(payInfoRule, ctx.query);
     const { order_form, pay_btc, sum } = (await this.service.pay.select(ctx.query))[0];
@@ -31,9 +31,9 @@ class PayController extends Controller {
       data: {
         order_form,
         pay_btc,
-        sum
-      }
-    }
+        sum,
+      },
+    };
   }
   /*
     KMKAS&ASQW
@@ -55,7 +55,7 @@ class PayController extends Controller {
       }
     }
   } */
-  async authAddr () {
+  async authAddr() {
     const { ctx } = this;
     const authRule = {
       authAddress: 'string',
@@ -66,10 +66,10 @@ class PayController extends Controller {
     this.ctx.body = {
       code: 0,
       message: '操作成功',
-      data: result
-    }
+      data: result,
+    };
   }
-  async buyRequest () {
+  async buyRequest() {
     const { ctx } = this;
     const buyRule = {
       order_form: 'string',
@@ -81,10 +81,10 @@ class PayController extends Controller {
     this.ctx.body = {
       code: 0,
       message: '操作成功',
-      data: result
-    }
+      data: result,
+    };
   }
-  async sellRequest () {
+  async sellRequest() {
     const { ctx } = this;
     const actionRule = {
       address: 'string',
@@ -97,8 +97,8 @@ class PayController extends Controller {
     ctx.body = {
       code: 0,
       message: '操作成功',
-      data: result
-    }
+      data: result,
+    };
   }
 }
 

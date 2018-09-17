@@ -21,8 +21,8 @@ class UserController extends Controller {
   async delOrder() {
     const { body } = this.ctx.request;
     const delRule = {
-      orderForm: 'string'
-    }
+      orderForm: 'string',
+    };
     this.ctx.validate(delRule, body);
 
     const result = await this.service.user.delete(body.orderForm);
@@ -35,8 +35,8 @@ class UserController extends Controller {
   async cancelSell() {
     const { body } = this.ctx.request;
     const cancelRule = {
-      id: 'string'
-    }
+      id: 'string',
+    };
     this.ctx.validate(cancelRule, body);
 
     const result = await this.service.user.cancel(body.id);

@@ -7,7 +7,7 @@ class HomeController extends Controller {
       code: 0,
       message: '请求成功了',
       data: null,
-      ip: this.ctx.ip
+      ip: this.ctx.ip,
     };
   }
 }

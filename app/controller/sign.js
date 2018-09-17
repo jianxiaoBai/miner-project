@@ -3,7 +3,7 @@ const Controller = require('egg').Controller;
 const signRule = {
   // mobile: 'string',
   code: 'string',
-  password: 'string'
+  password: 'string',
 };
 class SignUpController extends Controller {
   async create() {
@@ -17,8 +17,8 @@ class SignUpController extends Controller {
     ctx.body = {
       code: 0,
       message: '注册成功',
-      data: null
-    }
+      data: null,
+    };
   }
   async forget() {
     const { ctx, service } = this;

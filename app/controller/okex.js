@@ -11,7 +11,7 @@ class HomeController extends Controller {
       this.ctx.body = {
         code: 0,
         message: '成功',
-        data
+        data,
       };
     } catch (error) {
       throw error;

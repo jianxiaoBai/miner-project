@@ -6,14 +6,14 @@ const {
 } = require('../utils');
 
 class HomeController extends Controller {
-  async index () {
+  async index() {
     const { ctx, service } = this;
     // debugger
     const loginRule = {
       // mobile: 'string',
       // isCodeLogin: ['true', 'false']
     };
-    debugger;
+
     ctx.validate(loginRule, ctx.request.body);
 
     const token = await service.login.select(ctx.request.body);
@@ -22,9 +22,9 @@ class HomeController extends Controller {
       code: 0,
       message: '登陆成功',
       data: {
-        token
-      }
-    }
+        token,
+      },
+    };
   }
 }
 

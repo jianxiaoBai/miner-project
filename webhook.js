@@ -40,12 +40,12 @@ handler.on('push', function(event) {
   } else if (event.payload.ref === 'refs/heads/master') {
     console.log('Start run command on Master');
     axios.get('http://47.75.198.92:7770/')
-        .then(response => {
-          console.log(response.data, 'server');
-        })
-        .catch(error => {
-          console.log(error);
-        });
+      .then(response => {
+        console.log(response.data, 'server');
+      })
+      .catch(error => {
+        console.log(error);
+      });
   } else {
     console.log('Not the master branch, will not trigger');
   }

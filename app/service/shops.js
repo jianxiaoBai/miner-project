@@ -2,14 +2,14 @@
 
 const Service = require('egg').Service;
 class ShopsService extends Service {
-  async getAll () {
+  async getAll() {
     return await this.app.mysql.select('shops');
   }
-  async getDetail ({ id }) {
+  async getDetail({ id }) {
     return (await this.app.mysql.select('shops', {
       where: {
-        id
-      }
+        id,
+      },
     }))[0];
   }
 }

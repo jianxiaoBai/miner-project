@@ -3,7 +3,7 @@ const Controller = require('egg').Controller;
 class MinerController extends Controller {
   async index() {
     const { ctx } = this;
-    if(ctx.request.header.miner_token !== this.app.config.minerToken) {
+    if (ctx.request.header.miner_token !== this.app.config.minerToken) {
       ctx.throw(403, '无权限');
     }
 
@@ -14,7 +14,7 @@ class MinerController extends Controller {
       data: result,
     };
   }
-  async create () {
+  async create() {
     const minerRule = {
       data: {
         type: 'array',
@@ -22,13 +22,13 @@ class MinerController extends Controller {
         rule: {
           mobile: 'string',
           mail: 'string',
-          bind_address: 'string'
-        }
-      }
+          bind_address: 'string',
+        },
+      },
     };
     const { ctx } = this;
     const { body } = ctx.request;
-    if(ctx.request.header.miner_token !== this.app.config.minerToken) {
+    if (ctx.request.header.miner_token !== this.app.config.minerToken) {
       ctx.throw(403, '无权限');
     }
     // console.log(ctx.request.body);
@@ -45,9 +45,9 @@ class MinerController extends Controller {
       data: null,
     };
   }
-  async power () {
+  async power() {
     // debugger;
-   const result = await this.service.miner.getPower();
+    const result = await this.service.miner.getPower();
     this.ctx.body = {
       code: 0,
       message: '成功',

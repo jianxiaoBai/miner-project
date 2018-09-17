@@ -1,5 +1,5 @@
 module.exports = () => {
-  return async function (ctx, next) {
+  return async function(ctx, next) {
     try {
       await next();
     } catch (err) {
@@ -14,7 +14,7 @@ module.exports = () => {
 
       // 从 error 对象上读出各个属性，设置到响应中
       ctx.body = {
-        message
+        message,
       };
       if (status === 422) {
         ctx.body.detail = err.errors;
