@@ -103,7 +103,12 @@
               </ul>
             </div>
             <div class="tabs-body">
-              <div class="tabs-pane"><img src="~/assets/img/introduce.jpg"></div>
+              <template v-if="$t('root') === '/en'">
+                <div class="tabs-pane"><img src="~/assets/img/introduce_en.jpg"></div>
+              </template>
+              <template v-else>
+                <div class="tabs-pane"><img src="~/assets/img/introduce.jpg"></div>
+              </template>
             </div>
           </div>
         </div>
