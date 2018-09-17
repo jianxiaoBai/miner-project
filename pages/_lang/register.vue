@@ -58,7 +58,7 @@
             </div>
             <div class="input-group">
               <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
-                <input type="text" autocomplete="off" :placeholder="$t(`register.invite`)" name="invite" v-model="inviteCode" class="el-input__inner">
+                <input type="text" autocomplete="off" @keyup.enter="onSubmit" :placeholder="$t(`register.invite`)" name="invite" v-model="inviteCode" class="el-input__inner">
               </div>
             </div>
             <button @click="onSubmit" type="button" class="el-button btn-login el-button--primary ">

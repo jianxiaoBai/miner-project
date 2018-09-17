@@ -26,7 +26,7 @@
             </template>
              <div class="input-group">
                 <div class="code-input el-input el-input--suffix" aria-required="true" aria-invalid="true">
-                  <input type="password" autocomplete="off" :placeholder="$t(`register.password`)" name="code" v-model="password" class="el-input__inner">
+                  <input type="password" autocomplete="off" @keyup.enter="onSubmit" :placeholder="$t(`register.password`)" name="code" v-model="password" class="el-input__inner">
                 </div>
               </div>
             <button @click="onSubmit" type="button" class="el-button btn-login el-button--primary ">
