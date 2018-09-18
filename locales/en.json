@@ -1,6 +1,7 @@
 {
-  "language": "中文",
+  "language": "English",
   "root": "/en",
+  "icon": "#icon-USA",
   "header": {
     "logo": "http:www.asdaasd.asd/xx.jpg",
     "home": "Home",

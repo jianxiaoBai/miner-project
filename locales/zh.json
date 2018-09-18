@@ -1,6 +1,7 @@
 {
-  "language": "EN",
+  "language": "简体中文",
   "root": "",
+  "icon": "#icon-zhongguo",
   "header": {
     "logo": "http:www.asdaasd.asd/xx.jpg",
     "home": "首页",
