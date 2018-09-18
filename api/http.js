@@ -54,7 +54,7 @@ export default {
       url: `api/${url}`,
       data: qs.stringify(data),
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        'Content-Type': 'application/json; charset=UTF-8'
       }
     })
   },
@@ -64,7 +64,7 @@ export default {
       url: `api/${url}`,
       data: qs.stringify(data),
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        'Content-Type': 'application/json; charset=UTF-8'
       }
     })
   },
