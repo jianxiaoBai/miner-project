@@ -1,23 +1,38 @@
 'use strict';
 
 const Service = require('egg').Service;
-const Web3    = require('web3');
-const web3    = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/'));
-const { getLocalTime } = require('../utils');
+const Web3 = require('web3');
+const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/'));
+const {
+  getLocalTime
+} = require('../utils');
 class SignService extends Service {
-  async insert ({ buyNum, shopId }) {
+  async insert({
+    buyNum,
+    shopId
+  }) {
     // 矿机定价 1000 $
     // if(Number(buyNum) < 1) {
     //   this.ctx.throw(403, '购买数量不能为0');
     // }
-    debugger;
-    const { price } = await this.service.shops.getDetail({ id: shopId })
-    const { data: { data } } = await this.ctx.curl('http://ok.truescan.net/', {
-        dataType: 'json',
-        timeout: 10000,
-      });
+    // debugger;
+    const {
+      price
+    } = await this.service.shops.getDetail({
+      id: shopId
+    })
+    const {
+      data: {
+        data
+      }
+    } = await this.ctx.curl('http://ok.truescan.net/', {
+      dataType: 'json',
+      timeout: 10000,
+    });
     // const { open, usdCnyRate } = data.find(x => x.coinName === 'ETH');
-    const { low } = data.find(x => x.coinName === 'BTC');
+    const {
+      low
+    } = data.find(x => x.coinName === 'BTC');
     // 订单号 = 当前时间 + 随机字符串
     const orderForm = 'b' + getLocalTime() + Math.random().toString(36).substr(8);
     const sum = price * buyNum;
@@ -36,7 +51,9 @@ class SignService extends Service {
     });
     return orderForm;
   }
-  async select ({ orderForm }) {
+  async select({
+    orderForm
+  }) {
     return await this.app.mysql.select('buy_record', {
       where: {
         order_form: orderForm
@@ -104,30 +121,41 @@ class SignService extends Service {
        }
     });
   } */
-  async updateBuy({ order_form, is_buy }) {
-    const { create_time, pay_btc } = (await this.select({ orderForm: order_form }))[0];
-    const { useable } = (await this.service.asset.getAccount())[0];
-    if(+new Date() - create_time > 300000) {
+  async updateBuy({
+    order_form,
+    is_buy
+  }) {
+    const {
+      create_time,
+      pay_btc
+    } = (await this.select({
+      orderForm: order_form
+    }))[0];
+    const {
+      useable
+    } = (await this.service.asset.getAccount())[0];
+    if (+new Date() - create_time > 300000) {
       this.ctx.throw(405, '订单已失效');
     }
-    if(useable < pay_btc) {
+    if (useable < pay_btc) {
       this.ctx.throw(405, '余额不足, 请先充值');
     }
-
+    // 发生购买请求时进行通知
+    await this.service.captcha.sendSms('111111', '15101661380');
     await this.app.mysql.update('buy_record', {
       is_buy,
       update_time: +new Date(),
     }, {
       where: {
         order_form
-       }
+      }
     });
 
     return await this.syncAssetTable();
   }
-  async syncAssetTable () {
+  async syncAssetTable() {
     debugger;
-    const key   = Object.keys(this.ctx.userAccout)[0];
+    const key = Object.keys(this.ctx.userAccout)[0];
     const value = Object.values(this.ctx.userAccout)[0];
     return await this.app.mysql.query(`
       UPDATE assets AS a,
@@ -148,16 +176,21 @@ class SignService extends Service {
         a.useable = a.sum - b.payBtc
       WHERE
         a.${key} = b.${key}
-    `, [ value ]);
+    `, [value]);
   }
-  async bindAddr ({ authAddress }) {
-    const { ctx, app } = this;
+  async bindAddr({
+    authAddress
+  }) {
+    const {
+      ctx,
+      app
+    } = this;
     const result = await app.mysql.select('auth', {
       where: {
         address: authAddress
       }
     })
-    if(result.length) {
+    if (result.length) {
       return await app.mysql.update('user', {
         bind_address: authAddress
       }, {
@@ -169,7 +202,10 @@ class SignService extends Service {
       ctx.throw(406, '地址认证失败');
     }
   }
-  async insertSell ({ address, number }) {
+  async insertSell({
+    address,
+    number
+  }) {
     return await this.app.mysql.insert('buy_record', {
       ...this.ctx.userAccout,
       create_time: +new Date(),

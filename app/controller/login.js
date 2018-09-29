@@ -2,13 +2,16 @@
 const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
-    const { ctx, service } = this;
+    const {
+      ctx,
+      service
+    } = this;
     // debugger
     const loginRule = {
       // mobile: 'string',
       // isCodeLogin: ['true', 'false']
     };
-
+    // debugger
     ctx.validate(loginRule, ctx.request.body);
 
     const token = await service.login.select(ctx.request.body);

@@ -2,11 +2,24 @@
 
 const Service = require('egg').Service;
 const jwt = require('jwt-simple');
-const { aesDecrypt } = require('../utils');
+const {
+  aesDecrypt
+} = require('../utils');
 class LoginServer extends Service {
-  async select({ mobile, mail, isCodeLogin, code = null, password = null, loginType }) {
-    const { ctx, app } = this;
+  async select({
+    mobile,
+    mail,
+    isCodeLogin,
+    code = null,
+    password = null,
+    loginType
+  }) {
+    const {
+      ctx,
+      app
+    } = this;
     const expired = 60 * 5;
+    const expiredMail = 60 * 30;
     // const result = (await app.mysql.select(JSON.parse(isCodeLogin) ? 'sms_log' : 'user' , {
     const result = (await app.mysql.select('user', {
       where: {
@@ -20,9 +33,18 @@ class LoginServer extends Service {
 
     if (JSON.parse(isCodeLogin)) {
       if (result.code) {
-        if (((+new Date()) - result.update_time) / 1000 >= expired) {
-          this.ctx.throw(403, '验证码过期');
+        if (loginType === '1') {
+          if (((+new Date()) - result.update_time) / 1000 >= expired) {
+            this.ctx.throw(403, '手机验证码过期');
+          }
+        } else if (loginType === '2') {
+          if (((+new Date()) - result.update_time) / 1000 >= expiredMail) {
+            this.ctx.throw(403, '邮箱验证码过期');
+          }
+        } else {
+          this.ctx.throw(403, '无法识别登录类型');
         }
+
         if (code !== result.code) {
           ctx.throw(403, '验证码错误');
         }

@@ -1,9 +1,8 @@
 'use strict';
-const Controller = require('egg').Controller;
+const Service = require('egg').Service;
 const nodemailer = require('nodemailer');
-class CaptchaController extends Controller {
+class MailService extends Service {
   async sendMail(code, to) {
-
     const {
       user,
       pass
@@ -26,12 +25,12 @@ class CaptchaController extends Controller {
       html: `
         <h3>亲爱的哈希宝用户，您好！<h3>
         您的哈希宝验证码是：<b>${code}</b>
-        <p>此邮件由系统自动发出，5分钟内有效，请勿直接回复。</p>
+        <p>此邮件由系统自动发出，30分钟内有效，请勿直接回复。</p>
         <p>感谢你的访问，祝你使用愉快!</p>
 
-        <h3>Hi, dear ihashpowe user！<h3>
+        <h3>Hi, dear ihashpower user！<h3>
         Your verification code is：<b>${code}</b>
-        <p>This email is sent automatically, code valid in 5 minuets, please do not reply.</p >
+        <p>This email is sent automatically, code valid in 30 minuets, please do not reply.</p >
         <p>Thank you and have a nice day!</p >
       `,
     };
@@ -52,4 +51,4 @@ class CaptchaController extends Controller {
   }
 }
 
-module.exports = CaptchaController;
+module.exports = MailService;
