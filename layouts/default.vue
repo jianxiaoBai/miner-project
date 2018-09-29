@@ -63,6 +63,9 @@
                 </el-dropdown-menu>
               </el-dropdown>
             </li>
+             <nuxt-link tag="li" class="el-menu-item menu-item login" :to="`${$t(`root`)}/howbuy`">
+                {{ $t(`howBuy`) }}
+            </nuxt-link>
           </ul>
         </div>
       </div>
@@ -171,6 +174,7 @@
   line-height: 50px;
   text-align: center;
   background-color: #303137;
+
   span {
     color: white;
   }
@@ -181,9 +185,9 @@
     background-color: #fff;
     text-align: center;
     padding: 40px 120px;
-
     display: flex;
     justify-content: space-around;
+
     img {
       width: 65px;
       height: auto;

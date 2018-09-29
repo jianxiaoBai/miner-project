@@ -1,6 +1,7 @@
 {
   "language": "English",
   "root": "/en",
+  "howBuy": "How to buy ? ",
   "icon": "#icon-USA",
   "header": {
     "logo": "http:www.asdaasd.asd/xx.jpg",
@@ -9,6 +10,44 @@
     "login": "Login",
     "reg": "Register"
   },
+  "PurchaseFlow": "Purchase Flow",
+  "buyList": [{
+    "title": "Register",
+    "content": "First click the navigation bar registration button to register, you can use the phone number or email to register"
+  }, {
+    "title": "Login",
+    "content": "Log in by selecting the method used in registration"
+  }, {
+    "title": "Recharge",
+    "content": "After log in, enter my account to recharge."
+  }, {
+    "title": "Buy",
+    "content": "After recharging, go to the bottom of the homepage and click on the product you want to buy."
+  }, {
+    "title": "View product prices and details",
+    "content": "This page will show the product price and description of the product."
+  }, {
+    "title": "Buy Now",
+    "content": "Click to buy now and generate a product order."
+  }, {
+    "title": "Bind the Certified Address",
+    "content": "The authentication address is the address of the registration node. The mining revenue will be sent to the this address. Only one authentication address can be used for one order."
+  }, {
+    "title": "Confirm",
+    "content": "If the balance is sufficient, the purchase will be successful, and the mine will be deployed within 48 hours after the payment is confirmed and start calculating the revenue."
+  }, {
+    "title": "Check order status",
+    "content": "Click to go to the My Account > My Orders to check the order status."
+  }, {
+    "title": "Check revenues",
+    "content": "Click on My Account > My Hash Power to check mining machine output record"
+  }, {
+    "title": "Withdrawal request",
+    "content": "Click My Account > My Account to withdraw"
+  }, {
+    "title": "Withdrawals record",
+    "content": "Click on My Account > My Withdrawal to check the status"
+  }],
   "footer": {
     "list": {
       "item1": "Superior Hash Power",
@@ -23,8 +62,7 @@
     "slogan": "The Hash Cloud's management fee is 69 USD/Unit/Month, including electricity, handling, installation and maintenance charge.",
     "slogan1": "The first month's management fee is waived for the first batch of users.",
     "shopTitle": "Hash Cloud",
-    "list": [
-      {
+    "list": [{
         "icon": "icon-zhuanyenengli",
         "title": "Professional Team",
         "content": "Continue following up the latest TRUE algorithms, to improve the hash rate and reduce the energy consumption of the mining machine."
@@ -49,8 +87,7 @@
   "center": {
     "title": "Account Center",
     "signOut": "Sign Out",
-    "listRouter": [
-      {
+    "listRouter": [{
         "name": "My Account",
         "to": "/center"
       },
