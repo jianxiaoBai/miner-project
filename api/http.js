@@ -3,8 +3,13 @@
 import axios from 'axios'
 import qs from 'qs'
 import Vue from 'vue'
-import { apiUrl } from '../config/index.js'
-import { getStore, removeStore } from '~/util';
+import {
+  apiUrl
+} from '../config/index.js'
+import {
+  getStore,
+  removeStore
+} from '~/util';
 const that = Vue.prototype
 
 const service = axios.create({
@@ -29,9 +34,13 @@ service.interceptors.request.use(config => {
 
 service.interceptors.response.use(res => {
   return res.data
-}, ({ response = {} }) => {
-  const { data = {}, status } = response;
-  if(status === 401) {
+}, ({
+  response = {}
+}) => {
+  const {
+    data = {}, status
+  } = response;
+  if (status === 401) {
     removeStore('token');
     const lang = that.$nuxt.$i18n.locale === 'zh' ? '' : '/en';
     window.location.href = `${lang}/login`;
@@ -48,27 +57,27 @@ service.interceptors.response.use(res => {
 })
 
 export default {
-  post (url, data = {}) {
+  post(url, data = {}) {
     return service({
       method: 'post',
       url: `api/${url}`,
       data: qs.stringify(data),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8'
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
     })
   },
-  delete (url, data = {}) {
+  delete(url, data = {}) {
     return service({
       method: 'delete',
       url: `api/${url}`,
       data: qs.stringify(data),
       headers: {
-        'Content-Type': 'application/json; charset=UTF-8'
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
       }
     })
   },
-  get (url, params = {}) {
+  get(url, params = {}) {
     return service({
       method: 'get',
       url: `api/${url}`,
