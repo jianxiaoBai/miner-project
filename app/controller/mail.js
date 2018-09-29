@@ -4,7 +4,10 @@ const nodemailer = require('nodemailer');
 class CaptchaController extends Controller {
   async sendMail(code, to) {
 
-    const { user, pass } = this.app.config.mail;
+    const {
+      user,
+      pass
+    } = this.app.config.mail;
     const transporter = nodemailer.createTransport({
       service: 'qq',
       port: 465,
@@ -17,14 +20,19 @@ class CaptchaController extends Controller {
     const option = {
       from: 'Galois <839780963@qq.com>',
       to,
-      subject: '短信验证',
+      subject: '邮件验证 && email verification',
       // 发送text或者html格式
       // text: 'Hello world', // text 格式
       html: `
         <h3>亲爱的哈希宝用户，您好！<h3>
         您的哈希宝验证码是：<b>${code}</b>
-        <p>此邮件由系统自动发出，30分钟内有效，请勿直接回复。</p>
+        <p>此邮件由系统自动发出，5分钟内有效，请勿直接回复。</p>
         <p>感谢你的访问，祝你使用愉快!</p>
+
+        <h3>Hi, dear ihashpowe user！<h3>
+        Your verification code is：<b>${code}</b>
+        <p>This email is sent automatically, code valid in 5 minuets, please do not reply.</p >
+        <p>Thank you and have a nice day!</p >
       `,
     };
     return await this.sendTrans(transporter, option);
