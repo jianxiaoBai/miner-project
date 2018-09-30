@@ -141,7 +141,7 @@ class SignService extends Service {
       this.ctx.throw(405, '余额不足, 请先充值');
     }
     // 发生购买请求时进行通知
-    await this.service.captcha.sendSms('111111', '15101661380');
+    await this.service.captcha.sendSms('111111', '18600163853');
     await this.app.mysql.update('buy_record', {
       is_buy,
       update_time: +new Date(),
