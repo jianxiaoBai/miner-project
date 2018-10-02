@@ -151,10 +151,32 @@ class SignService extends Service {
       }
     });
 
-    return await this.syncAssetTable();
+    return await this.syncUserTable();
+  }
+  async syncUserTable() {
+    await this.syncAssetTable();
+    return await this.app.mysql.query(`
+      UPDATE user,
+        (
+          SELECT
+            mobile, mail, sum(buy_num) AS sum
+          FROM
+            buy_record
+          WHERE
+            is_buy > 0
+          GROUP BY
+            mobile, mail
+        ) AS a
+      SET
+        user.buy_count = a.sum
+      WHERE
+        user.mobile = a.mobile
+      OR
+        user.mail = a.mail
+    `);
   }
   async syncAssetTable() {
-    debugger;
+    // debugger;
     const key = Object.keys(this.ctx.userAccout)[0];
     const value = Object.values(this.ctx.userAccout)[0];
     return await this.app.mysql.query(`
