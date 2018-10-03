@@ -156,7 +156,9 @@
     "zhanwei": "购买时支付总金额超2万美元可赠送认证地址",
     "bindBtn": "绑定挖矿认证地址",
     "payBtn": "确认购买",
-    "cancelBtn": "取消订单"
+    "cancelBtn": "取消订单",
+    "inviteCode": "使用邀请码购买（以1/20的价格购买1台T2）",
+    "bindInviteCode": "确定使用邀请码"
   },
   "login": {
     "mobileL": "手机登录",
@@ -221,6 +223,9 @@
     "loginSuccess": "登录成功, 2秒后跳转",
     "confirmBuy": "确认购买",
     "addrLength": "地址长度不够",
+    "inviteCodeError": "邀请码格式错误",
+    "inviteCodeSuccess": "邀请码验证通过",
+    "inviteCodeFail": "邀请码无效",
     "bindSuccess": "绑定成功",
     "confirmInfo": {
       "order": "当前订单",
