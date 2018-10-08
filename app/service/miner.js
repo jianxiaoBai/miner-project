@@ -35,7 +35,6 @@ class GetAddrService extends Service {
       where: {
         ...this.ctx.userAccout
       },
-      columns: ['id', 'bind_address', 'create_time', 'power', 'status', 'output', 'deplete', 'manage', 'fact', 'run_time'],
       orders: [['create_time','desc']]
     })
   }
