@@ -29,5 +29,6 @@ module.exports = app => {
 
   router.get('/api/shopList', controller.shops.index);
   router.get('/api/shopDetail', controller.shops.detail);
+  router.get('/api/authInviteCode', controller.invite.auth);
   // router.get('/api/asset', controller.asset.index);
 };
