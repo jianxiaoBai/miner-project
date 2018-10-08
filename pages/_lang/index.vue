@@ -26,7 +26,7 @@
         <img src="~/assets/img/qq.png" alt="">
       </div>
       <div class="qq-info">
-        <span>咨询热线</span>
+        <span>咨询QQ</span>
         <span>2046603559</span>
         <div>
           <img src="~/assets/img/qr_qq.jpg" alt="">
@@ -50,7 +50,7 @@
           <div class="product-detail-container">
             <p class="procuct-name">
               <span>{{ item.name }}</span>
-              <span>TRUE {{ $t(`shop.name`) }}</span>
+              <span v-show="false">TRUE {{ $t(`shop.name`) }}</span>
             </p>
             <p class="product-detail">{{ $store.state.locale === 'zh' ? item.detail : 'Professional GPU mining machine'}}</p>
             <!-- <p class="product-delivery">发货时间：2018-08-10</p> -->
