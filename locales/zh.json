@@ -136,6 +136,7 @@
       "subhead": "算力产出记录",
       "tableTitle": "算力产出",
       "minute": "分钟",
+      "day": "天",
       "tableHead": {
         "power": "算力(K)",
         "status": "当前状态",

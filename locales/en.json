@@ -124,6 +124,7 @@
       "subhead": "Hash Power Record",
       "tableTitle": "Hash Power",
       "minute": "m",
+      "day": "d",
       "tableHead": {
         "power": "Hash Power",
         "status": "Status",
