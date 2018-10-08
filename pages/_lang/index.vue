@@ -102,6 +102,7 @@ export default {
   top 160px
   right 100px
   text-align center
+  z-index 999
   div:first-child {
     img {
       width 100px
