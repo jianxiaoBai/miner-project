@@ -123,14 +123,15 @@
       "title": "My Profit",
       "subhead": "Hash Power Record",
       "tableTitle": "Hash Power",
+      "minute": "m",
       "tableHead": {
-        "item1": "Hash Power ID",
-        "item2": "Hash Power",
-        "item3": "Status",
-        "item4": "TRUE",
-        "item5": "Total TRUE",
-        "item6": "Start Time",
-        "item7": "Duration"
+        "power": "Hash Power",
+        "status": "Status",
+        "output": "TRUE",
+        "fact": "Actual TRUE",
+        "startTime": "Start Time",
+        "runTime": "Duration",
+        "sumOutput": "Total TRUE"
       }
     },
     "order": {

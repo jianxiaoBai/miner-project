@@ -135,14 +135,15 @@
       "title": "我的收益",
       "subhead": "算力产出记录",
       "tableTitle": "算力产出",
+      "minute": "分钟",
       "tableHead": {
-        "item1": "算力ID",
-        "item2": "算力(T)",
-        "item3": "当前状态",
-        "item4": "产出币量",
-        "item5": "实际币量",
-        "item6": "开始运行",
-        "item7": "运行时长"
+        "power": "算力(K)",
+        "status": "当前状态",
+        "output": "产出币量",
+        "fact": "实际币量",
+        "startTime": "开始运行",
+        "runTime": "运行时长",
+        "sumOutput": "总产出"
       }
     },
     "order": {

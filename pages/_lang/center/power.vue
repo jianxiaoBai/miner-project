@@ -55,29 +55,29 @@
           <table style="text-align: center;">
             <thead>
               <tr>
-                <td class="col-id">{{ $t(`center.power.tableHead.item1`) }}</td>
-                <td class="col-power">{{ $t(`center.power.tableHead.item2`) }}</td>
-                <td class="col-status">{{ $t(`center.power.tableHead.item3`) }}</td>
-                <td class="col-output">{{ $t(`center.power.tableHead.item4`) }}</td>
+                <td class="col-power">{{ $t(`center.power.tableHead.power`) }}</td>
+                <td class="col-status">{{ $t(`center.power.tableHead.status`) }}</td>
+                <td class="col-output">{{ $t(`center.power.tableHead.output`) }}</td>
                 <!-- <td class="col-energy">耗电费用</td> -->
                 <!-- <td class="col-manage">管理费用</td> -->
-                <td class="col-actual">{{ $t(`center.power.tableHead.item5`) }}</td>
-                <td class="col-start">{{ $t(`center.power.tableHead.item6`) }}</td>
-                <td class="col-running">{{ $t(`center.power.tableHead.item7`) }}</td>
+                <td class="col-actual">{{ $t(`center.power.tableHead.fact`) }}</td>
+                <td class="col-start">{{ $t(`center.power.tableHead.startTime`) }}</td>
+                <td class="col-running">{{ $t(`center.power.tableHead.runTime`) }}</td>
+                <td class="col-running">{{ $t(`center.power.tableHead.sumOutput`) }}</td>
               </tr>
             </thead>
             <tbody>
               <template v-if="powerList.length">
                 <tr v-for="(item, index) in powerList" :key="index">
-                  <td>{{item.id}}</td>
                   <td>{{item.power}}</td>
                   <td>{{item.status}}</td>
                   <td>{{item.output}}</td>
                   <!-- <td>{{item.deplete}}</td> -->
                   <!-- <td>{{item.manage}}</td> -->
                   <td>{{item.fact}}</td>
-                  <td>{{getTime(+item.create_time)}}</td>
-                  <td>{{item.run_time}}</td>
+                  <td>{{item.status === '1' ? getTime(+item.create_time) : ''}}</td>
+                  <td>{{item.status === '1' ? parseInt((+new Date() - (+item.run_time)) / 6000) : '0'}} {{ $t(`center.power.minute`) }}</td>
+                  <td>{{item.sum_output}}</td>
                 </tr>
               </template>
               <template v-else>
