@@ -22,12 +22,15 @@
       </div>
     </div>
     <div class="hot-line">
-      <div>
+      <div class="qq-img">
         <img src="~/assets/img/qq.png" alt="">
       </div>
-      <div>
+      <div class="qq-info">
         <span>咨询热线</span>
         <span>2046603559</span>
+        <div>
+          <img src="~/assets/img/qr_qq.jpg" alt="">
+        </div>
       </div>
     </div>
     <section class="minerList">
@@ -98,64 +101,73 @@ export default {
 
 <style lang="stylus" scpoed>
 .hot-line {
-  position fixed
-  top 160px
-  right 100px
-  text-align center
-  z-index 999
-  div:first-child {
+  position: fixed;
+  top: 160px;
+  right: 100px;
+  text-align: center;
+  z-index: 999;
+
+  .qq-img {
     img {
-      width 100px
+      width: 100px;
     }
   }
-  div:last-child {
-    background #D13124
-    padding 2px 0
-    display flex
-    flex-direction column
-    border-radius 5px
-    padding 10px
+
+  .qq-info {
+    background: #D13124;
+    padding: 2px 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 10px;
+
     span {
-      line-height 30px
-      color white
-      font-size 16px
+      line-height: 30px;
+      color: white;
+      font-size: 16px;
     }
   }
 }
+
 .icon-biaoqian {
-  color #F95959
-  vertical-align middle
-  font-size 20px
-  margin-right 5px
+  color: #F95959;
+  vertical-align: middle;
+  font-size: 20px;
+  margin-right: 5px;
 }
+
 .home-head {
-  background white
+  background: white;
   // height 500px
-  width 100%
-  padding 60px
+  width: 100%;
+  padding: 60px;
+
   .home-banner {
-    background-image url('~/assets/img/banner.jpg')
-    background-repeat no-repeat
-    background-size 100% 100%
+    background-image: url('~/assets/img/banner.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     // width 70%
-    width 895px
+    width: 895px;
     // min-width 850px
-    height 500px
-    margin 0 auto
-    text-align center
+    height: 500px;
+    margin: 0 auto;
+    text-align: center;
+
     .slogan {
-      font-size 50px
-      font-weight bold
-      padding-top 50px
-      text-shadow 1px 1px 5px #929396
-      overflow hidden
-      text-overflow ellipsis
-      white-space nowrap
+      font-size: 50px;
+      font-weight: bold;
+      padding-top: 50px;
+      text-shadow: 1px 1px 5px #929396;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
+
     .subhead {
-      overflow hidden
-      text-overflow ellipsis
-      white-space nowrap
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
       span {
         line-height: 40px;
         background-color: #fff;
@@ -167,58 +179,67 @@ export default {
         font-weight: bold;
       }
     }
+
     .list {
-      margin-top 35px
+      margin-top: 35px;
+
       ul {
-        display flex
-        justify-content space-around
-        padding 0 48px
+        display: flex;
+        justify-content: space-around;
+        padding: 0 48px;
+
         li {
-          width 251px
-          max-height 270px
+          width: 251px;
+          max-height: 270px;
           // padding-top 20px
-          overflow auto
-          background white
+          overflow: auto;
+          background: white;
+
           .iconfont {
-            font-size 45px
-            line-height 80px
+            font-size: 45px;
+            line-height: 80px;
           }
+
           .title {
-            font-size 18px
-            font-weight bold
+            font-size: 18px;
+            font-weight: bold;
           }
+
           .content {
-            margin-top 15px
-            padding 0 15px
-            line-height 30px
+            margin-top: 15px;
+            padding: 0 15px;
+            line-height: 30px;
           }
         }
       }
     }
   }
+
   .home-introduce {
-    margin 20px auto
-    width 70%
-    background-color #FAFAFA
+    margin: 20px auto;
+    width: 70%;
+    background-color: #FAFAFA;
     // background-color red
-    text-align center
-    border-radius 50px
-    padding 10px
+    text-align: center;
+    border-radius: 50px;
+    padding: 10px;
+
     div {
-      font-weight bold
-      line-height 30px
+      font-weight: bold;
+      line-height: 30px;
     }
   }
 }
 
 .product-container {
-    background: #fafafa;
-    width: 100%;
+  background: #fafafa;
+  width: 100%;
 
-  /*! CSS Used from: https://hash.hc.top/_nuxt/app.4188da40ee5b0a0b9632a89578998921.css */
+  /* CSS Used from: https://hash.hc.top/_nuxt/app.4188da40ee5b0a0b9632a89578998921.css */
   .el-button span {
-    color white
+    color: white;
   }
+
   .features {
     background-color: #fff;
     text-align: center;
@@ -246,7 +267,7 @@ export default {
   }
 
   .minerList {
-    width 80%
+    width: 80%;
     margin: 0 auto;
     padding-top: 50px;
   }
@@ -257,8 +278,8 @@ export default {
     font-size: 20px;
     margin-right: 40px;
     cursor: pointer;
-    -webkit-transition: color ease .3s;
-    transition: color ease .3s;
+    -webkit-transition: color ease 0.3s;
+    transition: color ease 0.3s;
   }
 
   .miner-category li.active {
@@ -283,16 +304,15 @@ export default {
     float: left;
     margin-bottom: 60px;
     cursor: pointer;
-    -webkit-transition: all .2s;
-    transition: all .2s;
+    -webkit-transition: all 0.2s;
+    transition: all 0.2s;
   }
 
   .miner-product-list li:nth-child(2n) {
     margin-right: 0;
   }
 
-  .miner-product-list li:hover,
-  .miner-product-list li:focus {
+  .miner-product-list li:hover, .miner-product-list li:focus {
     -webkit-box-shadow: 0 0 10px 0px #ccc;
     box-shadow: 0 0 10px 0px #ccc;
   }
@@ -346,8 +366,7 @@ export default {
     margin: 10px 0 15px;
   }
 
-  .product-detail,
-  .product-delivery {
+  .product-detail, .product-delivery {
     margin-bottom: 10px;
     font-size: 14px;
     color: #999;
@@ -389,8 +408,7 @@ export default {
     cursor: pointer;
   }
 
-  .el-button:hover,
-  .el-button:focus {
+  .el-button:hover, .el-button:focus {
     color: #303137;
     border-color: #c1c1c3;
     background-color: #eaeaeb;
@@ -406,9 +424,7 @@ export default {
     border: 0;
   }
 
-  .el-button.is-disabled,
-  .el-button.is-disabled:hover,
-  .el-button.is-disabled:focus {
+  .el-button.is-disabled, .el-button.is-disabled:hover, .el-button.is-disabled:focus {
     color: #c0c4cc;
     cursor: not-allowed;
     background-image: none;
@@ -422,8 +438,7 @@ export default {
     border-color: #303137;
   }
 
-  .el-button--primary:hover,
-  .el-button--primary:focus {
+  .el-button--primary:hover, .el-button--primary:focus {
     background: #595a5f;
     border-color: #595a5f;
     color: #fff;
@@ -436,19 +451,13 @@ export default {
     outline: none;
   }
 
-  .el-button--primary.is-disabled,
-  .el-button--primary.is-disabled:hover,
-  .el-button--primary.is-disabled:focus,
-  .el-button--primary.is-disabled:active {
+  .el-button--primary.is-disabled, .el-button--primary.is-disabled:hover, .el-button--primary.is-disabled:focus, .el-button--primary.is-disabled:active {
     color: #fff;
     background-color: #98989b;
     border-color: #98989b;
   }
 
-
-
-  .el-button:hover,
-  .el-button:focus {
+  .el-button:hover, .el-button:focus {
     color: #303137;
     border-color: #c1c1c3;
     background-color: #eaeaeb;
@@ -464,9 +473,7 @@ export default {
     border: 0;
   }
 
-  .el-button.is-disabled,
-  .el-button.is-disabled:hover,
-  .el-button.is-disabled:focus {
+  .el-button.is-disabled, .el-button.is-disabled:hover, .el-button.is-disabled:focus {
     color: #c0c4cc;
     cursor: not-allowed;
     background-image: none;
@@ -480,8 +487,7 @@ export default {
     border-color: #303137;
   }
 
-  .el-button--primary:hover,
-  .el-button--primary:focus {
+  .el-button--primary:hover, .el-button--primary:focus {
     background: #595a5f;
     border-color: #595a5f;
     color: #fff;
@@ -494,10 +500,7 @@ export default {
     outline: none;
   }
 
-
-
-  .el-button:hover,
-  .el-button:focus {
+  .el-button:hover, .el-button:focus {
     color: #303137;
     border-color: #c1c1c3;
     background-color: #eaeaeb;
@@ -513,9 +516,7 @@ export default {
     border: 0;
   }
 
-  .el-button.is-disabled,
-  .el-button.is-disabled:hover,
-  .el-button.is-disabled:focus {
+  .el-button.is-disabled, .el-button.is-disabled:hover, .el-button.is-disabled:focus {
     color: #c0c4cc;
     cursor: not-allowed;
     background-image: none;
@@ -529,8 +530,7 @@ export default {
     border-color: #303137;
   }
 
-  .el-button--primary:hover,
-  .el-button--primary:focus {
+  .el-button--primary:hover, .el-button--primary:focus {
     background: #595a5f;
     border-color: #595a5f;
     color: #fff;
@@ -543,8 +543,7 @@ export default {
     outline: none;
   }
 
-  .el-button:hover,
-  .el-button:focus {
+  .el-button:hover, .el-button:focus {
     color: #303137;
     border-color: #c1c1c3;
     background-color: #eaeaeb;
@@ -560,9 +559,7 @@ export default {
     border: 0;
   }
 
-  .el-button.is-disabled,
-  .el-button.is-disabled:hover,
-  .el-button.is-disabled:focus {
+  .el-button.is-disabled, .el-button.is-disabled:hover, .el-button.is-disabled:focus {
     color: #c0c4cc;
     cursor: not-allowed;
     background-image: none;
@@ -576,8 +573,7 @@ export default {
     border-color: #303137;
   }
 
-  .el-button--primary:hover,
-  .el-button--primary:focus {
+  .el-button--primary:hover, .el-button--primary:focus {
     background: #595a5f;
     border-color: #595a5f;
     color: #fff;
@@ -590,17 +586,13 @@ export default {
     outline: none;
   }
 
-  .el-button--primary.is-disabled,
-  .el-button--primary.is-disabled:hover,
-  .el-button--primary.is-disabled:focus,
-  .el-button--primary.is-disabled:active {
+  .el-button--primary.is-disabled, .el-button--primary.is-disabled:hover, .el-button--primary.is-disabled:focus, .el-button--primary.is-disabled:active {
     color: #fff;
     background-color: #98989b;
     border-color: #98989b;
   }
 
-  .el-button--primary:hover,
-  .el-button--primary:focus {
+  .el-button--primary:hover, .el-button--primary:focus {
     background-color: #4E4F57;
     border-color: #4E4F57;
     color: #fff;
