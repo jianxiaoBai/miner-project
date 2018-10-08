@@ -21,6 +21,15 @@
         <div><i class="icon iconfont icon-biaoqian"></i>{{ $t(`home.slogan1`) }}</div>
       </div>
     </div>
+    <div class="hot-line">
+      <div>
+        <img src="~/assets/img/qq.png" alt="">
+      </div>
+      <div>
+        <span>咨询热线</span>
+        <span>2046603559</span>
+      </div>
+    </div>
     <section class="minerList">
       <ul class="miner-category clearfix">
         <li class="active">{{ $t(`home.shopTitle`) }}
@@ -73,6 +82,12 @@ export default {
       shopList: []
     }
   },
+  methods: {
+    test () {
+      window.open('http://b.qq.com/webc.htm?new=0&sid=2046603559&o=localhost:8083&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');
+      // window.open('http://b.qq.com/webc.htm?new=0&sid=2046603559&o=www.ihashpower.pro&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');
+    }
+  },
   mounted () {
     apiShopList().then(({ data }) => {
       this.shopList = data;
@@ -82,6 +97,30 @@ export default {
 </script>
 
 <style lang="stylus" scpoed>
+.hot-line {
+  position fixed
+  top 160px
+  right 100px
+  text-align center
+  div:first-child {
+    img {
+      width 100px
+    }
+  }
+  div:last-child {
+    background #D13124
+    padding 2px 0
+    display flex
+    flex-direction column
+    border-radius 5px
+    padding 10px
+    span {
+      line-height 30px
+      color white
+      font-size 16px
+    }
+  }
+}
 .icon-biaoqian {
   color #F95959
   vertical-align middle
