@@ -172,6 +172,7 @@
     "number": "Amount",
     "unit": "USD",
     "unit1": "Unit",
+    "hashrate": "hashrate",
     "month": "Month",
     "qigou": "Minimum Purchase",
     "manage": "Manage Fee",
