@@ -15,7 +15,7 @@
         <el-popover trigger="hover" placement="top">
           <p>下单时间: {{ getTime(+scope.row.create_time) }}</p>
           <div slot="reference" class="name-wrapper">
-            <template v-if="+new Date() - scope.row.create_time > 3600000 && scope.row.is_buy === 0">
+            <template v-if="+new Date() - scope.row.create_time > 7200000 && scope.row.is_buy === 0">
               <el-tag size="medium">{{ $t(`center.order.item.lose`) }}</el-tag>
             </template>
             <template v-else>

@@ -185,7 +185,7 @@
   },
   "pay": {
     "state1": "Order has been submitted, please pay as soon as possible. Order number ",
-    "state2": "The order has been submitted successfully, please complete the payment within 5 minutes, otherwise the order will be invalid.",
+    "state2": "The order has been submitted successfully, please complete the payment within 2 hour, otherwise the order will be invalid.",
     "state3": "The mining machine will be deployed within 48 hours after the payment is successful confirmed and start calculating the revenue",
     "unit": "USD",
     "yingfu": "Amount to Pay",
