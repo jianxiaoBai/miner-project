@@ -134,7 +134,8 @@ class SignService extends Service {
     const {
       useable
     } = (await this.service.asset.getAccount())[0];
-    if (+new Date() - create_time > 300000) {
+    const expired = 1000 * 60 * 60 * 2;
+    if (+new Date() - create_time > expired) {
       this.ctx.throw(405, '订单已失效');
     }
     if (useable < pay_btc) {
