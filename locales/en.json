@@ -198,7 +198,7 @@
     "bindBtn": "Bind the Certified Address",
     "payBtn": "Confirm",
     "cancelBtn": "Cancel",
-    "inviteCode": "Use invite code (Buy one T2 at 1/20 price)",
+    "inviteCode": "Use invite code",
     "bindInviteCode": "Use invite code"
   },
   "login": {

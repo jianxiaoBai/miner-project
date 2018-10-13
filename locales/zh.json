@@ -210,7 +210,7 @@
     "bindBtn": "绑定挖矿认证地址",
     "payBtn": "确认购买",
     "cancelBtn": "取消订单",
-    "inviteCode": "使用邀请码购买（以1/20的价格购买1台T2）",
+    "inviteCode": "请输入邀请码",
     "bindInviteCode": "确定使用邀请码"
   },
   "login": {
