@@ -74,6 +74,7 @@ class PayController extends Controller {
     const buyRule = {
       order_form: 'string',
       is_buy: 'string',
+      radio_value: 'string'
     };
 
     ctx.validate(buyRule, ctx.request.body);

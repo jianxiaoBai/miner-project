@@ -123,7 +123,8 @@ class SignService extends Service {
   } */
   async updateBuy({
     order_form,
-    is_buy
+    is_buy,
+    radio_value
   }) {
     const {
       create_time,
@@ -145,6 +146,7 @@ class SignService extends Service {
     await this.service.captcha.sendSms('111111', '18600163853');
     await this.app.mysql.update('buy_record', {
       is_buy,
+      radio_value,
       update_time: +new Date(),
     }, {
       where: {
