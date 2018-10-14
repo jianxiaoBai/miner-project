@@ -27,6 +27,11 @@
           </li>
         </ul>
         <div>
+           <div>
+            <p style="font-size: 18px;"> {{ $t(`pay.choose.text`) }} </p>
+            <div style="margin-left: 40px;"><el-radio v-model="radioValue" label="1">{{ $t(`pay.choose.one`) }}</el-radio></div>
+            <div style="margin-left: 40px;"><el-radio v-model="radioValue" label="2">{{ $t(`pay.choose.two`) }}</el-radio></div>
+          </div>
           <div>
             <span>{{ $t(`pay.useable`) }} :&nbsp;</span>
             <span style="font-size: 18px;">
@@ -97,7 +102,7 @@
 </template>
 
 <script>
-  import {apiAsset, apiAuthAddr, apiAuthInviteCode, apiBuy, apiDelOrder, apiOrderForm} from '~/api'
+  import { apiAsset, apiAuthAddr, apiAuthInviteCode, apiBuy, apiDelOrder, apiOrderForm } from '~/api'
 
   export default {
     async mounted() {
@@ -105,7 +110,7 @@
         orderForm
       } = this.$route.query;
 
-      Promise.all([apiOrderForm({orderForm}), apiAsset()])
+      Promise.all([apiOrderForm({ orderForm }), apiAsset()])
         .then(([from, asset]) => {
           console.log(from);
           this.data = from.data;
@@ -121,7 +126,8 @@
         btcData: {},
         isBuy: true,
         isConfirmBuy: false,
-        useCode: false
+        useCode: false,
+        radioValue: '1'
       }
     },
     methods: {
@@ -149,6 +155,7 @@
           await apiBuy({
             order_form: this.data.order_form,
             is_buy: 1,
+            radio_value: this.radioValue
           });
           this.$message({
             message: this.$i18n.messages[this.$i18n.locale].prompt.confirmInfo.buyRequest,
