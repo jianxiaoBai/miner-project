@@ -103,16 +103,15 @@
 
 <script>
   import { apiAsset, apiAuthAddr, apiAuthInviteCode, apiBuy, apiDelOrder, apiOrderForm } from '~/api'
-
+  import { importPoint } from '~/util'
   export default {
     async mounted() {
       const {
         orderForm
       } = this.$route.query;
-
+      importPoint();
       Promise.all([apiOrderForm({ orderForm }), apiAsset()])
         .then(([from, asset]) => {
-          console.log(from);
           this.data = from.data;
           this.btcData = asset.data.find(x => x.coin === 1);
         })

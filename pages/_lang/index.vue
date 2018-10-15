@@ -78,6 +78,7 @@
   </div>
 </template>
 <script>
+import { importPoint } from '~/util'
 import { apiShopList } from '~/api'
 export default {
    data () {
@@ -85,13 +86,9 @@ export default {
       shopList: []
     }
   },
-  methods: {
-    test () {
-      window.open('http://b.qq.com/webc.htm?new=0&sid=2046603559&o=localhost:8083&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');
-      // window.open('http://b.qq.com/webc.htm?new=0&sid=2046603559&o=www.ihashpower.pro&q=7', '_blank', 'height=502, width=644,toolbar=no,scrollbars=no,menubar=no,status=no');
-    }
-  },
   mounted () {
+    // 埋点
+    importPoint();
     apiShopList().then(({ data }) => {
       this.shopList = data;
     })

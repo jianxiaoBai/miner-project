@@ -25,7 +25,7 @@ export const removeStore = name => {
   window.localStorage.removeItem(name)
 }
 
-function addZero (i) {
+function addZero(i) {
   return i < 10 ? `0${i}` : i
 }
 
@@ -65,4 +65,13 @@ export const contdown = time => {
     },
     lefttime
   }
+}
+
+export const importPoint = () => {
+  console.log('import point');
+  var _hmt = _hmt || [];
+  var hm = document.createElement('script');
+  hm.src = 'https://hm.baidu.com/hm.js?68fe61405999e73f85e500b4fb2e2c5d';
+  var s = document.getElementsByTagName('script')[0];
+  s.parentNode.insertBefore(hm, s);
 }
