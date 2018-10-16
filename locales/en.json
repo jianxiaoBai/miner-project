@@ -80,6 +80,7 @@
     ]
   },
   "shop": {
+    "sell": "sell out",
     "new": "New",
     "name": "Mining Machine",
     "btn": "Buy Now"
@@ -168,12 +169,13 @@
   },
   "product": {
     "yingfu": "To Pay",
-    "cost": "Hash Cloud Price (2-year Term)",
+    "cost": "Hash Cloud Price",
     "number": "Amount",
-    "unit": "USD",
+    "unit": "$",
     "unit1": "Unit",
     "hashrate": "hashrate",
     "month": "Month",
+    "state": "Including the calculation price: $999/6 months, the management fee is paid for 6 months at a time.",
     "qigou": "Minimum Purchase",
     "manage": "Manage Fee",
     "manageState": "Management Fee Waived During The Promotion Period",
@@ -192,7 +194,7 @@
     "state1": "Order has been submitted, please pay as soon as possible. Order number ",
     "state2": "The order has been submitted successfully, please complete the payment within 2 hour, otherwise the order will be invalid.",
     "state3": "The mining machine will be deployed within 48 hours after the payment is successful confirmed and start calculating the revenue",
-    "unit": "USD",
+    "unit": "$",
     "yingfu": "Amount to Pay",
     "pay": "Pay",
     "commend": "Recommendation",

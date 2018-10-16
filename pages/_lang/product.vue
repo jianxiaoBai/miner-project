@@ -16,10 +16,12 @@
                 <div class="act-header">
                 </div>
                 <div class="shop-content">
+                  <!-- <div class="shop-item shop-item-price"><dt>算力托管费：</dt> -->
                   <div class="shop-item shop-item-price"><dt>{{ $t(`product.cost`) }}：</dt>
                     <dd>
                     <span class="currentPrice">
-                      <span>{{ shopDetail.price }}.00{{ $t(`product.unit`) }}/{{ $t(`product.unit1`) }} ( {{ shopDetail.price === 1999 ? '30k' : '50k' }} {{ $t(`product.hashrate`) }}), {{buyBase}}{{ $t(`product.unit1`) }}{{ $t(`product.qigou`) }}</span>
+                      <span>{{ shopDetail.price }}.00 {{ $t(`product.unit`) }} / 6 {{ $t(`product.month`) }}（{{ $t('product.state')}}）</span>
+                      <!-- <span>{{ shopDetail.price }}{{ $t(`product.unit`) }}/{{ $t(`product.unit1`) }} ( {{ shopDetail.price === 1999 ? '30k' : '50k' }} {{ $t(`product.hashrate`) }}), {{buyBase}}{{ $t(`product.unit1`) }}{{ $t(`product.qigou`) }}</span> -->
                     </span>
                     </dd>
                   </div>
@@ -61,10 +63,10 @@
                   <dt>{{ $t(`product.yingfu`) }}</dt>
                   <dd><span>{{ buyNum * shopDetail.price }}{{ $t(`product.unit`) }}</span></dd>
                 </div>
-                <div class="deliver-item price">
+                <!-- <div class="deliver-item price">
                   <dt>{{ $t(`product.manage`) }}</dt>
                   <dd><del style="font-size: 14px">69{{ $t(`product.unit`) }}/{{ $t(`product.month`) }}/{{ $t(`product.unit1`) }}</del>&nbsp;&nbsp;<span style="marigin-left: 20px; font-size: 12px; color: red;">{{ $t(`product.manageState`) }}</span></dd>
-                </div>
+                </div> -->
                 <!-- <div class="deliver-item pay"><dt>实付</dt>
                   <dd><span>{{ buyNum * shopDetail.price }}.00美元</span></dd>
                 </div> -->
@@ -304,6 +306,10 @@
   .shop-item.shop-item-price .currentPrice {
     font-size: 18px;
     color: #FD7220;
+    span {
+      margin-top: 10px;
+      line-height: 25px;
+    }
   }
 
   .deliver-item {

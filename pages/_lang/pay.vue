@@ -28,9 +28,9 @@
         </ul>
         <div>
            <div>
-            <p style="font-size: 18px;"> {{ $t(`pay.choose.text`) }} </p>
-            <div style="margin-left: 40px;"><el-radio v-model="radioValue" label="1">{{ $t(`pay.choose.one`) }}</el-radio></div>
-            <div style="margin-left: 40px;"><el-radio v-model="radioValue" label="2">{{ $t(`pay.choose.two`) }}</el-radio></div>
+            <!-- <p style="font-size: 18px;"> {{ $t(`pay.choose.text`) }} </p> -->
+            <!-- <div style="margin-left: 40px;"><el-radio v-model="radioValue" label="1">{{ $t(`pay.choose.one`) }}</el-radio></div> -->
+            <!-- <div style="margin-left: 40px;"><el-radio v-model="radioValue" label="2">{{ $t(`pay.choose.two`) }}</el-radio></div> -->
           </div>
           <div>
             <span>{{ $t(`pay.useable`) }} :&nbsp;</span>
@@ -63,6 +63,9 @@
               <el-button type="primary" @click="onPay">已付款成功</el-button>
             </div>
           </div> -->
+        </div>
+        <div>
+          <p style="font-style: italic; color: red;">{{ $t(`pay.choose.two`) }}</p>
         </div>
         <div>
           <div>
