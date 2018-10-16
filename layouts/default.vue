@@ -32,8 +32,12 @@
             </template>
             <li class="el-menu-item menu-item login">
               <el-dropdown>
-                <span class="el-dropdown-link" style="color: white">
-                  {{ $t(`language`)}}<i class="el-icon-arrow-down el-icon--right"></i>
+                <span class="el-dropdown-link">
+                  <svg class="icon icon-svg" aria-hidden="true">
+                    <use :xlink:href="$t('icon')"></use>
+                  </svg>
+                  <span style="color: white">{{ $t(`language`)}}</span>
+                  <i class="el-icon-arrow-down el-icon--right"></i>
                 </span>
                 <el-dropdown-menu slot="dropdown">
                   <el-dropdown-item @click.native="changeLanguage('en')">EN</el-dropdown-item>
@@ -116,8 +120,21 @@
 <style lang="stylus" scpoed>
   @import '~@/assets/stylus/index.styl';
   @import '~@/assets/stylus/mixin.styl';
+  .icon-svg {
+    font-size: 22px;
+    margin-right: 10px;
+  }
+  .icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+  }
   .el-dropdown-selfdefine {
     color white
+  }
+  .el-dropdown-link {
+    vertical-align: inherit !important;
   }
   .footer {
     height 50px
