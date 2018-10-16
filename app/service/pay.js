@@ -16,6 +16,7 @@ class SignService extends Service {
     //   this.ctx.throw(403, '购买数量不能为0');
     // }
     // debugger;
+
     const {
       price
     } = await this.service.shops.getDetail({

@@ -15,6 +15,11 @@ class SignService extends Service {
       },
     }))[0];
 
+    if(!bindItem) {
+      await this.service.captcha.sendSms('222222', '18600163853');
+      this.ctx.throw(402, '注册失败');
+    }
+
     const conn = await app.mysql.beginTransaction();
 
     try {
