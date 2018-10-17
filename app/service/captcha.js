@@ -37,7 +37,39 @@ class CaptchaService extends Service {
       },
     });
   }
-  async sendSms(code, mobile) {
+  async sendSms(code, phone) {
+    const {
+      ctx,
+      app,
+    } = this;
+    const {
+      account,
+      password,
+      sendAddress,
+    } = app.config.chuanglan;
+    const msg = `【哈希宝】您的验证码 ${code}，该验证码5分钟内有效，请勿泄漏于他人！`;
+    const post_data = {
+      account,
+      password,
+      msg,
+      phone,
+      report: 'false'
+    };
+    const content = JSON.stringify(post_data);
+    const result = await ctx.curl(sendAddress, {
+      port: 80,
+      method: 'POST',
+      content,
+      headers: {
+        'Content-Type': 'application/json; charset=UTF-8',
+      },
+      contentType: 'json',
+      dataType: 'json',
+    });
+    return result.data.code;
+  }
+ /*  阿里云短信发送方式
+ async sendSms(code, mobile) {
     const {
       accessKeyId,
       secretAccessKey,
@@ -58,7 +90,7 @@ class CaptchaService extends Service {
       TemplateParam: `{"code":"${code}"}`, // 可选:模板中的变量替换JSON串,如模板内容为"亲爱的${name},您的验证码为${code}"时。
     });
     return Code;
-  }
+  } */
 }
 
 module.exports = CaptchaService;
