@@ -51,7 +51,7 @@
                           class="el-input__inner"
                           role="spinbutton"
                           aria-valuemax="Infinity"
-                          :disabled="shop === '1'"
+                          :disabled="true"
                           aria-valuemin="1"
                           aria-valuenow="1">
                       </div>
@@ -139,8 +139,8 @@
         checked: true,
         shopDetail: {},
         shop: this.$route.query.shop,
-        buyNum: this.$route.query.shop === '1' ? 0.25 : 1,
-        buyBase: this.$route.query.shop === '1' ? 0.25 : 1,
+        buyNum: this.$route.query.shop === '1' ? 0.25 : 10,
+        buyBase: this.$route.query.shop === '1' ? 0.25 : 10,
       }
     },
     methods: {
@@ -284,7 +284,7 @@
   .shop-content .shop-item dd {
     display: inline-block;
     font-size: 14px;
-    vertical-align: middle;
+    // vertical-align: middle;
     margin: 0;
   }
 
@@ -328,7 +328,7 @@
   .deliver-item dd {
     display: inline-block;
     margin: 0;
-    vertical-align: middle;
+    // vertical-align: middle;
   }
 
   .deliver-item dt {
@@ -411,7 +411,7 @@
   .summary-item img {
     max-height: 70px;
     max-width: 65px;
-    vertical-align: middle;
+    // vertical-align: middle;
   }
 
   .summary-item .intro-text {

@@ -42,8 +42,8 @@
         <li v-for="(item, index) in shopList" :key="index">
           <svg width="85.5" height="30" xmlns="http://www.w3.org/2000/svg" class="product-label" v-if="item.is_new">
               <path fill="#4D87EA" d="M0 0h85.5l-30 30H0z"></path>
-              <text x="10" y="20" fill="#fff" font-size="14">{{ $t(`shop.sell`) }}</text>
-              <!-- <text x="10" y="20" fill="#fff" font-size="14">{{ index === 0 ? $t(`shop.sell`) : $t(`shop.new`) }}</text> -->
+              <!-- <text x="10" y="20" fill="#fff" font-size="14">{{ $t(`shop.sell`) }}</text> -->
+              <text x="10" y="20" fill="#fff" font-size="14">{{ index === 0 ? $t(`shop.sell`) : $t(`shop.new`) }}</text>
             </svg>
           <!-- <div class="product-img">
             <img src="" alt="miner">
@@ -53,7 +53,7 @@
               <span>{{ item.name }}</span>
               <span v-show="false">TRUE {{ $t(`shop.name`) }}</span>
             </p>
-            <p class="product-detail">{{ $store.state.locale === 'zh' ? item.detail : 'Professional GPU mining machine'}}</p>
+             <p class="product-detail">{{ $store.state.locale === 'zh' ? item.detail : 'Professional GPU mining machine'}}</p>
             <!-- <p class="product-delivery">发货时间：2018-08-10</p> -->
             <p class="product-discount"></p>
             <div class="product-count clearfix">
@@ -66,8 +66,8 @@
                 </p>
               </div> -->
               <!-- <nuxt-link type="button" class="el-button right el-button--primary" to="/cart"> -->
-              <!-- <nuxt-link class="el-button right el-button--primary" :class="{ disabled: index === 0 }" :to="`${$t(`root`)}/product?shop=${item.id}`"> -->
-              <nuxt-link class="el-button right el-button--primary" :class="{ disabled: true }" :to="`${$t(`root`)}/product?shop=${item.id}`">
+              <nuxt-link class="el-button right el-button--primary" :class="{ disabled: index === 0 }" :to="`${$t(`root`)}/product?shop=${item.id}`">
+              <!-- <nuxt-link class="el-button right el-button--primary" :class="{ disabled: true }" :to="`${$t(`root`)}/product?shop=${item.id}`"> -->
                   <span>
                     {{ $t(`shop.btn`) }}
                   </span>
