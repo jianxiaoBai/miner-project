@@ -139,8 +139,8 @@
         checked: true,
         shopDetail: {},
         shop: this.$route.query.shop,
-        buyNum: this.$route.query.shop === '1' ? 0.25 : 10,
-        buyBase: this.$route.query.shop === '1' ? 0.25 : 10,
+        buyNum: this.$route.query.shop === '1' ? 3 : 10,
+        buyBase: this.$route.query.shop === '1' ? 3 : 10,
       }
     },
     methods: {
