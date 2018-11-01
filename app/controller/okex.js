@@ -4,7 +4,7 @@ const Controller = require('egg').Controller;
 class HomeController extends Controller {
   async index() {
     try {
-      const { data: { data } } = await this.ctx.curl('http://ok.truescan.net/', {
+      const { data: { data } } = await this.ctx.curl('http://mcoinshop.net/oketh', {
         dataType: 'json',
         timeout: 10000,
       });
