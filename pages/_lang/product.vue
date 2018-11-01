@@ -20,7 +20,7 @@
                   <div class="shop-item shop-item-price"><dt>{{ $t(`product.cost`) }}：</dt>
                     <dd>
                     <span class="currentPrice">
-                      <span>{{ shopDetail.price }}.00 {{ $t(`product.unit`) }} / 6 {{ $t(`product.month`) }}（{{ $t('product.state')}} {{ $route.query.shop === '1' ? '1199' : '999' }} {{ $t('product.state1')}}）</span>
+                      <span>{{ shopDetail.price }}.00 {{ $t(`product.unit`) }} / 6 {{ $t(`product.month`) }}（{{ $t('product.state')}} {{ $route.query.shop === '1' ? '1119' : '999' }} {{ $t('product.state1')}}）</span>
                       <!-- <span>{{ shopDetail.price }}{{ $t(`product.unit`) }}/{{ $t(`product.unit1`) }} ( {{ shopDetail.price === 1999 ? '30k' : '50k' }} {{ $t(`product.hashrate`) }}), {{buyBase}}{{ $t(`product.unit1`) }}{{ $t(`product.qigou`) }}</span> -->
                     </span>
                     </dd>
